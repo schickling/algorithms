@@ -63,9 +63,21 @@ angular.module('extendedEuclideanAlgorithmApp')
     };
 
     $scope.random = function () {
-      $scope.a = $scope._generateRandom(2, 1000);
-      $scope.b = $scope._generateRandom(2, 1000);
+      $scope.a = $scope._generateRandom(2, 10000);
+      $scope.b = $scope._generateRandom(2, 10000);
       $scope.calc();
+    };
+
+    $scope.cyclicColor = function(index) {
+      var colors = [
+        '#990000',
+        '#006600',
+        '#000099',
+        '#FF6600',
+        '#000000'
+      ];
+
+      return colors[index % colors.length];
     };
 
     $scope._generateRandom = function (min, max) {

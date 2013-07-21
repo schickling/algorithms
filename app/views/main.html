@@ -29,16 +29,16 @@
 	<tbody>
 		<tr ng-repeat="step in steps">
 			<td>
-				<span ng-show="$index > 1">{{steps[$index - 2].remainder}} / {{steps[$index - 1].remainder}} = {{step.quotient}}</span>
+				<span ng-show="$index > 1"><span style="color: {{cyclicColor($index - 2)}}">{{steps[$index - 2].remainder}}</span> / <span style="color: {{cyclicColor($index - 1)}}">{{steps[$index - 1].remainder}}</span> = <b>{{step.quotient}}</b></span>
 			</td>
 			<td>
-				<span>{{step.remainder}}</span>
+				<span><span style="color: {{cyclicColor($index)}}"><b>{{step.remainder}}</b></span></span>
 			</td>
 			<td>
-				<span ng-show="$index > 1">{{step.remainder}} = ({{a}} * {{steps[$index - 2].combinationA}} + {{b}} * {{steps[$index - 2].combinationB}}) - ({{a}} * {{steps[$index - 1].combinationA}} + {{b}} * {{steps[$index - 1].combinationB}}) * {{step.quotient}}</span>
+				<span ng-show="$index > 1"><span style="color: {{cyclicColor($index)}}">{{step.remainder}}</span> = <span style="color: {{cyclicColor($index - 2)}}">({{a}} * {{steps[$index - 2].combinationA}} + {{b}} * {{steps[$index - 2].combinationB}})</span> - <span style="color: {{cyclicColor($index - 1)}}">({{a}} * {{steps[$index - 1].combinationA}} + {{b}} * {{steps[$index - 1].combinationB}})</span> * {{step.quotient}}</span>
 			</td>
 			<td>
-				<span>{{step.remainder}} = {{a}} * {{step.combinationA}} + {{b}} * {{step.combinationB}}</span>
+				<span><span style="color: {{cyclicColor($index)}}"><b>{{step.remainder}}</b> = {{a}} * {{step.combinationA}} + {{b}} * {{step.combinationB}}</span></span>
 			</td>
 		</tr>
 	</tbody>
