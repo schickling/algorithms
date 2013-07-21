@@ -5,9 +5,9 @@ angular.module('extendedEuclideanAlgorithmApp')
 
     $scope.a = 120;
     $scope.b = 23;
-    $scope.gcd;
-    $scope.x;
-    $scope.y;
+    $scope.gcd = undefined;
+    $scope.x = undefined;
+    $scope.y = undefined;
     $scope.steps = [];
 
     $scope.calc = function () {
