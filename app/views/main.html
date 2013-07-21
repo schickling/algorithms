@@ -1,12 +1,22 @@
 <div class="row" style="margin-top: 50px;">
-	<div class="span5">
-		<form class="form-inline" style="margin-top: 14px">
-			<input type="number" ng-change="calc()" class="input-small" ng-model="x">
-			<input type="number" ng-change="calc()" class="input-small" ng-model="y">
+	<div class="span6">
+		<form class="form-inline">
+			<div class="input-prepend">
+				<span class="add-on">a</span>
+				<input type="number" ng-change="calc()" class="input-small" ng-model="a">
+			</div>
+			<div class="input-prepend">
+				<span class="add-on">b</span>
+				<input type="number" ng-change="calc()" class="input-small" ng-model="b">
+			</div>
 			<button ng-click="random()" class="btn">Random values</button>
 		</form>
 	</div>
-	<div class="span3 well">Result: <span class="label label-success">{{gcd}} = {{x}} * {{a}} + {{y}} * {{b}}</span></div>
+	<div class="span5" style="margin-top: 7px">
+		<span class="label">gcd = a * x + b * y</span>
+		<span class="label label-success">{{gcd}} = {{a}} * {{x}} + {{b}} * {{y}}</span>
+		<span ng-show="gcd == 1" class="label label-warning">coprime</span>
+	</div>
 </div>
 
 <table class="table">
@@ -18,10 +28,18 @@
 	</thead>
 	<tbody>
 		<tr ng-repeat="step in steps">
-			<td>{{step.q}}</td>
-			<td>{{step.r}}</td>
-			<td>{{step.s}}</td>
-			<td>{{step.c}}</td>
+			<td>
+				<span ng-show="$index > 1">{{steps[$index - 2].remainder}} / {{steps[$index - 1].remainder}} = {{step.quotient}}</span>
+			</td>
+			<td>
+				<span>{{step.remainder}}</span>
+			</td>
+			<td>
+				<span ng-show="$index > 1">{{step.remainder}} = ({{a}} * {{steps[$index - 2].combinationA}} + {{b}} * {{steps[$index - 2].combinationB}}) - ({{a}} * {{steps[$index - 1].combinationA}} + {{b}} * {{steps[$index - 1].combinationB}}) * {{step.quotient}}</span>
+			</td>
+			<td>
+				<span>{{step.remainder}} = {{a}} * {{step.combinationA}} + {{b}} * {{step.combinationB}}</span>
+			</td>
 		</tr>
 	</tbody>
 </table>

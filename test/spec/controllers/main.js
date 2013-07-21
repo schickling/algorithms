@@ -16,21 +16,39 @@ describe('Controller: MainCtrl', function () {
     });
   }));
 
-  it('should calc results for x = 1, y = 1', function () {
-    scope.x = 1;
-    scope.y = 1;
+  it('should calc results for a = 1, b = 1', function () {
+    scope.a = 1;
+    scope.b = 1;
     scope.calc();
     expect(scope.gcd).toBe(1);
-    expect(scope.a).toBe(1);
-    expect(scope.b).toBe(1);
+    expect(scope.x).toBe(0);
+    expect(scope.y).toBe(1);
   });
 
-  it('should calc results for x = 6, y = 3', function () {
-    scope.x = 6;
-    scope.y = 3;
+  it('should calc results for a = 6, b = 3', function () {
+    scope.a = 6;
+    scope.b = 3;
     scope.calc();
     expect(scope.gcd).toBe(3);
-    expect(scope.a).toBe(0);
-    expect(scope.b).toBe(1);
+    expect(scope.x).toBe(0);
+    expect(scope.y).toBe(1);
   });
+
+  it('should calc results for a = 120, b = 23', function () {
+    scope.a = 120;
+    scope.b = 23;
+    scope.calc();
+    expect(scope.gcd).toBe(1);
+    expect(scope.x).toBe(-9);
+    expect(scope.y).toBe(47);
+  });
+
+  it('should swap values to keep order', function () {
+    scope.a = 23;
+    scope.b = 120;
+    scope.calc();
+    expect(scope.a).toBe(120);
+    expect(scope.b).toBe(23);
+  });
+
 });

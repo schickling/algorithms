@@ -3,42 +3,81 @@
 angular.module('extendedEuclideanAlgorithmApp')
   .controller('MainCtrl', function ($scope) {
 
-    $scope.x = 120;
-    $scope.y = 23;
-    $scope.gcd = undefined;
-    $scope.a = undefined;
-    $scope.b = undefined;
+    $scope.a = 120;
+    $scope.b = 23;
+    $scope.gcd;
+    $scope.x;
+    $scope.y;
     $scope.steps = [];
 
     $scope.calc = function () {
 
-      // first step
-      var firstStep = {
-        r: $scope.x
-      };
+      $scope._checkSwap();
 
-      $scope.steps.push(firstStep);
+      var a = $scope.a,
+        b = $scope.b,
+        index = 2,
+        steps = [],
+        quotient, remainder, combinationA, combinationB, x, y;
 
-      // second step
-      var secondStep = {
-        r: $scope.y
-      };
+      // initialize
+      steps.push({
+        remainder: a,
+        combinationA: 1,
+        combinationB: 0,
+      });
+      steps.push({
+        remainder: b,
+        combinationA: 0,
+        combinationB: 1,
+      });
 
-      $scope.steps.push(secondStep);
+      // magic!
+      do {
+        quotient = parseInt(steps[index - 2].remainder / steps[index - 1].remainder, 10);
+        remainder = steps[index - 2].remainder % steps[index - 1].remainder;
+        combinationA = steps[index - 2].combinationA - steps[index - 1].combinationA * quotient;
+        combinationB = steps[index - 2].combinationB - steps[index - 1].combinationB * quotient;
 
-      // mid steps
+        steps.push({
+          quotient: quotient,
+          remainder: remainder,
+          combinationA: combinationA,
+          combinationB: combinationB,
+        });
 
-      // last step
+        index++;
+      } while (remainder > 0);
+
+      // delete last steps
+      steps.pop();
+
+      x = steps[index - 2].combinationA;
+      y = steps[index - 2].combinationB;
+
+      // save data
+      $scope.x = x;
+      $scope.y = y;
+      $scope.gcd = a * x + b * y;
+      $scope.steps = steps;
     };
 
     $scope.random = function () {
-      $scope.x = $scope._generateRandom(2, 1000);
-      $scope.y = $scope._generateRandom(2, 1000);
+      $scope.a = $scope._generateRandom(2, 1000);
+      $scope.b = $scope._generateRandom(2, 1000);
       $scope.calc();
     };
 
     $scope._generateRandom = function (min, max) {
       return min + Math.floor(Math.random() * (max - min + 1));
+    };
+
+    $scope._checkSwap = function () {
+      if ($scope.b > $scope.a) {
+        var tmp = $scope.a;
+        $scope.a = $scope.b;
+        $scope.b = tmp;
+      }
     };
 
     $scope.calc();
