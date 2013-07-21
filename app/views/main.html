@@ -1,5 +1,27 @@
-<form class="form-inline" style="margin-top: 50px;">
-	<input type="number" class="input-small" ng-model="a" placeholder="A">
-	<input type="number" class="input-small" ng-model="b" placeholder="B">
-	<button ng-click="calc()" type="submit" class="btn">Calc!</button>
-</form>
+<div class="row" style="margin-top: 50px;">
+	<div class="span5">
+		<form class="form-inline" style="margin-top: 14px">
+			<input type="number" ng-change="calc()" class="input-small" ng-model="x">
+			<input type="number" ng-change="calc()" class="input-small" ng-model="y">
+			<button ng-click="random()" class="btn">Random values</button>
+		</form>
+	</div>
+	<div class="span3 well">Result: <span class="label label-success">{{gcd}} = {{x}} * {{a}} + {{y}} * {{b}}</span></div>
+</div>
+
+<table class="table">
+	<thead>
+		<th>Quotient</th>
+		<th>Remainder</th>
+		<th>Substitute</th>
+		<th>Combine</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="step in steps">
+			<td>{{step.q}}</td>
+			<td>{{step.r}}</td>
+			<td>{{step.s}}</td>
+			<td>{{step.c}}</td>
+		</tr>
+	</tbody>
+</table>
