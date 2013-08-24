@@ -2,9 +2,13 @@
 
 angular.module('algorithmsApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
+    $scope.algorithms = [
+      {
+        name: 'Chinese remainder theorem',
+        url: 'chinese-remainder-theorem',
+      }, {
+        name: 'Extended euclidean algorithm',
+        url: 'extended-euclidean-algorithm',
+      },
     ];
   });
