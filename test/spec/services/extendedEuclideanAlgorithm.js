@@ -11,11 +11,6 @@ describe('Service: extendedEuclideanAlgorithm', function () {
     extendedEuclideanAlgorithm = ExtendedEuclideanAlgorithm;
   }));
 
-  it('should return false if b > a', function() {
-    var result = extendedEuclideanAlgorithm.calculate(1, 2);
-    expect(result).toBe(false);
-  });
-
   it('should calc results for a = 1, b = 1', function () {
     var result = extendedEuclideanAlgorithm.calculate(1, 1);
     expect(result.gcd).toBe(1);
@@ -81,6 +76,49 @@ describe('Service: extendedEuclideanAlgorithm', function () {
       remainder: 1,
       combinationA: -9,
       combinationB: 47
+    }]);
+  });
+
+
+
+  it('should calc results for a = 23, b = 120', function () {
+    var result = extendedEuclideanAlgorithm.calculate(23, 120);
+    expect(result.gcd).toBe(1);
+    expect(result.x).toBe(47);
+    expect(result.y).toBe(-9);
+    expect(result.steps).toEqual([{
+      remainder: 23,
+      combinationA: 1,
+      combinationB: 0
+    }, {
+      remainder: 120,
+      combinationA: 0,
+      combinationB: 1
+    }, {
+      quotient: 0,
+      remainder: 23,
+      combinationA: 1,
+      combinationB: 0
+    }, {
+      quotient: 5,
+      remainder: 5,
+      combinationA: -5,
+      combinationB: 1
+    }, {
+      quotient: 4,
+      remainder: 3,
+      combinationA: 21,
+      combinationB: -4
+    }, {
+      quotient: 1,
+      remainder: 2,
+      combinationA: -26,
+      combinationB: 5
+    }, {
+      quotient: 1,
+      remainder: 1,
+      combinationA: 47,
+      combinationB: -9
     }]);
   });
 

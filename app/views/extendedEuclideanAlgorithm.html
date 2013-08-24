@@ -1,45 +1,49 @@
-<div class="row" style="margin-top: 50px;">
-	<div class="span6">
-		<form class="form-inline">
-			<div class="input-prepend">
-				<span class="add-on">a</span>
-				<input type="number" ng-change="calc()" class="input-small" ng-model="a">
-			</div>
-			<div class="input-prepend">
-				<span class="add-on">b</span>
-				<input type="number" ng-change="calc()" class="input-small" ng-model="b">
-			</div>
-			<button ng-click="random()" class="btn">Random values</button>
-		</form>
+<div id="extendedEuclideanAlgorithm">
+	<div class="page-header">
+		<h1>Extended eucledian algorithm <small>Insert your two numbers</small></h1>
 	</div>
-	<div class="span5" style="margin-top: 7px">
-		<span class="label">gcd = a * x + b * y</span>
-		<span class="label label-success">{{gcd}} = {{a}} * {{x}} + {{b}} * {{y}}</span>
-		<span ng-show="gcd == 1" class="label label-warning">coprime</span>
+	<div class="row" style="margin: 50px 0">
+		<div class="col-md-5">
+			<form class="form-inline">
+				<div class="input-group">
+					<span class="input-group-addon">a</span>
+					<input type="number" ng-change="calc()" class="form-control" ng-model="a">
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">b</span>
+					<input type="number" ng-change="calc()" class="form-control" ng-model="b">
+				</div>
+				<button ng-click="random()" class="btn btn-default">Random values</button>
+			</form>
+		</div>
+		<div class="col-md-5" style="margin-top: 7px">
+			<span class="label">gcd = a * x + b * y</span>
+			<span class="label label-success">{{gcd}} = {{a}} * {{x}} + {{b}} * {{y}}</span>
+			<span ng-show="gcd == 1" class="label label-warning">coprime</span>
+		</div>
 	</div>
+	<table class="table">
+		<thead>
+			<th>Quotient</th>
+			<th>Remainder</th>
+			<th>Substitute</th>
+			<th>Combine</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="step in steps">
+				<td>
+					<span ng-show="$index > 1"><span style="color: {{cyclicColor($index - 2)}}">{{steps[$index - 2].remainder}}</span> / <span style="color: {{cyclicColor($index - 1)}}">{{steps[$index - 1].remainder}}</span> = <b>{{step.quotient}}</b></span>
+				</td>
+				<td>
+					<span><span style="color: {{cyclicColor($index)}}"><b>{{step.remainder}}</b></span></span>
+				</td>
+				<td>
+					<span ng-show="$index > 1"><span style="color: {{cyclicColor($index)}}">{{step.remainder}}</span> = <span style="color: {{cyclicColor($index - 2)}}">({{a}} * {{steps[$index - 2].combinationA}} + {{b}} * {{steps[$index - 2].combinationB}})</span> - <span style="color: {{cyclicColor($index - 1)}}">({{a}} * {{steps[$index - 1].combinationA}} + {{b}} * {{steps[$index - 1].combinationB}})</span> * {{step.quotient}}</span>
+				</td>
+				<td>
+					<span><span style="color: {{cyclicColor($index)}}"><b>{{step.remainder}}</b> = {{a}} * {{step.combinationA}} + {{b}} * {{step.combinationB}}</span></span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
-
-<table class="table">
-	<thead>
-		<th>Quotient</th>
-		<th>Remainder</th>
-		<th>Substitute</th>
-		<th>Combine</th>
-	</thead>
-	<tbody>
-		<tr ng-repeat="step in steps">
-			<td>
-				<span ng-show="$index > 1"><span style="color: {{cyclicColor($index - 2)}}">{{steps[$index - 2].remainder}}</span> / <span style="color: {{cyclicColor($index - 1)}}">{{steps[$index - 1].remainder}}</span> = <b>{{step.quotient}}</b></span>
-			</td>
-			<td>
-				<span><span style="color: {{cyclicColor($index)}}"><b>{{step.remainder}}</b></span></span>
-			</td>
-			<td>
-				<span ng-show="$index > 1"><span style="color: {{cyclicColor($index)}}">{{step.remainder}}</span> = <span style="color: {{cyclicColor($index - 2)}}">({{a}} * {{steps[$index - 2].combinationA}} + {{b}} * {{steps[$index - 2].combinationB}})</span> - <span style="color: {{cyclicColor($index - 1)}}">({{a}} * {{steps[$index - 1].combinationA}} + {{b}} * {{steps[$index - 1].combinationB}})</span> * {{step.quotient}}</span>
-			</td>
-			<td>
-				<span><span style="color: {{cyclicColor($index)}}"><b>{{step.remainder}}</b> = {{a}} * {{step.combinationA}} + {{b}} * {{step.combinationB}}</span></span>
-			</td>
-		</tr>
-	</tbody>
-</table>

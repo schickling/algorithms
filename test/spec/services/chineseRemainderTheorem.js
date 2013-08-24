@@ -11,26 +11,26 @@ describe('Service: chineseRemainderTheorem', function () {
     chineseRemainderTheorem = ChineseRemainderTheorem;
   }));
 
-  it('should return false if #A != #M', function () {
-    var A = [1],
-      M = [1, 2],
-      x = chineseRemainderTheorem.calculate(A, M);
+  it('should return false if #aVector != #mVector', function () {
+    var aVector = [1],
+      mVector = [1, 2],
+      x = chineseRemainderTheorem.calculate(aVector, mVector);
 
     expect(x).toBe(false);
   });
 
   it('should calculate x = 47', function () {
-    var A = [2, 3, 2],
-      M = [3, 4, 5],
-      x = chineseRemainderTheorem.calculate(A, M);
+    var aVector = [2, 3, 2],
+      mVector = [3, 4, 5],
+      x = chineseRemainderTheorem.calculate(aVector, mVector);
 
     expect(x).toBe(47);
   });
 
   it('should calculate x = 11', function () {
-    var A = [2, 3, 1],
-      M = [3, 4, 5],
-      x = chineseRemainderTheorem.calculate(A, M);
+    var aVector = [2, 3, 1],
+      mVector = [3, 4, 5],
+      x = chineseRemainderTheorem.calculate(aVector, mVector);
 
     expect(x).toBe(11);
   });

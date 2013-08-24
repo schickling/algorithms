@@ -5,10 +5,9 @@ angular.module('algorithmsApp')
 
 		return {
 			calculate: function (a, b) {
-				
-				if (b > a) return false;
 
 				var x, y, quotient, remainder, combinationA, combinationB,
+					needsSwap = b > a,
 					steps = [],
 					index = 2;
 

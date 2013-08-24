@@ -11,16 +11,11 @@ angular.module('algorithmsApp')
     $scope.steps = [];
 
     $scope.calc = function () {
-
-      $scope._checkSwap();
-
       var result = ExtendedEuclideanAlgorithm.calculate($scope.a, $scope.b);
-
       $scope.x = result.x;
       $scope.y = result.y;
       $scope.gcd = result.gcd;
       $scope.steps = result.steps;
-
     };
 
     $scope.random = function () {
@@ -43,14 +38,6 @@ angular.module('algorithmsApp')
 
     $scope._generateRandom = function (min, max) {
       return min + Math.floor(Math.random() * (max - min + 1));
-    };
-
-    $scope._checkSwap = function () {
-      if ($scope.b > $scope.a) {
-        var tmp = $scope.a;
-        $scope.a = $scope.b;
-        $scope.b = tmp;
-      }
     };
 
     $scope.calc();
