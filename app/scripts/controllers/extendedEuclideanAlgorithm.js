@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('algorithmsApp')
-  .controller('extendedEuclideanAlgorithm', function ($scope, ExtendedEuclideanAlgorithm) {
+  .controller('extendedEuclideanAlgorithm', function ($scope, ExtendedEuclideanAlgorithm, Utils) {
 
     $scope.a = 120;
     $scope.b = 23;
@@ -19,8 +19,8 @@ angular.module('algorithmsApp')
     };
 
     $scope.random = function () {
-      $scope.a = $scope._generateRandom(2, 10000);
-      $scope.b = $scope._generateRandom(2, 10000);
+      $scope.a = Utils.randomNumber(2, 10000);
+      $scope.b = Utils.randomNumber(2, 10000);
       $scope.calc();
     };
 
@@ -34,10 +34,6 @@ angular.module('algorithmsApp')
       ];
 
       return colors[index % colors.length];
-    };
-
-    $scope._generateRandom = function (min, max) {
-      return min + Math.floor(Math.random() * (max - min + 1));
     };
 
     $scope.calc();

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('algorithmsApp')
-	.controller('chineseRemainderTheorem', function ($scope, ChineseRemainderTheorem) {
+	.controller('chineseRemainderTheorem', function ($scope, ChineseRemainderTheorem, Utils) {
 
 		$scope.x = 'x';
 
@@ -18,9 +18,10 @@ angular.module('algorithmsApp')
 
 		$scope.addRow = function () {
 			$scope.rows.push({
-				m: 1,
-				a: 1
+				m: Utils.randomNumber(2, 100),
+				a: Utils.randomNumber(2, 100)
 			});
+			$scope.calculate();
 		};
 
 		$scope.dropRow = function (i) {
