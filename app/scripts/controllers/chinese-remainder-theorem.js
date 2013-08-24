@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('extendedEuclideanAlgorithmApp')
-  .controller('MainCtrl', function ($scope) {
+angular.module('algorithmsApp')
+  .controller('chineseRemainderTheorem/MainCtrl', function ($scope) {
 
     $scope.a = 120;
     $scope.b = 23;

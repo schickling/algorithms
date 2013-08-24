@@ -1,9 +1,9 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: extendedEuclideanAlgorithm/MainCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('extendedEuclideanAlgorithmApp'));
+  beforeEach(module('algorithmsApp'));
 
   var MainCtrl,
     scope;
@@ -11,7 +11,7 @@ describe('Controller: MainCtrl', function () {
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+    MainCtrl = $controller('extendedEuclideanAlgorithm/MainCtrl', {
       $scope: scope
     });
   }));
@@ -50,5 +50,4 @@ describe('Controller: MainCtrl', function () {
     expect(scope.a).toBe(120);
     expect(scope.b).toBe(23);
   });
-
 });
