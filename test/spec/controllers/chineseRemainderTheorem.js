@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: chineseRemainderTheorem/MainCtrl', function () {
+describe('Controller: chineseRemainderTheorem', function () {
 
   // load the controller's module
   beforeEach(module('algorithmsApp'));
 
-  var MainCtrl,
+  var Controller,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('chineseRemainderTheorem/MainCtrl', {
+    Controller = $controller('chineseRemainderTheorem', {
       $scope: scope
     });
   }));

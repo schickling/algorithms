@@ -8,12 +8,12 @@ angular.module('algorithmsApp', [])
         controller: 'MainCtrl'
       })
       .when('/extended-euclidean-algorithm', {
-        templateUrl: 'views/extended-euclidean-algorithm.html',
-        controller: 'extendedEuclideanAlgorithm/MainCtrl'
+        templateUrl: 'views/extendedEuclideanAlgorithm.html',
+        controller: 'extendedEuclideanAlgorithm'
       })
       .when('/chinese-remainder-theorem', {
-        templateUrl: 'views/chinese-remainder-theorem.html',
-        controller: 'chineseRemainderTheorem/MainCtrl'
+        templateUrl: 'views/chineseRemainderTheorem.html',
+        controller: 'chineseRemainderTheorem'
       })
       .otherwise({
         redirectTo: '/'
