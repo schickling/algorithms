@@ -8,11 +8,12 @@ bower install
 echo '### Build ###'
 grunt build
 echo '### Copy dist folder'
-cp -rf dist ../dist
+rm -rf ../dist
+cp -r dist ../dist
 echo '### Prepare branch ###'
 git checkout gh-pages
 rm -rf ./*
-cp -rf ../dist/ .
+cp -r ../dist/ .
 echo '### Commit and push ###'
 git add -A
 git commit -m "Publish"
