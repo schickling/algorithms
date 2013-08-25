@@ -1,7 +1,9 @@
 // Generated on 2013-08-24 using generator-angular 0.4.0
 'use strict';
 var LIVERELOAD_PORT = 35729;
-var lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT });
+var lrSnippet = require('connect-livereload')({
+  port: LIVERELOAD_PORT
+});
 var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
@@ -77,7 +79,7 @@ module.exports = function (grunt) {
               lrSnippet,
               mountFolder(connect, '.tmp'),
               mountFolder(connect, yeomanConfig.app)
-            ];
+              ];
           }
         }
       },
@@ -87,7 +89,7 @@ module.exports = function (grunt) {
             return [
               mountFolder(connect, '.tmp'),
               mountFolder(connect, 'test')
-            ];
+              ];
           }
         }
       },
@@ -96,7 +98,7 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               mountFolder(connect, yeomanConfig.dist)
-            ];
+              ];
           }
         }
       }
@@ -313,6 +315,12 @@ module.exports = function (grunt) {
           ]
         }
       }
+    },
+    'gh-pages': {
+      options: {
+        base: 'dist'
+      },
+      src: ['**']
     }
   });
 
@@ -352,6 +360,11 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin'
+  ]);
+
+  grunt.registerTask('publish', [
+    'build',
+    'gh-pages'
   ]);
 
   grunt.registerTask('default', [
