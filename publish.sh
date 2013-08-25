@@ -10,9 +10,11 @@ grunt build
 echo '### Copy dist folder'
 cp -rf dist ../dist
 echo '### Prepare branch ###'
-git branch -f gh-pages master
+git checkout gh-pages
 rm -rf ./*
 cp -rf ../dist/ .
 echo '### Commit and push ###'
-# git commit -a -m "Publish"
-# git push --all
+git commit -a -m "Publish"
+git push
+git checkout master
+git reset --HARD
