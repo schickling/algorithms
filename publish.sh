@@ -15,6 +15,6 @@ rm -rf ./*
 cp -rf ../dist/ .
 echo '### Commit and push ###'
 git commit -a -m "Publish"
-git push
+git push origin gh-pages
 git checkout master
-git reset --HARD
+git reset HEAD~ && git clean -df
