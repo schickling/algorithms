@@ -19,4 +19,4 @@ git add -A
 git commit -m "Publish"
 git push origin gh-pages
 git checkout master
-git reset HEAD~ && git clean -df
+git reset --hard
