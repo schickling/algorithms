@@ -1,0 +1,20 @@
+<div id="chineseRemainderTheorem">
+	<div class="page-header">
+		<h1>Chinese remainder theorem <small>Insert your equation system</small></h1>
+	</div>
+	<div class="row">
+		<div class="col-md-8">
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat="row in rows">
+					{{x}} ≡ <input type="text" ng-model="row.a" ng-change="calculate()"> mod <input type="text" ng-model="row.m" ng-change="calculate()">
+					<span class="glyphicon glyphicon-minus-sign" ng-click="dropRow($index)"></span>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-4">
+			<button type="button" class="btn btn-default btn-lg btn-primary" ng-click="addRow()">
+				<span class="glyphicon glyphicon-plus-sign"></span> Add row
+			</button>
+		</div>
+	</div>
+</div>
