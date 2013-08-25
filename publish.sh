@@ -14,7 +14,8 @@ git checkout gh-pages
 rm -rf ./*
 cp -rf ../dist/ .
 echo '### Commit and push ###'
-git commit -a -m "Publish"
+git add -A
+git commit -m "Publish"
 git push origin gh-pages
 git checkout master
 git reset HEAD~ && git clean -df
