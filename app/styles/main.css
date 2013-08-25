@@ -20,3 +20,17 @@ body {
     line-height: 1;
     letter-spacing: -1px;
 }
+
+#extendedEuclideanAlgorithm .input-group {
+    width: 120px;
+    margin: 0 10px 0 0;
+    float: left;
+}
+
+#chineseRemainderTheorem input {
+    border: 0;
+}
+
+#chineseRemainderTheorem input:focus {
+    outline: none;
+}
