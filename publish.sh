@@ -17,4 +17,3 @@ echo '### Commit and push ###'
 git commit -a -m "Publish"
 git push
 git checkout master
-git reset --HARD
