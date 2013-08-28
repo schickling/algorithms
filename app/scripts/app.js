@@ -17,7 +17,7 @@ angular.module('algorithmsApp', [])
       })
       .when('/gaussian-elimination', {
         templateUrl: 'views/gaussianElimination.html',
-        controller: 'GaussianElimination'
+        controller: 'gaussianElimination'
       })
       .otherwise({
         redirectTo: '/'
