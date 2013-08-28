@@ -27,7 +27,7 @@ angular.module('algorithmsApp')
 					firstEl = this.matrix[i][i];
 
 					// normalize current row
-					for (j = i; j < m && firstEl; j++) {
+					for (j = i; j < n && firstEl; j++) {
 						this.matrix[i][j] /= firstEl;
 					}
 
@@ -53,9 +53,9 @@ angular.module('algorithmsApp')
 
 			_findPivotRowForColumn: function (i) {
 				var val = 0,
-					key = 0;
+					key = i;
 
-				for (var k = i; k < this.matrix.length; i++) {
+				for (var k = i; k < this.matrix.length; k++) {
 					if (val < this.matrix[k][i]) {
 						val = this.matrix[k][i];
 						key = k;
