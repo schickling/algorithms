@@ -15,6 +15,10 @@ angular.module('algorithmsApp', [])
         templateUrl: 'views/chineseRemainderTheorem.html',
         controller: 'chineseRemainderTheorem'
       })
+      .when('/gaussian-elimination', {
+        templateUrl: 'views/gaussianElimination.html',
+        controller: 'GaussianElimination'
+      })
       .otherwise({
         redirectTo: '/'
       });

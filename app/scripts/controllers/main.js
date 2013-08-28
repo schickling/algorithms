@@ -9,11 +9,9 @@ angular.module('algorithmsApp')
       }, {
         name: 'Extended euclidean algorithm',
         url: 'extended-euclidean-algorithm',
+      }, {
+        name: 'Gaussian elimination',
+        url: 'gaussian-elimination',
       },
-    ];
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
     ];
   });
