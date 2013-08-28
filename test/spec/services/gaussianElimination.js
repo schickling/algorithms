@@ -53,4 +53,16 @@ describe('Service: gaussianElimination', function () {
     expect(gaussianElimination.eliminate(input)).toEqual(expectedOutput);
   });
 
+  it('should eliminate 3*3 matrix', function () {
+    var input = [[1,1,1],[1,1,1],[7,8,9]],
+        expectedOutput = [[1,0,-1],[0,1,2],[0,0,0]];
+    expect(gaussianElimination.eliminate(input)).toEqual(expectedOutput);
+  });
+
+  it('should eliminate 3*3 matrix', function () {
+    var input = [[1,2,3],[4,5,6],[7,8,9]],
+        expectedOutput = [[1,0,-1],[0,1,2],[0,0,0]];
+    expect(gaussianElimination.eliminate(input)).toEqual(expectedOutput);
+  });
+
 });

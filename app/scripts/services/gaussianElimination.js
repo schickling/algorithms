@@ -33,6 +33,7 @@ angular.module('algorithmsApp')
 
 				for (i = 0; i < m; i++) {
 
+
 					pivotRow = this._findPivotRowForColumn(i);
 					this._swapRows(pivotRow, i);
 
@@ -41,6 +42,7 @@ angular.module('algorithmsApp')
 					// normalize current row
 					for (j = i; j < n && firstEl; j++) {
 						this.matrix[i][j] /= firstEl;
+                        this.matrix[i][j] = +this.matrix[i][j].toPrecision(10);
 					}
 
 					// kill other rows
@@ -49,6 +51,7 @@ angular.module('algorithmsApp')
 							factor = this.matrix[k][i];
 							for (j = i; j < n; j++) {
 								this.matrix[k][j] -= factor * this.matrix[i][j];
+                                this.matrix[k][j] = +this.matrix[k][j].toPrecision(10);
 							}
 						}
 					}

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('algorithmsApp', [])
+angular.module('algorithmsApp', ['ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
