@@ -1,0 +1,43 @@
+<div id="gaussianElimination">
+	<div class="page-header">
+		<h1>Gaussian elimination <small>Insert your matrix</small></h1>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="col-md-5"><h2>Input</h2></div>
+			<div class="col-md-6 pull-right" style="margin: 18px 16px 0 0">
+				<div class="btn-group pull-right">
+					<button type="button" class="btn btn-sm btn-primary" ng-click="addRow()">
+						<span class="glyphicon glyphicon-ok-sign"></span> Add row
+					</button>
+					<button type="button" class="btn btn-sm btn-primary" ng-click="addColumn()">
+						<span class="glyphicon glyphicon-ok-sign"></span> Add column
+					</button>
+				</div>
+			</div>
+			<table class="table table-bordered no-border">
+				<tr ng-repeat="row in inputMatrix">
+					<td ng-repeat="element in row">
+						<input class="element" type="text" ng-model="element" ng-change="eliminate()">
+					</td>
+					<td class="no-border">
+						<button type="button" class="close" aria-hidden="true" ng-click="deleteRow($index)">&times;</button>
+					</td>
+				</tr>
+				<tr>
+					<td ng-repeat="col in inputMatrix[0]" class="no-border center">
+						<button type="button" class="close" aria-hidden="true" ng-click="deleteColumn($index)">&times;</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-md-5 col-md-offset-1">
+			<div class="col-md-6"><h2>Result</h2></div>
+			<table class="table table-bordered no-border">
+				<tr ng-repeat="row in resultMatrix">
+					<td ng-repeat="element in row" class="center">{{element}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
