@@ -5,7 +5,9 @@ angular.module('algorithmsApp')
 		return {
 			calculate: function (aVector, mVector) {
 
-				if (!(aVector instanceof Array) || !(mVector instanceof Array) || aVector.length !== mVector.length) return false;
+				if (!(aVector instanceof Array) || !(mVector instanceof Array) || aVector.length !== mVector.length) {
+					return false;
+				}
 
 				var M = 1,
 					x = 0,
@@ -16,8 +18,7 @@ angular.module('algorithmsApp')
 				});
 
 				for (var i = 0; i < n; i++) {
-					var s, e,
-						mi = mVector[i],
+					var mi = mVector[i],
 						Mi = M / mi,
 						s = ExtendedEuclideanAlgorithm.calculate(Mi, mi).x,
 						e = s * Mi;
@@ -28,5 +29,5 @@ angular.module('algorithmsApp')
 				return ((x % M) + M) % M;
 
 			}
-		}
+		};
 	});

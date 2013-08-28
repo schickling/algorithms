@@ -11,7 +11,7 @@ angular.module('algorithmsApp')
         url: 'extended-euclidean-algorithm',
       },
     ];
-     $scope.awesomeThings = [
+    $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'

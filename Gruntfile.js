@@ -79,7 +79,7 @@ module.exports = function (grunt) {
               lrSnippet,
               mountFolder(connect, '.tmp'),
               mountFolder(connect, yeomanConfig.app)
-              ];
+            ];
           }
         }
       },
@@ -89,7 +89,7 @@ module.exports = function (grunt) {
             return [
               mountFolder(connect, '.tmp'),
               mountFolder(connect, 'test')
-              ];
+            ];
           }
         }
       },
@@ -98,7 +98,7 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               mountFolder(connect, yeomanConfig.dist)
-              ];
+            ];
           }
         }
       }

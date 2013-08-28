@@ -7,7 +7,6 @@ angular.module('algorithmsApp')
 			calculate: function (a, b) {
 
 				var x, y, quotient, remainder, combinationA, combinationB,
-					needsSwap = b > a,
 					steps = [],
 					index = 2;
 
