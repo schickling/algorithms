@@ -39,7 +39,7 @@ input:focus {
     outline: none;
 }
 
-#gaussianElimination input.element, #invertMatrix input.element {
+#gaussianElimination input.element, #invertMatrix input.element, #smithNormalForm input.element {
     text-align: center;
     border: 0;
     width: 100%;

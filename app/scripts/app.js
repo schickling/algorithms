@@ -23,10 +23,12 @@ angular.module('algorithmsApp', ['ngRoute'])
         templateUrl: 'views/invertMatrix.html',
         controller: 'invertMatrix'
       })
+      .when('/smith-normal-form', {
+        templateUrl: 'views/smithNormalForm.html',
+        controller: 'SmithNormalForm'
+      })
       .otherwise({
         redirectTo: '/'
       });
   })
-  .run(function (Helpers) {
-
-  });
+  .run(function (Helpers) {});

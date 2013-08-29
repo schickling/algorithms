@@ -24,11 +24,11 @@ angular.module('algorithmsApp')
 				for (var step = 0; step < this.m - 1; step++) {
 
 					for (var pivotRow = step + 1; pivotRow < this.m; pivotRow++) {
-						this._prepareSideMatrix(step, pivotRow, true);
+						this._doStep(step, pivotRow, true);
 					}
 
 					for (var pivotColumn = step + 1; pivotColumn < this.m; pivotColumn++) {
-						this._prepareSideMatrix(step, pivotColumn, false);
+						this._doStep(step, pivotColumn, false);
 					}
 				}
 
@@ -40,7 +40,7 @@ angular.module('algorithmsApp')
 				};
 			},
 
-			_prepareSideMatrix: function (step, pivotRow, isRowAction) {
+			_doStep: function (step, pivotRow, isRowAction) {
 				var l = this.B[step][step],
 					j = (isRowAction) ? this.B[pivotRow][step] : this.B[step][pivotRow],
 					eea = ExtendedEuclideanAlgorithm.calculate(l, j),

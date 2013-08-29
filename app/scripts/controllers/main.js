@@ -15,6 +15,9 @@ angular.module('algorithmsApp')
       }, {
         name: 'Invert matrix',
         url: 'invert-matrix',
+      }, {
+        name: 'Smith normal form',
+        url: 'smith-normal-form',
       },
     ];
   });
