@@ -23,7 +23,7 @@
 				<table class="table table-bordered no-border">
 					<tr ng-repeat="row in A">
 						<td ng-repeat="element in row track by $index">
-							<input class="element" type="text" ng-model="row[$index]" ng-change="invert()">
+							<input class="element" type="text" ng-model="row[$index]" ng-change="calculate()">
 						</td>
 					</tr>
 				</table>

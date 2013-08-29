@@ -42,8 +42,13 @@ angular.module('algorithmsApp')
 
 			_doStep: function (step, pivotRow, isRowAction) {
 				var l = this.B[step][step],
-					j = (isRowAction) ? this.B[pivotRow][step] : this.B[step][pivotRow],
-					eea = ExtendedEuclideanAlgorithm.calculate(l, j),
+					j = (isRowAction) ? this.B[pivotRow][step] : this.B[step][pivotRow];
+
+				if (l * j === 0) {
+					return;
+				}
+
+				var eea = ExtendedEuclideanAlgorithm.calculate(l, j),
 					a = eea.x,
 					b = eea.y,
 					c = -(j / eea.gcd),
