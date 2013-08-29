@@ -1,0 +1,36 @@
+<div id="invertMatrix">
+	<div class="page-header">
+		<h1>Invert matrix <small>Insert your matrix</small></h1>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="col-md-5"><h2>Input</h2></div>
+			<div class="col-md-6 pull-right" style="margin: 18px 0 0; padding: 0">
+				<div class="btn-group pull-right">
+					<button type="button" class="btn btn-sm btn-primary" ng-click="makeBigger()">
+						<span class="glyphicon glyphicon-plus-sign"></span> Make bigger
+					</button>
+					<button ng-if="inputMatrix.length > 1" type="button" class="btn btn-sm btn-primary" ng-click="makeSmaller()">
+						<span class="glyphicon glyphicon-minus-sign"></span> Make smaller
+					</button>
+				</div>
+			</div>
+			<table class="table table-bordered no-border">
+				<tr ng-repeat="row in inputMatrix">
+					<td ng-repeat="element in row track by $index">
+						<input class="element" type="text" ng-model="row[$index]" ng-change="invert()">
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-md-5 col-md-offset-1">
+			<div class="col-md-12"><h2>Result</h2></div>
+			<table ng-if="outputMatrix" class="table table-bordered no-border">
+				<tr ng-repeat="row in outputMatrix">
+					<td ng-repeat="element in row track by $index" class="center">{{element}}</td>
+				</tr>
+			</table>
+			<span class="label label-danger" ng-if="!outputMatrix">Your matrix wasn't regular</span>
+		</div>
+	</div>
+</div>
