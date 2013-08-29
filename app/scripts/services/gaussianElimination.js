@@ -101,6 +101,12 @@ angular.module('algorithmsApp')
 						}
 					}
 				}
+
+				// check if matrix was regular
+				if (leftMatrix[m - 1][m - 1] !== 1) {
+					return false;
+				}
+
 				return rightMatrix;
 
 			},

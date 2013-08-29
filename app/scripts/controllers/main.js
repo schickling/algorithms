@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('algorithmsApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('main', function ($scope) {
     $scope.algorithms = [
       {
         name: 'Chinese remainder theorem',
@@ -12,6 +12,9 @@ angular.module('algorithmsApp')
       }, {
         name: 'Gaussian elimination',
         url: 'gaussian-elimination',
+      }, {
+        name: 'Invert matrix',
+        url: 'invert-matrix',
       },
     ];
   });

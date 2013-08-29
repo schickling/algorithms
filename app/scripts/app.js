@@ -5,7 +5,7 @@ angular.module('algorithmsApp', ['ngRoute'])
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'main'
       })
       .when('/extended-euclidean-algorithm', {
         templateUrl: 'views/extendedEuclideanAlgorithm.html',
@@ -18,6 +18,10 @@ angular.module('algorithmsApp', ['ngRoute'])
       .when('/gaussian-elimination', {
         templateUrl: 'views/gaussianElimination.html',
         controller: 'gaussianElimination'
+      })
+      .when('/invert-matrix', {
+        templateUrl: 'views/invertMatrix.html',
+        controller: 'invertMatrix'
       })
       .otherwise({
         redirectTo: '/'

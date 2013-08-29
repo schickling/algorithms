@@ -14,13 +14,13 @@ angular.module('algorithmsApp')
 			var row = [];
 			for (var i = 0; i < $scope.inputMatrix[0].length; i++) {
 				row.push(Utils.randomNumber(-10, 20));
-			};
+			}
 			$scope.inputMatrix.push(row);
 			$scope.eliminate();
 		};
 
 		$scope.addColumn = function () {
-			$scope.inputMatrix.forEach(function(row) {
+			$scope.inputMatrix.forEach(function (row) {
 				row.push(Utils.randomNumber(-10, 20));
 			});
 			$scope.eliminate();

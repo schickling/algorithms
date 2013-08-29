@@ -39,22 +39,21 @@ input:focus {
     outline: none;
 }
 
-#gaussianElimination input.element {
+#gaussianElimination input.element, #invertMatrix input.element {
     text-align: center;
     border: 0;
     width: 100%;
     background: none;
 }
 
-#gaussianElimination .center {
+.center {
     text-align: center;
 }
 
-#gaussianElimination .center .close {
+.center .close {
     float: none;
 }
 
-
-#gaussianElimination .no-border {
-    border: 0;
+.no-border {
+    border: 0 !important;
 }

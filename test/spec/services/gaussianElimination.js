@@ -89,5 +89,10 @@ describe('Service: gaussianElimination', function () {
     expect(gaussianElimination.invert(input)).toEqual(expectedOutput);
   });
 
+  it('shouldn\'t invert non regular 2*2 matrix', function () {
+    var input = [[1,1],[1,1]],
+        expectedOutput = false;
+    expect(gaussianElimination.invert(input)).toEqual(expectedOutput);
+  });
 
 });
