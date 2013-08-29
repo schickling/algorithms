@@ -22,15 +22,20 @@ angular.module('algorithmsApp')
 				this.T = Utils.identityMatrix(this.m);
 
 				for (var step = 0; step < this.m - 1; step++) {
+
 					for (var pivotRow = step + 1; pivotRow < this.m; pivotRow++) {
 						this._prepareSideMatrix(step, pivotRow, true);
-						this._adjustMainMatrix(step, pivotRow, true);
-						this._prepareSideMatrix(step, pivotRow, false);
-						this._adjustMainMatrix(step, pivotRow, false);
+					}
+
+					for (var pivotColumn = step + 1; pivotColumn < this.m; pivotColumn++) {
+						this._prepareSideMatrix(step, pivotColumn, false);
 					}
 				}
 
 				return {
+					B: this.B,
+					S: this.S,
+					T: this.T,
 					elementaryDivisors: this._getElementaryDivisors()
 				};
 			},
@@ -42,38 +47,24 @@ angular.module('algorithmsApp')
 					a = eea.x,
 					b = eea.y,
 					c = -(j / eea.gcd),
-					d = l / eea.gcd;
+					d = l / eea.gcd,
+					newSideMatrix = Utils.identityMatrix(this.m);
 
 				if (isRowAction) {
-					this.S[step][step] = a;
-					this.S[step][step + 1] = b;
-					this.S[pivotRow][step] = c;
-					this.S[pivotRow][step + 1] = d;
+					newSideMatrix[step][step] = a;
+					newSideMatrix[step][step + 1] = b;
+					newSideMatrix[pivotRow][step] = c;
+					newSideMatrix[pivotRow][step + 1] = d;
+					this.S = Utils.matrixMultiply(newSideMatrix, this.S);
+					this.B = Utils.matrixMultiply(newSideMatrix, this.B);
 				} else {
-					this.T[step][step] = d;
-					this.T[step][step + 1] = c;
-					this.T[pivotRow][step] = b;
-					this.T[pivotRow][step + 1] = a;
+					newSideMatrix[step][step] = d;
+					newSideMatrix[step][pivotRow] = c;
+					newSideMatrix[step + 1][step] = b;
+					newSideMatrix[step + 1][pivotRow] = a;
+					this.T = Utils.matrixMultiply(this.T, newSideMatrix);
+					this.B = Utils.matrixMultiply(this.B, newSideMatrix);
 				}
-
-			},
-
-			_adjustMainMatrix: function (step, pivotRow, isRowAction) {
-				var sideMatrix = (isRowAction) ? this.S : this.T,
-					partA = [[this.B[step][step], this.B[step][step + 1]], [this.B[pivotRow][step], this.B[pivotRow][step + 1]]],
-					partSide = [[sideMatrix[step][step], sideMatrix[step][step + 1]], [sideMatrix[pivotRow][step], sideMatrix[pivotRow][step + 1]]],
-					newPartA;
-
-				if (isRowAction) {
-					newPartA = Utils.matrixMultiply(partSide, partA);
-				} else {
-					newPartA = Utils.matrixMultiply(partA, partSide);
-				}
-
-				this.B[step][step] = newPartA[step][step];
-				this.B[step][step + 1] = newPartA[step][step + 1];
-				this.B[pivotRow][step] = newPartA[pivotRow][step];
-				this.B[pivotRow][step + 1] = newPartA[pivotRow][step + 1];
 			},
 
 			_getElementaryDivisors: function () {
