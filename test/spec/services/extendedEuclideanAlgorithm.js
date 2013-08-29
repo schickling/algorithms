@@ -27,6 +27,27 @@ describe('Service: extendedEuclideanAlgorithm', function () {
     }]);
   });
 
+  it('should calc results for a = 2, b = -4', function () {
+    var result = extendedEuclideanAlgorithm.calculate(2, -4);
+    expect(result.gcd).toBe(2);
+    expect(result.x).toBe(1);
+    expect(result.y).toBe(0);
+    expect(result.steps).toEqual([{
+      remainder: 2,
+      combinationA: 1,
+      combinationB: 0
+    }, {
+      remainder: 4,
+      combinationA: 0,
+      combinationB: -1
+    }, {
+      quotient: 0,
+      remainder: 2,
+      combinationA: 1,
+      combinationB: 0
+    }]);
+  });
+
   it('should calc results for a = 6, b = 3', function () {
     var result = extendedEuclideanAlgorithm.calculate(6, 3);
     expect(result.gcd).toBe(3);
