@@ -5,3 +5,12 @@ Implementation of several algorithms in Javascript
 
 
 __Online:__ http://schickling.github.io/algorithms/
+
+## Algorithms
+* Chinese remainder theorem
+* Extended euclidean algorithm
+* Gaussian elimination
+* Invert matrix
+* Smith normal form
+
+_More coming soon..._
