@@ -3,6 +3,7 @@
 angular.module('algorithmsApp')
 	.service('Utils', function Utils() {
 		return {
+
 			randomNumber: function (min, max) {
 				return min + Math.floor(Math.random() * (max - min + 1));
 			},
@@ -33,6 +34,16 @@ angular.module('algorithmsApp')
 					}
 				}
 				return C;
+			},
+
+			matrixTranspose: function (A) {
+				return Object.keys(A[0]).map(
+					function (c) {
+						return A.map(function (r) {
+							return r[c];
+						});
+					}
+				);
 			}
 
 		};

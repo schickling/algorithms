@@ -32,6 +32,12 @@ describe('Service: utils', function () {
       B = [[18, 24], [-24, -36]],
       C = [[6, 12], [0, -12]];
     expect(utils.matrixMultiply(A, B)).toEqual(C);
-  })
+  });
+
+  it('should transpose matrix', function () {
+    var A = [[1, 2, 3], [4, 5, 6]],
+      B = [[1, 4], [2, 5], [3, 6]];
+    expect(utils.matrixTranspose(A)).toEqual(B);
+  });
 
 });
