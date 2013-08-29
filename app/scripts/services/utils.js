@@ -9,7 +9,7 @@ angular.module('algorithmsApp')
 
 			identityMatrix: function (n) {
 				var matrix = [];
-				
+
 				for (var i = 0; i < n; i++) {
 					matrix.push([]);
 					for (var j = 0; j < n; j++) {
@@ -18,6 +18,22 @@ angular.module('algorithmsApp')
 				}
 
 				return matrix;
+			},
+
+			matrixMultiply: function (A, B) {
+				var C = [];
+				for (var j = 0; j < A.length; j++) {
+					C[j] = [];
+					for (var k = 0; k < B[0].length; k++) {
+						var sum = 0;
+						for (var i = 0; i < B.length; i++) {
+							sum += B[i][k] * A[j][i];
+						}
+						C[j].push(sum);
+					}
+				}
+				return C;
 			}
+
 		};
 	});
