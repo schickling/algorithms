@@ -11,9 +11,17 @@ describe('Service: SmithNormalForm', function () {
     smithNormalForm = SmithNormalForm;
   }));
 
+  // it('should do', function () {
+  //   var A = [[2, 4, 4], [-6, 6, 12], [10, -4, -16]],
+  //     elementaryDivisors = [2, 6, 12],
+  //     result = smithNormalForm.calculate(A);
+
+  //   expect(result.elementaryDivisors).toEqual(elementaryDivisors);
+  // });
+
   it('should do', function () {
-    var A = [[2, 4, 4], [-6, 6, 12], [10, -4, -16]],
-      elementaryDivisors = [2, 6, 12],
+    var A = [[18, 24], [-24, -36]],
+      elementaryDivisors = [6, 12],
       result = smithNormalForm.calculate(A);
 
     expect(result.elementaryDivisors).toEqual(elementaryDivisors);

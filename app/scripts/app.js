@@ -26,4 +26,7 @@ angular.module('algorithmsApp', ['ngRoute'])
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .run(function (Helpers) {
+
   });

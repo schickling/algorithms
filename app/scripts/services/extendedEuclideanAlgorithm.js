@@ -3,10 +3,6 @@
 angular.module('algorithmsApp')
 	.service('ExtendedEuclideanAlgorithm', function ExtendedEuclideanAlgorithm() {
 
-		Math.sign = function (x) {
-			return x ? x < 0 ? -1 : 1 : 0;
-		};
-
 		return {
 			calculate: function (a, b) {
 
