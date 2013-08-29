@@ -17,4 +17,14 @@ describe('Service: utils', function () {
     expect(random).toBeLessThan(334);
   });
 
+  it('should generate the identity matrix for n = 3', function() {
+    var expectedMatrix = [[1,0,0],[0,1,0],[0,0,1]];
+    expect(utils.identityMatrix(3)).toEqual(expectedMatrix);
+  });
+
+  it('should generate the identity matrix for n = 5', function() {
+    var expectedMatrix = [[1,0,0,0,0],[0,1,0,0,0],[0,0,1,0,0],[0,0,0,1,0],[0,0,0,0,1]];
+    expect(utils.identityMatrix(5)).toEqual(expectedMatrix);
+  });
+
 });
