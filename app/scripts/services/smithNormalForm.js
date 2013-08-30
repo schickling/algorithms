@@ -21,16 +21,22 @@ angular.module('algorithmsApp')
 				this.S = Utils.identityMatrix(this.m);
 				this.T = Utils.identityMatrix(this.m);
 
+				this._orderMatrix(step);
+				console.log(this.B);
+
+				// reduce
 				for (var step = 0; step < this.m - 1; step++) {
 
 					for (var pivotRow = step + 1; pivotRow < this.m; pivotRow++) {
-						this._doStep(step, pivotRow, true);
+						this._reduce(step, pivotRow, true);
 					}
 
 					for (var pivotColumn = step + 1; pivotColumn < this.m; pivotColumn++) {
-						this._doStep(step, pivotColumn, false);
+						this._reduce(step, pivotColumn, false);
 					}
 				}
+
+				console.log(this.B);
 
 				return {
 					B: this.B,
@@ -40,33 +46,77 @@ angular.module('algorithmsApp')
 				};
 			},
 
-			_doStep: function (step, pivotRow, isRowAction) {
-				var l = this.B[step][step],
-					j = (isRowAction) ? this.B[pivotRow][step] : this.B[step][pivotRow];
+			_orderMatrix: function () {
 
-				if (l * j === 0) {
+				var minimumValue, minimumRow, minimumColumn, compareValue, step, row, column, sideMatrix;
+
+				for (step = 0; step < this.m; step++) {
+
+					minimumValue = Number.POSITIVE_INFINITY;
+
+					for (row = step; row < this.m; row++) {
+						for (column = step; column < this.m; column++) {
+
+							compareValue = Math.abs(this.B[row][column]) || Number.POSITIVE_INFINITY;
+
+							if (compareValue < minimumValue) {
+								minimumValue = compareValue;
+								minimumRow = row;
+								minimumColumn = column;
+							}
+
+						}
+					}
+
+					if (step != minimumRow || step != minimumColumn) {
+						// swap rows
+						sideMatrix = Utils.identityMatrix(this.m);
+						sideMatrix[minimumRow][minimumRow] = 0;
+						sideMatrix[step][step] = 0;
+						sideMatrix[minimumRow][step] = 1;
+						sideMatrix[step][minimumRow] = 1;
+						this.S = Utils.matrixMultiply(sideMatrix, this.S);
+						this.B = Utils.matrixMultiply(sideMatrix, this.B);
+
+						// swap columns
+						sideMatrix = Utils.identityMatrix(this.m);
+						sideMatrix[minimumColumn][minimumColumn] = 0;
+						sideMatrix[step][step] = 0;
+						sideMatrix[minimumColumn][step] = 1;
+						sideMatrix[step][minimumColumn] = 1;
+						this.T = Utils.matrixMultiply(this.S, sideMatrix);
+						this.B = Utils.matrixMultiply(this.B, sideMatrix);
+					}
+				}
+			},
+
+			_reduce: function (step, pivot, isRowAction) {
+				var currentEl = this.B[step][step],
+					reduceEl = (isRowAction) ? this.B[pivot][step] : this.B[step][pivot];
+
+				if (currentEl * reduceEl === 0) {
 					return;
 				}
 
-				var eea = ExtendedEuclideanAlgorithm.calculate(l, j),
+				var eea = ExtendedEuclideanAlgorithm.calculate(currentEl, reduceEl),
 					a = eea.x,
 					b = eea.y,
-					c = -(j / eea.gcd),
-					d = l / eea.gcd,
+					c = -(reduceEl / eea.gcd),
+					d = currentEl / eea.gcd,
 					newSideMatrix = Utils.identityMatrix(this.m);
 
 				if (isRowAction) {
 					newSideMatrix[step][step] = a;
 					newSideMatrix[step][step + 1] = b;
-					newSideMatrix[pivotRow][step] = c;
-					newSideMatrix[pivotRow][step + 1] = d;
+					newSideMatrix[pivot][step] = c;
+					newSideMatrix[pivot][step + 1] = d;
 					this.S = Utils.matrixMultiply(newSideMatrix, this.S);
 					this.B = Utils.matrixMultiply(newSideMatrix, this.B);
 				} else {
 					newSideMatrix[step][step] = d;
-					newSideMatrix[step][pivotRow] = c;
+					newSideMatrix[step][pivot] = c;
 					newSideMatrix[step + 1][step] = b;
-					newSideMatrix[step + 1][pivotRow] = a;
+					newSideMatrix[step + 1][pivot] = a;
 					this.T = Utils.matrixMultiply(this.T, newSideMatrix);
 					this.B = Utils.matrixMultiply(this.B, newSideMatrix);
 				}
