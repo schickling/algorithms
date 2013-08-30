@@ -22,20 +22,9 @@ angular.module('algorithmsApp')
 				this.T = Utils.identityMatrix(this.m);
 
 				this._orderMatrix();
-
-				// reduce
-				for (var step = 0; step < this.m - 1; step++) {
-
-					for (var pivotRow = step + 1; pivotRow < this.m; pivotRow++) {
-						this._reduce(step, pivotRow, true);
-					}
-
-					for (var pivotColumn = step + 1; pivotColumn < this.m; pivotColumn++) {
-						this._reduce(step, pivotColumn, false);
-					}
-				}
-
+				this._reduceMatrix();
 				this._orderMatrix();
+				this._makeDiagonalDivisible();
 
 				return {
 					B: this.B,
@@ -89,7 +78,20 @@ angular.module('algorithmsApp')
 				}
 			},
 
-			_reduce: function (step, pivot, isRowAction) {
+			_reduceMatrix: function () {
+				for (var step = 0; step < this.m - 1; step++) {
+
+					for (var pivotRow = step + 1; pivotRow < this.m; pivotRow++) {
+						this._reduceElement(step, pivotRow, true);
+					}
+
+					for (var pivotColumn = step + 1; pivotColumn < this.m; pivotColumn++) {
+						this._reduceElement(step, pivotColumn, false);
+					}
+				}
+			},
+
+			_reduceElement: function (step, pivot, isRowAction) {
 				var currentEl = this.B[step][step],
 					reduceEl = (isRowAction) ? this.B[pivot][step] : this.B[step][pivot];
 
@@ -119,6 +121,10 @@ angular.module('algorithmsApp')
 					this.T = Utils.matrixMultiply(this.T, newSideMatrix);
 					this.B = Utils.matrixMultiply(this.B, newSideMatrix);
 				}
+			},
+
+			_makeDiagonalDivisible: function () {
+				// TODO
 			},
 
 			_getElementaryDivisors: function () {

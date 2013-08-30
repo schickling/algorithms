@@ -81,6 +81,20 @@ describe('Service: SmithNormalForm', function () {
     expect(result.T).toEqual(T);
   });
 
+  it('should normalize 5th 3*3 matrix', function () {
+    var A = [[4, 0, 0], [0, 10, 0], [0, 0, 15]],
+      elementaryDivisors = [1, 10, 60],
+      // B = [[1, 0, 0], [0, 3, 0], [0, 0, 0]],
+      // S = [[1, 0, 0], [4, -1, 0], [-1, 2, -1]],
+      // T = [[1, -2, 1], [0, 1, -2], [0, 0, 1]],
+      result = smithNormalForm.calculate(A);
+
+    expect(result.elementaryDivisors).toEqual(elementaryDivisors);
+    // expect(result.B).toEqual(B);
+    // expect(result.S).toEqual(S);
+    // expect(result.T).toEqual(T);
+  });
+
   it('should normalize 3*3 matrix after reordering', function () {
     var A = [[7, 9, 8], [6, 1, 5], [3, 0, 2]],
       elementaryDivisors = [1, 1, 17],
