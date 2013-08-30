@@ -22,7 +22,6 @@ angular.module('algorithmsApp')
 				this.T = Utils.identityMatrix(this.m);
 
 				this._orderMatrix(step);
-				console.log(this.B);
 
 				// reduce
 				for (var step = 0; step < this.m - 1; step++) {
@@ -35,8 +34,6 @@ angular.module('algorithmsApp')
 						this._reduce(step, pivotColumn, false);
 					}
 				}
-
-				console.log(this.B);
 
 				return {
 					B: this.B,
