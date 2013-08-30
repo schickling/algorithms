@@ -124,12 +124,12 @@ angular.module('algorithmsApp')
 					elementaryDivisor;
 
 				for (var i = 0; i < this.B.length; i++) {
-					elementaryDivisor = Math.abs(this.B[i][i];
-						if (elementaryDivisor) {
-							elementaryDivisors.push(elementaryDivisor));
+					elementaryDivisor = Math.abs(this.B[i][i]);
+					if (elementaryDivisor) {
+						elementaryDivisors.push(elementaryDivisor);
 					}
 				}
-				
+
 				return elementaryDivisors;
 			}
 
