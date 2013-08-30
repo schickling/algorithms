@@ -120,10 +120,16 @@ angular.module('algorithmsApp')
 			},
 
 			_getElementaryDivisors: function () {
-				var elementaryDivisors = [];
+				var elementaryDivisors = [],
+					elementaryDivisor;
+
 				for (var i = 0; i < this.B.length; i++) {
-					elementaryDivisors.push(Math.abs(this.B[i][i]));
+					elementaryDivisor = Math.abs(this.B[i][i];
+						if (elementaryDivisor) {
+							elementaryDivisors.push(elementaryDivisor));
+					}
 				}
+				
 				return elementaryDivisors;
 			}
 
