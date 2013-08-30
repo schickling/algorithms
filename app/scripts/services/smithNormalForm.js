@@ -91,6 +91,10 @@ angular.module('algorithmsApp')
 					for (pivotColumn = step + 1; pivotColumn < this.m; pivotColumn++) {
 						this._reduceElement(step, pivotColumn, false);
 					}
+					
+					for (pivotRow = step + 1; pivotRow < this.m; pivotRow++) {
+						this._reduceElement(step, pivotRow, true);
+					}
 				}
 			},
 
@@ -112,16 +116,16 @@ angular.module('algorithmsApp')
 
 				if (isRowAction) {
 					newSideMatrix[step][step] = a;
-					newSideMatrix[step][step + 1] = b;
+					newSideMatrix[step][pivot] = b;
 					newSideMatrix[pivot][step] = c;
-					newSideMatrix[pivot][step + 1] = d;
+					newSideMatrix[pivot][pivot] = d;
 					this.S = Utils.matrixMultiply(newSideMatrix, this.S);
 					this.B = Utils.matrixMultiply(newSideMatrix, this.B);
 				} else {
-					newSideMatrix[step][step] = d;
+					newSideMatrix[step][step] = a;
 					newSideMatrix[step][pivot] = c;
-					newSideMatrix[step + 1][step] = b;
-					newSideMatrix[step + 1][pivot] = a;
+					newSideMatrix[pivot][step] = b;
+					newSideMatrix[pivot][pivot] = d;
 					this.T = Utils.matrixMultiply(this.T, newSideMatrix);
 					this.B = Utils.matrixMultiply(this.B, newSideMatrix);
 				}

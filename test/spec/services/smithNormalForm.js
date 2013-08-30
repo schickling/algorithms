@@ -69,10 +69,10 @@ describe('Service: SmithNormalForm', function () {
 
   it('should normalize 4th 3*3 matrix that zero blocks are at end', function () {
     var A = [[2, 2, 2], [2, 2, 2], [2, 2, 4]],
-      elementaryDivisors = [2],
-      B = [[2, 0, 0], [0, 0, 0], [0, 0, 0]],
-      S = [[-1, 0, 1], [-1, 1, 0], [-1, 1, 0]],
-      T = [[1, 0, -1], [0, 1, -1], [0, 1, -1]],
+      elementaryDivisors = [2, 2],
+      B = [[2, 0, 0], [0, 2, 0], [0, 0, 0]],
+      S = [[0, 0, 1], [0, -1, 1], [-1, 1, 0]],
+      T = [[0, 1, 0], [0, 1, -1], [-1, 0, 1]],
       result = smithNormalForm.calculate(A);
 
     expect(result.elementaryDivisors).toEqual(elementaryDivisors);
@@ -95,12 +95,26 @@ describe('Service: SmithNormalForm', function () {
     expect(result.T).toEqual(T);
   });
 
-  it('should normalize 3*3 matrix after reordering', function () {
+  it('should normalize 6th 3*3 matrix after reordering', function () {
     var A = [[7, 9, 8], [6, 1, 5], [3, 0, 2]],
       elementaryDivisors = [1, 1, 17],
       B = [[1, 0, 0], [0, 1, 0], [0, 0, 17]],
       S = [[0, 1, 0], [-1, 9, -18], [2, -18, 37]],
       T = [[0, 0, 1], [0, 1, 7], [1, -5, -41]],
+      result = smithNormalForm.calculate(A);
+
+    expect(result.elementaryDivisors).toEqual(elementaryDivisors);
+    expect(result.B).toEqual(B);
+    expect(result.S).toEqual(S);
+    expect(result.T).toEqual(T);
+  });
+
+  it('should normalize 5th 3*3 matrix', function () {
+    var A = [[2, 4, 4, -8], [-6, 6, 12, 16], [10, -4, -16, 4], [0, 10, 6, -9]],
+      elementaryDivisors = [1, 2, 2, 2364],
+      B = [[1, 0, 0, 0], [0, 2, 0, 0], [0, 0, 2, 0], [0, 0, 0, 2364]],
+      S = [[-10, 0, 2, 5], [1, 0, 0, 0], [-188762, -899, 37213, 94702], [-567757, -2704, 111929, 284844]],
+      T = [[0, -10, 7, -2753], [0, 1, 0, 0], [7, 1471, -1028, 404294], [18, 3939, -2753, 1082706]],
       result = smithNormalForm.calculate(A);
 
     expect(result.elementaryDivisors).toEqual(elementaryDivisors);
