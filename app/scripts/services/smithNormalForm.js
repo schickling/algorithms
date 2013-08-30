@@ -58,7 +58,7 @@ angular.module('algorithmsApp')
 
 					if ((step !== minimumRow || step !== minimumColumn) && isFinite(minimumValue)) {
 						// swap rows
-						sideMatrix = Utils.identityMatrix(this.m);
+						sideMatrix = this._getIdentityMatrix();
 						sideMatrix[minimumRow][minimumRow] = 0;
 						sideMatrix[step][step] = 0;
 						sideMatrix[minimumRow][step] = 1;
@@ -67,7 +67,7 @@ angular.module('algorithmsApp')
 						this.B = Utils.matrixMultiply(sideMatrix, this.B);
 
 						// swap columns
-						sideMatrix = Utils.identityMatrix(this.m);
+						sideMatrix = this._getIdentityMatrix();
 						sideMatrix[minimumColumn][minimumColumn] = 0;
 						sideMatrix[step][step] = 0;
 						sideMatrix[minimumColumn][step] = 1;
@@ -79,19 +79,23 @@ angular.module('algorithmsApp')
 			},
 
 			_reduceMatrix: function () {
-				for (var step = 0; step < this.m - 1; step++) {
 
-					for (var pivotRow = step + 1; pivotRow < this.m; pivotRow++) {
+				var step, pivotRow, pivotColumn;
+
+				for (step = 0; step < this.m - 1; step++) {
+
+					for (pivotRow = step + 1; pivotRow < this.m; pivotRow++) {
 						this._reduceElement(step, pivotRow, true);
 					}
 
-					for (var pivotColumn = step + 1; pivotColumn < this.m; pivotColumn++) {
+					for (pivotColumn = step + 1; pivotColumn < this.m; pivotColumn++) {
 						this._reduceElement(step, pivotColumn, false);
 					}
 				}
 			},
 
 			_reduceElement: function (step, pivot, isRowAction) {
+
 				var currentEl = this.B[step][step],
 					reduceEl = (isRowAction) ? this.B[pivot][step] : this.B[step][pivot];
 
@@ -104,7 +108,7 @@ angular.module('algorithmsApp')
 					b = eea.y,
 					c = -(reduceEl / eea.gcd),
 					d = currentEl / eea.gcd,
-					newSideMatrix = Utils.identityMatrix(this.m);
+					newSideMatrix = this._getIdentityMatrix();
 
 				if (isRowAction) {
 					newSideMatrix[step][step] = a;
@@ -124,7 +128,28 @@ angular.module('algorithmsApp')
 			},
 
 			_makeDiagonalDivisible: function () {
-				// TODO
+
+				var currentEl, nextEl, step, rightSideMatrix;
+
+				for (step = 0; step < this.m - 1; step++) {
+
+					currentEl = this.B[step][step];
+					nextEl = this.B[step + 1][step + 1];
+
+					if (nextEl % currentEl !== 0 && nextEl !== 0) {
+						rightSideMatrix = this._getIdentityMatrix();
+						rightSideMatrix[step + 1][step] = 1;
+						this.T = Utils.matrixMultiply(this.T, rightSideMatrix);
+						this.B = Utils.matrixMultiply(this.B, rightSideMatrix);
+
+						this._reduceElement(step, step + 1, true);
+						this._reduceElement(step, step + 1, false);
+
+						if (step > 0) {
+							step = step - 2;
+						}
+					}
+				}
 			},
 
 			_getElementaryDivisors: function () {
@@ -139,6 +164,10 @@ angular.module('algorithmsApp')
 				}
 
 				return elementaryDivisors;
+			},
+
+			_getIdentityMatrix: function () {
+				return Utils.identityMatrix(this.m);
 			}
 
 		};
