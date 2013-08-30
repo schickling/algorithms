@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('algorithmsApp', ['ngRoute'])
+angular.module('algorithmsApp', ['ngRoute', 'angulartics', 'angulartics.google.analytics'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
