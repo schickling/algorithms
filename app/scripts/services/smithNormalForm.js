@@ -21,7 +21,7 @@ angular.module('algorithmsApp')
 				this.S = Utils.identityMatrix(this.m);
 				this.T = Utils.identityMatrix(this.m);
 
-				this._orderMatrix(step);
+				this._orderMatrix();
 
 				// reduce
 				for (var step = 0; step < this.m - 1; step++) {
@@ -34,6 +34,8 @@ angular.module('algorithmsApp')
 						this._reduce(step, pivotColumn, false);
 					}
 				}
+
+				this._orderMatrix();
 
 				return {
 					B: this.B,
@@ -65,7 +67,7 @@ angular.module('algorithmsApp')
 						}
 					}
 
-					if (step != minimumRow || step != minimumColumn) {
+					if ((step != minimumRow || step != minimumColumn) && isFinite(minimumValue)) {
 						// swap rows
 						sideMatrix = Utils.identityMatrix(this.m);
 						sideMatrix[minimumRow][minimumRow] = 0;
