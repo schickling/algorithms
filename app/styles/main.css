@@ -57,3 +57,7 @@ input:focus {
 .no-border {
     border: 0 !important;
 }
+
+#smithNormalForm .spare-right {
+    margin-right: 5px;
+}
