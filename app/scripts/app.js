@@ -31,4 +31,6 @@ angular.module('algorithmsApp', ['ngRoute', 'angulartics', 'angulartics.google.a
         redirectTo: '/'
       });
   })
-  .run(function (Helpers) {});
+  .run(function (Helpers) {
+    Helpers.load();
+  });

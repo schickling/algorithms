@@ -56,7 +56,7 @@ angular.module('algorithmsApp')
 						}
 					}
 
-					if ((step != minimumRow || step != minimumColumn) && isFinite(minimumValue)) {
+					if ((step !== minimumRow || step !== minimumColumn) && isFinite(minimumValue)) {
 						// swap rows
 						sideMatrix = Utils.identityMatrix(this.m);
 						sideMatrix[minimumRow][minimumRow] = 0;

@@ -27,14 +27,18 @@ angular.module('algorithmsApp')
 		};
 
 		$scope.deleteRow = function (index) {
-			if ($scope.inputMatrix.length === 1) return;
+			if ($scope.inputMatrix.length === 1) {
+				return;
+			}
 
 			$scope.inputMatrix.splice(index, 1);
 			$scope.eliminate();
 		};
 
 		$scope.deleteColumn = function (index) {
-			if ($scope.inputMatrix[0].length === 1) return;
+			if ($scope.inputMatrix[0].length === 1) {
+				return;
+			}
 
 			$scope.inputMatrix.forEach(function (row) {
 				row.splice(index, 1);

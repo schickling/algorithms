@@ -57,7 +57,7 @@ angular.module('algorithmsApp')
 					rightMatrix = Utils.identityMatrix(m);
 
 				// check if qudratic
-				if (leftMatrix.length != leftMatrix[0].length) {
+				if (leftMatrix.length !== leftMatrix[0].length) {
 					return false;
 				}
 
