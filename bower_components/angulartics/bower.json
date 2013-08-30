@@ -1,0 +1,9 @@
+{
+  "name": "angulartics",
+  "version": "0.7.0",
+  "main": "./src/angulartics.js",
+  "dependencies": {
+    "angular": ">= 1.0.7",
+    "angular-mocks": "~1.0.7"
+  }
+}
