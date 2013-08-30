@@ -28,6 +28,9 @@
 					</tr>
 				</table>
 			</div>
+			<div class="row spare-right text-center">
+				<span class="label label-default">Matrix A</span>
+			</div>
 		</div>
 		<div class="col-md-8 col-md-offset-1">
 			<div class="row">
@@ -41,32 +44,52 @@
 			</div>
 			<div class="row">
 				<div class="col-md-3">
-					<table class="table table-bordered no-border">
-						<tr ng-repeat="row in B">
-							<td ng-repeat="element in row track by $index" class="center">{{element}}</td>
-						</tr>
-					</table>
+					<div class="row spare-right">
+						<table class="table table-bordered no-border">
+							<tr ng-repeat="row in B">
+								<td ng-repeat="element in row track by $index" class="center">{{element}}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="row spare-right text-center">
+						<span class="label label-default">Matrix B</span>
+					</div>
 				</div>
 				<div class="col-md-3">
-					<table class="table table-bordered no-border">
-						<tr ng-repeat="row in S">
-							<td ng-repeat="element in row track by $index" class="center">{{element}}</td>
-						</tr>
-					</table>
+					<div class="row spare-right">
+						<table class="table table-bordered no-border">
+							<tr ng-repeat="row in S">
+								<td ng-repeat="element in row track by $index" class="center">{{element}}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="row spare-right text-center">
+						<span class="label label-default">Matrix S</span>
+					</div>
 				</div>
 				<div class="col-md-3">
-					<table class="table table-bordered no-border">
-						<tr ng-repeat="row in A">
-							<td ng-repeat="element in row track by $index" class="center">{{element}}</td>
-						</tr>
-					</table>
+					<div class="row spare-right">
+						<table class="table table-bordered no-border">
+							<tr ng-repeat="row in A">
+								<td ng-repeat="element in row track by $index" class="center">{{element}}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="row spare-right text-center">
+						<span class="label label-default">Matrix A</span>
+					</div>
 				</div>
 				<div class="col-md-3">
-					<table class="table table-bordered no-border">
-						<tr ng-repeat="row in T">
-							<td ng-repeat="element in row track by $index" class="center">{{element}}</td>
-						</tr>
-					</table>
+					<div class="row">
+						<table class="table table-bordered no-border">
+							<tr ng-repeat="row in T">
+								<td ng-repeat="element in row track by $index" class="center">{{element}}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="row text-center">
+						<span class="label label-default">Matrix T</span>
+					</div>
 				</div>
 			</div>
 		</div>
