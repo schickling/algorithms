@@ -27,6 +27,10 @@ angular.module('algorithmsApp')
         name: 'Smith normal form',
         description: 'Translate a matrix smith normal form',
         url: 'smith-normal-form',
+      }, {
+        name: 'Matrix multiplication',
+        description: 'Multiplicates three matrices',
+        url: 'matrix-multiplication',
       },
     ];
   });
