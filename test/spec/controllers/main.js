@@ -16,7 +16,4 @@ describe('Controller: main', function () {
     });
   }));
 
-  it('should attach a list of algorithms to the scope', function () {
-    expect(scope.algorithms.length).toBe(5);
-  });
 });
