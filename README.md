@@ -8,6 +8,7 @@ __Online:__ http://schickling.github.io/algorithms/
 
 ## Algorithms
 * Chinese remainder theorem
+* Prime number test
 * Extended euclidean algorithm
 * Gaussian elimination
 * Invert matrix
