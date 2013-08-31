@@ -31,6 +31,10 @@ angular.module('algorithmsApp', ['ngRoute', 'angulartics', 'angulartics.google.a
         templateUrl: 'views/primeNumberTest.html',
         controller: 'PrimeNumberTest'
       })
+      .when('/matrix-multiplication', {
+        templateUrl: 'views/matrixMultiplication.html',
+        controller: 'MatrixMultiplication'
+      })
       .otherwise({
         redirectTo: '/'
       });
