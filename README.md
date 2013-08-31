@@ -11,6 +11,7 @@ __Online:__ http://schickling.github.io/algorithms/
 * Prime number test
 * Extended euclidean algorithm
 * Gaussian elimination
+* Matrix multiplication
 * Invert matrix
 * Smith normal form
 
