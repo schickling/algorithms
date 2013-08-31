@@ -19,6 +19,22 @@ angular.module('algorithmsApp')
 					var x = this.valueOf();
 					return x ? x < 0 ? -1 : 1 : 0;
 				};
+
+				Number.prototype.isPrime = function () {
+					var x = this.valueOf();
+
+					if (x < 3 || x % 2 === 0) {
+						return x === 2;
+					}
+
+					for (var i = 3; x > i * i; i += 2) {
+						if (x % i === 0) {
+							return false;
+						}
+					}
+
+					return true;
+				};
 			}
 		};
 	});
