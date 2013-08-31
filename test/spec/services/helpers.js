@@ -35,4 +35,10 @@ describe('Service: helpers', function () {
     expect((115249).primeFactors()).toEqual([115249]);
   });
 
+  it('should extend Number prototype with isSquare', function () {
+    expect((2).isSquare()).toEqual(false);
+    expect((4).isSquare()).toEqual(true);
+    expect((8).isSquare()).toEqual(false);
+  });
+
 });

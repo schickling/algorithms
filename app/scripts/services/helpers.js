@@ -53,6 +53,10 @@ angular.module('algorithmsApp')
 					return factors;
 				};
 
+				Number.prototype.isSquare = function() {
+					return Math.sqrt(this.valueOf()) % 1 === 0;
+				};
+
 			}
 		};
 	});
