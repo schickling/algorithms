@@ -27,6 +27,10 @@ angular.module('algorithmsApp', ['ngRoute', 'angulartics', 'angulartics.google.a
         templateUrl: 'views/smithNormalForm.html',
         controller: 'SmithNormalForm'
       })
+      .when('/prime-number-test', {
+        templateUrl: 'views/primeNumberTest.html',
+        controller: 'PrimeNumberTest'
+      })
       .otherwise({
         redirectTo: '/'
       });

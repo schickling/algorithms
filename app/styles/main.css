@@ -56,8 +56,16 @@ input:focus {
 
 .no-border {
     border: 0 !important;
+    background: none;
 }
 
 #smithNormalForm .spare-right {
     margin-right: 5px;
+}
+
+#primeNumberTest input {
+    font-size: 20px;
+    width: 150px;
+    font-weight: bold;
+    color: #3B3B3B;
 }

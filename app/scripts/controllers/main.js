@@ -8,6 +8,10 @@ angular.module('algorithmsApp')
         description: 'Solves a system of congruence equations',
         url: 'chinese-remainder-theorem',
       }, {
+        name: 'Prime number test',
+        description: 'Test a number if it\'s prime with the sieve of Eratosthenes',
+        url: 'prime-number-test',
+      }, {
         name: 'Extended euclidean algorithm',
         description: 'Calculates the greates common divisor',
         url: 'extended-euclidean-algorithm',
