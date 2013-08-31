@@ -1,0 +1,10 @@
+<div id="primeNumberTest">
+	<div class="page-header">
+		<h1>Prime number test <small>Insert your number</small></h1>
+	</div>
+	<div class="well">
+		<input class="no-border" type="number" ng-model="number" ng-change="calculate()">
+		<span ng-if="isPrime" class="label label-success">is prime</span>
+		<span ng-if="!isPrime" class="label label-warning">is not prime</span>
+	</div>
+</div>
