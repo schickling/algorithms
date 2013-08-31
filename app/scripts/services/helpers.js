@@ -15,7 +15,8 @@ angular.module('algorithmsApp')
 					return arr;
 				};
 
-				Math.sign = function (x) {
+				Number.prototype.sign = function () {
+					var x = this.valueOf();
 					return x ? x < 0 ? -1 : 1 : 0;
 				};
 			}

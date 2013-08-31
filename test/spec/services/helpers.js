@@ -11,8 +11,10 @@ describe('Service: helpers', function () {
     helpers = Helpers;
   }));
 
-  it('should do something', function () {
-    expect(!!helpers).toBe(true);
+  it('should extend Number class with sign', function () {
+    expect((-5).sign()).toBe(-1);
+    expect((5).sign()).toBe(1);
+    expect((0).sign()).toBe(0);
   });
 
 });

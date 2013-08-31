@@ -13,13 +13,13 @@ angular.module('algorithmsApp')
 				// initialize
 				steps.push({
 					remainder: Math.abs(a),
-					combinationA: Math.sign(a),
+					combinationA: a.sign(),
 					combinationB: 0,
 				});
 				steps.push({
 					remainder: Math.abs(b),
 					combinationA: 0,
-					combinationB: Math.sign(b),
+					combinationB: b.sign(),
 				});
 
 				// magic!
