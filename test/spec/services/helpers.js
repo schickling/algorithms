@@ -29,4 +29,10 @@ describe('Service: helpers', function () {
     expect((115251).isPrime()).toBe(false);
   });
 
+  it('should extend Number prototype with primeFactors', function () {
+    expect((20).primeFactors()).toEqual([2, 2, 5]);
+    expect((40).primeFactors()).toEqual([2, 2, 2, 5]);
+    expect((115249).primeFactors()).toEqual([115249]);
+  });
+
 });

@@ -35,6 +35,24 @@ angular.module('algorithmsApp')
 
 					return true;
 				};
+
+				Number.prototype.primeFactors = function () {
+					var x = Math.abs(this.valueOf()),
+						factor = 2,
+						factors = [];
+
+					while (x !== 1) {
+						if (x % factor === 0) {
+							factors.push(factor);
+							x /= factor;
+						} else {
+							factor++;
+						}
+					}
+
+					return factors;
+				};
+
 			}
 		};
 	});
