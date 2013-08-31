@@ -6,7 +6,7 @@ angular.module('algorithmsApp')
 		return {
 			calculate: function (a, b) {
 
-				var x, y, quotient, remainder, combinationA, combinationB,
+				var x, y, quotient, remainder, combinationA, combinationB, gcd, lcm,
 					steps = [],
 					index = 2;
 
@@ -44,11 +44,14 @@ angular.module('algorithmsApp')
 
 				x = steps[index - 2].combinationA;
 				y = steps[index - 2].combinationB;
+				gcd = a * x + b * y;
+				lcm = Math.abs(a * b / gcd);
 
 				return {
 					x: x,
 					y: y,
-					gcd: a * x + b * y,
+					gcd: gcd,
+					lcm: lcm,
 					steps: steps
 				};
 			}

@@ -14,6 +14,7 @@ describe('Service: extendedEuclideanAlgorithm', function () {
   it('should calc results for a = 1, b = 1', function () {
     var result = extendedEuclideanAlgorithm.calculate(1, 1);
     expect(result.gcd).toBe(1);
+    expect(result.lcm).toBe(1);
     expect(result.x).toBe(0);
     expect(result.y).toBe(1);
     expect(result.steps).toEqual([{
@@ -30,6 +31,7 @@ describe('Service: extendedEuclideanAlgorithm', function () {
   it('should calc results for a = 2, b = -4', function () {
     var result = extendedEuclideanAlgorithm.calculate(2, -4);
     expect(result.gcd).toBe(2);
+    expect(result.lcm).toBe(4);
     expect(result.x).toBe(1);
     expect(result.y).toBe(0);
     expect(result.steps).toEqual([{
@@ -51,6 +53,7 @@ describe('Service: extendedEuclideanAlgorithm', function () {
   it('should calc results for a = 6, b = 3', function () {
     var result = extendedEuclideanAlgorithm.calculate(6, 3);
     expect(result.gcd).toBe(3);
+    expect(result.lcm).toBe(6);
     expect(result.x).toBe(0);
     expect(result.y).toBe(1);
     expect(result.steps).toEqual([{
@@ -67,6 +70,7 @@ describe('Service: extendedEuclideanAlgorithm', function () {
   it('should calc results for a = 120, b = 23', function () {
     var result = extendedEuclideanAlgorithm.calculate(120, 23);
     expect(result.gcd).toBe(1);
+    expect(result.lcm).toBe(2760);
     expect(result.x).toBe(-9);
     expect(result.y).toBe(47);
     expect(result.steps).toEqual([{
@@ -105,6 +109,7 @@ describe('Service: extendedEuclideanAlgorithm', function () {
   it('should calc results for a = 23, b = 120', function () {
     var result = extendedEuclideanAlgorithm.calculate(23, 120);
     expect(result.gcd).toBe(1);
+    expect(result.lcm).toBe(2760);
     expect(result.x).toBe(47);
     expect(result.y).toBe(-9);
     expect(result.steps).toEqual([{

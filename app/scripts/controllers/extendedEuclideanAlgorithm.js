@@ -6,6 +6,7 @@ angular.module('algorithmsApp')
     $scope.a = 120;
     $scope.b = 23;
     $scope.gcd = undefined;
+    $scope.lcm = undefined;
     $scope.x = undefined;
     $scope.y = undefined;
     $scope.steps = [];
@@ -15,6 +16,7 @@ angular.module('algorithmsApp')
       $scope.x = result.x;
       $scope.y = result.y;
       $scope.gcd = result.gcd;
+      $scope.lcm = result.lcm;
       $scope.steps = result.steps;
     };
 
