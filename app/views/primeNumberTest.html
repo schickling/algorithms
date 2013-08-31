@@ -6,5 +6,6 @@
 		<input class="no-border" type="number" ng-model="number" ng-change="calculate()">
 		<span ng-if="isPrime" class="label label-success">is prime</span>
 		<span ng-if="!isPrime" class="label label-warning">is not prime</span>
+		<span ng-if="!isPrime" class="label label-warning">{{number}} = <span ng-repeat="factor in number.primeFactors() track by $index">{{factor}} <span ng-if="!$last">* </span></span></span>
 	</div>
 </div>
