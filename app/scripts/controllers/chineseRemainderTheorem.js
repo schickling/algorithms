@@ -34,8 +34,8 @@ angular.module('algorithmsApp')
 				mVector = [];
 
 			$scope.rows.forEach(function (row) {
-				aVector.push(row.a);
-				mVector.push(row.m);
+				aVector.push(parseInt(row.a));
+				mVector.push(parseInt(row.m));
 			});
 
 			$scope.x = ChineseRemainderTheorem.calculate(aVector, mVector);
