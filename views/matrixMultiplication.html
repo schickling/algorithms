@@ -22,7 +22,7 @@
 						<table class="table table-bordered no-border">
 							<tr ng-repeat="row in matrix">
 								<td ng-repeat="element in row track by $index">
-									<input class="element" type="text" ng-model="row[$index]" ng-change="calculate()">
+									<input class="element" type="number" ng-model="row[$index]" ng-change="calculate()">
 								</td>
 							</tr>
 						</table>
@@ -46,8 +46,8 @@
 			<div class="row">
 				<table class="table table-bordered no-border">
 					<tr ng-repeat="row in outputMatrix">
-						<td ng-repeat="element in row track by $index">
-							<input class="element" type="text" ng-model="row[$index]" ng-change="calculate()">
+						<td class="text-center" ng-repeat="element in row track by $index">
+							{{element}}
 						</td>
 					</tr>
 				</table>
