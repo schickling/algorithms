@@ -3,7 +3,7 @@
 angular.module('algorithmsApp')
 	.controller('SmithNormalForm', function ($scope, SmithNormalForm, Utils) {
 
-		$scope.A = [[2, 4, 4], [-6, 6, 12], [10, -4, -16]];
+		$scope.A = [[-5, 5, -50], [-10, 5, 45], [10, -5, -30]];
 
 		$scope.calculate = function () {
 			var result = SmithNormalForm.calculate($scope.A);
