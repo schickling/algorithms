@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('algorithmsApp')
-	.controller('MatrixMultiplication', function ($scope, MatrixMultiplication, Utils) {
+	.controller('matrixMultiplication', function ($scope, MatrixMultiplication, Utils) {
 
 		$scope.inputMatrices = [[[1, 0, 0], [0, 1, 0], [0, 0, 1]], [[2, 4, 4], [-6, 6, 12], [10, -4, -16]], [[1, 0, 0], [0, 1, 0], [0, 0, 1]]];
 

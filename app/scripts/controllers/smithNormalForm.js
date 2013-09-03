@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('algorithmsApp')
-	.controller('SmithNormalForm', function ($scope, SmithNormalForm, Utils) {
+	.controller('smithNormalForm', function ($scope, SmithNormalForm, Utils) {
 
 		$scope.A = [[-5, 5, -50], [-10, 5, 45], [10, -5, -30]];
 

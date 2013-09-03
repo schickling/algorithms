@@ -12,6 +12,10 @@ angular.module('algorithmsApp')
         description: 'Test a number if it\'s prime with the sieve of Eratosthenes',
         url: 'prime-number-test',
       }, {
+        name: 'Prime number generators',
+        description: 'Generate prime numbers with different algorithms',
+        url: 'prime-number-generators',
+      }, {
         name: 'Extended euclidean algorithm',
         description: 'Calculates the greates common divisor',
         url: 'extended-euclidean-algorithm',

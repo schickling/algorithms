@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('algorithmsApp')
-	.controller('PrimeNumberTest', function ($scope) {
+	.controller('primeNumberTest', function ($scope) {
 		
 		$scope.number = 23;
 

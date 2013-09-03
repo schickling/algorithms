@@ -25,15 +25,19 @@ angular.module('algorithmsApp', ['ngRoute', 'angulartics', 'angulartics.google.a
       })
       .when('/smith-normal-form', {
         templateUrl: 'views/smithNormalForm.html',
-        controller: 'SmithNormalForm'
+        controller: 'smithNormalForm'
       })
       .when('/prime-number-test', {
         templateUrl: 'views/primeNumberTest.html',
-        controller: 'PrimeNumberTest'
+        controller: 'primeNumberTest'
       })
       .when('/matrix-multiplication', {
         templateUrl: 'views/matrixMultiplication.html',
-        controller: 'MatrixMultiplication'
+        controller: 'matrixMultiplication'
+      })
+      .when('/prime-number-generators', {
+        templateUrl: 'views/primeNumberGenerators.html',
+        controller: 'primeNumberGenerators'
       })
       .otherwise({
         redirectTo: '/'
