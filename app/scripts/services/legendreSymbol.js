@@ -8,7 +8,7 @@ angular.module('algorithmsApp')
 			calculate: function (a, p) {
 
 				if (a >= p || a < 0) {
-					return this.calculate(a % p, p);
+					return this.calculate(((a % p) + p) % p, p);
 				} else if (a === 0 || a === 1) {
 					return a;
 				} else if (a === 2) {
@@ -29,7 +29,7 @@ angular.module('algorithmsApp')
 						self = this,
 						product = 1;
 
-					primeFactors.forEach(function(primeNumber) {
+					primeFactors.forEach(function (primeNumber) {
 						product *= self.calculate(primeNumber, p);
 					});
 
