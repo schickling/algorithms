@@ -10,7 +10,10 @@
 </div>
 <ul class="nav nav-pills nav-stacked">
 	<li ng-repeat="algorithm in algorithms">
-		<a href="#/{{algorithm.url}}">{{algorithm.name}}
-		<span style="margin-left: 10px" class="text-muted">{{algorithm.description}}</span></a>
+		<a href="#/{{algorithm.url}}">
+			{{algorithm.name}}
+			<span style="margin-left: 10px" class="text-muted">{{algorithm.description}}</span>
+			<span style="margin-left: 10px" class="label label-warning">{{algorithm.label}}</span>
+		</a>
 	</li>
 </ul>
