@@ -11,8 +11,40 @@ describe('Service: legendreSymbol', function () {
     legendreSymbol = LegendreSymbol;
   }));
 
-  it('should do something', function () {
-    expect( !! legendreSymbol).toBe(true);
+  it('should calculate(3, 29)', function () {
+    expect(legendreSymbol.calculate(3, 29)).toBe(-1);
+  });
+
+  it('should calculate(111, 41)', function () {
+    expect(legendreSymbol.calculate(111, 41)).toBe(-1);
+  });
+
+  it('should calculate(113, 41)', function () {
+    expect(legendreSymbol.calculate(113, 41)).toBe(1);
+  });
+
+  it('should calculate(2, 31)', function () {
+    expect(legendreSymbol.calculate(2, 31)).toBe(1);
+  });
+
+  it('should calculate(5, 31)', function () {
+    expect(legendreSymbol.calculate(5, 31)).toBe(1);
+  });
+
+  it('should calculate(150, 1009)', function () {
+    expect(legendreSymbol.calculate(150, 1009)).toBe(1);
+  });
+
+  it('should calculate(25, 1009)', function () {
+    expect(legendreSymbol.calculate(25, 1009)).toBe(1);
+  });
+
+  it('should calculate(2, 1009)', function () {
+    expect(legendreSymbol.calculate(2, 1009)).toBe(1);
+  });
+
+  it('should calculate(3, 1009)', function () {
+    expect(legendreSymbol.calculate(3, 1009)).toBe(1);
   });
 
 });
