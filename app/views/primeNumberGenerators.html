@@ -1,1 +1,23 @@
-<p>This is the primeNumberGenerators view.</p>
+<div id="primeNumberGenerators">
+	<div class="page-header">
+		<h1>Prime number test <small>Select your algorithm</small></h1>
+	</div>
+	<div class="row">
+		<form class="form-inline options">
+			<div class="input-group">
+				<select class="form-control" ng-change="calculate()" ng-model="selectedAlgorithm" ng-options="algorithm.name for algorithm in algorithms"></select>
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon">Amount</span>
+				<input type="number" class="form-control" ng-model="amount" ng-change="calculate()">
+			</div>
+		</form>
+	</div>
+	<div class="row">
+		<ul class="list-group">
+			<li class="list-group-item" ng-repeat="primeNumber in primeNumbers">
+				{{primeNumber}} <span class="label label-success" ng-if="primeNumber.isPrime()">is prime</span>
+			</li>
+		</ul>
+	</div>
+</div>
