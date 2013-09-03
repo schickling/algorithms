@@ -33,7 +33,6 @@ angular.module('algorithmsApp')
 						primeNumbersBelowI.forEach(function (primeNumber) {
 							primorial *= primeNumber;
 						});
-						console.log(i, primeNumbersBelowI, primorial);
 
 						primeNumbers.push(primorial - 1);
 					}
