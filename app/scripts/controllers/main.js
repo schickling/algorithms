@@ -43,6 +43,11 @@ angular.module('algorithmsApp')
         description: 'Multiplicates three matrices',
         url: 'matrix-multiplication',
         label: ''
+      }, {
+        name: 'Legendre symbol',
+        description: 'Legendre symbol calulation',
+        url: 'legendre',
+        label: ''
       },
     ];
   });

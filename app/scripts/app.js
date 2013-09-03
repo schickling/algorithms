@@ -39,6 +39,10 @@ angular.module('algorithmsApp', ['ngRoute', 'angulartics', 'angulartics.google.a
         templateUrl: 'views/primeNumberGenerators.html',
         controller: 'primeNumberGenerators'
       })
+      .when('/legendre', {
+        templateUrl: 'views/legendre.html',
+        controller: 'legendre'
+      })
       .otherwise({
         redirectTo: '/'
       });
