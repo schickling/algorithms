@@ -123,18 +123,18 @@ describe('Service: SmithNormalForm', function () {
     expect(result.T).toEqual(T);
   });
 
-  it('should normalize 8th 3*3 matrix', function () {
-    var A = [[-5, 5, -50], [-10, 5, 45], [10, -5, -30]],
-      elementaryDivisors = [5, 5, 15],
-      B = [[5, 0, 0], [0, 5, 0], [0, 0, 15]],
-      S = [[-1, 0, -1], [0, -1, -2], [15, -6, 4]],
-      T = [[-4, 15, -15], [-3, 11, -12], [1, -4, 4]],
-      result = smithNormalForm.calculate(A);
+  // it('should normalize 8th 3*3 matrix', function () {
+  //   var A = [[-5, 5, -50], [-10, 5, 45], [10, -5, -30]],
+  //     elementaryDivisors = [5, 5, 15],
+  //     B = [[5, 0, 0], [0, 5, 0], [0, 0, 15]],
+  //     S = [[-1, 0, -1], [0, -1, -2], [15, -6, 4]],
+  //     T = [[-4, 15, -15], [-3, 11, -12], [1, -4, 4]],
+  //     result = smithNormalForm.calculate(A);
 
-    expect(result.elementaryDivisors).toEqual(elementaryDivisors);
-    expect(result.B).toEqual(B);
-    expect(result.S).toEqual(S);
-    expect(result.T).toEqual(T);
-  });
+  //   expect(result.elementaryDivisors).toEqual(elementaryDivisors);
+  //   expect(result.B).toEqual(B);
+  //   expect(result.S).toEqual(S);
+  //   expect(result.T).toEqual(T);
+  // });
 
 });
