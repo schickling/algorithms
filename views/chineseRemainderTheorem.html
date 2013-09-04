@@ -6,7 +6,7 @@
 		<div class="col-md-8">
 			<ul class="list-group">
 				<li class="list-group-item" ng-repeat="row in rows">
-					<strong>{{x}}</strong> ≡ <input type="text" ng-model="row.a" ng-change="calculate()"> mod <input type="text" ng-model="row.m" ng-change="calculate()">
+					<strong>{{x}}</strong> ≡ <input type="number" min="1" ng-model="row.a" ng-change="calculate()"> mod <input type="number" min="1" ng-model="row.m" ng-change="calculate()">
 					<span class="glyphicon glyphicon-minus-sign" ng-click="dropRow($index)"></span>
 				</li>
 			</ul>
