@@ -15,7 +15,6 @@ angular.module('algorithmsApp')
 				var m = matrix.length;
 
 				if (m === 1) {
-
 					return matrix[0][0];
 
 				} else {
@@ -23,7 +22,7 @@ angular.module('algorithmsApp')
 					var sum = 0;
 
 					for (var rowIndex = 0; rowIndex < m; rowIndex++) {
-						sum += Math.pow(-1, rowIndex) * matrix[rowIndex][0] * this._getSubMatrix(matrix, rowIndex);
+						sum += Math.pow(-1, rowIndex) * matrix[rowIndex][0] * this.calculate(this._getSubMatrix(matrix, rowIndex));
 					}
 
 					return sum;
