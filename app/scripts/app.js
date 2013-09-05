@@ -43,6 +43,10 @@ angular.module('algorithmsApp', ['ngRoute', 'angulartics', 'angulartics.google.a
         templateUrl: 'views/legendre.html',
         controller: 'legendre'
       })
+      .when('/determinant', {
+        templateUrl: 'views/determinant.html',
+        controller: 'DeterminantCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
