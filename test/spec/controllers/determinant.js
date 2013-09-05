@@ -1,22 +1,19 @@
 'use strict';
 
-describe('Controller: DeterminantCtrl', function () {
+describe('Controller: Determinant', function () {
 
   // load the controller's module
   beforeEach(module('algorithmsApp'));
 
-  var DeterminantCtrl,
+  var Controller,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    DeterminantCtrl = $controller('DeterminantCtrl', {
+    Controller = $controller('Determinant', {
       $scope: scope
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
-  });
 });
