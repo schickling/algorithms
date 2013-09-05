@@ -1,1 +1,43 @@
-<p>This is the determinant view.</p>
+<div id="determinant">
+	<div class="page-header">
+		<h1>Determinant <small>Insert your matrix</small></h1>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="col-md-5"><h2>Input</h2></div>
+			<div class="col-md-6 pull-right" style="margin: 18px 16px 0 0;">
+				<div class="btn-group pull-right">
+					<button type="button" class="btn btn-sm btn-primary" ng-click="addRow()">
+						<span class="glyphicon glyphicon-plus-sign"></span> Add row
+					</button>
+					<button type="button" class="btn btn-sm btn-primary" ng-click="addColumn()">
+						<span class="glyphicon glyphicon-plus-sign"></span> Add column
+					</button>
+				</div>
+			</div>
+			<table class="table table-bordered no-border">
+				<tr ng-repeat="row in matrix">
+					<td ng-repeat="element in row track by $index">
+						<input class="element" type="number" ng-model="row[$index]" ng-change="eliminate()">
+					</td>
+					<td class="no-border">
+						<button type="button" class="close" aria-hidden="true" ng-click="deleteRow($index)">&times;</button>
+					</td>
+				</tr>
+				<tr>
+					<td ng-repeat="col in matrix[0] track by $index" class="no-border center">
+						<button type="button" class="close" aria-hidden="true" ng-click="deleteColumn($index)">&times;</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-md-5 col-md-offset-1">
+			<div class="col-md-6"><h2>Result</h2></div>
+			<table class="table table-bordered no-border">
+				<tr ng-repeat="row in resultMatrix">
+					<td ng-repeat="element in row track by $index" class="center">{{element}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

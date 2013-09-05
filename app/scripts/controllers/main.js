@@ -48,6 +48,11 @@ angular.module('algorithmsApp')
         description: 'Legendre symbol calulation',
         url: 'legendre',
         label: ''
+      }, {
+        name: 'Determinant',
+        description: 'Determinant calulation with Leibniz algorithm',
+        url: 'determinant',
+        label: ''
       },
     ];
   });
