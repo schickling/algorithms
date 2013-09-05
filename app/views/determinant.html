@@ -15,7 +15,8 @@
 					</button>
 				</div>
 			</div>
-			<table class="table table-bordered no-border">
+			<matrix ng-model="matrix">
+			<!-- <table class="table table-bordered no-border">
 				<tr ng-repeat="row in matrix">
 					<td ng-repeat="element in row track by $index">
 						<input class="element" type="number" ng-model="row[$index]" ng-change="eliminate()">
@@ -29,7 +30,7 @@
 						<button type="button" class="close" aria-hidden="true" ng-click="deleteColumn($index)">&times;</button>
 					</td>
 				</tr>
-			</table>
+			</table> -->
 		</div>
 		<div class="col-md-5 col-md-offset-1">
 			<div class="col-md-6"><h2>Result</h2></div>
