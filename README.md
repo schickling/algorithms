@@ -14,5 +14,6 @@ __Online:__ http://schickling.github.io/algorithms/
 * Matrix multiplication
 * Invert matrix
 * Smith normal form
+* Leibniz determinant
 
 _More coming soon..._
