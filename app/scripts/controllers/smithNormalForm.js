@@ -14,22 +14,12 @@ angular.module('algorithmsApp')
 		};
 
 		$scope.makeBigger = function () {
-			var row = [];
-			for (var i = 0; i < $scope.A[0].length; i++) {
-				row.push(Utils.randomNumber(-3, 4));
-			}
-			$scope.A.push(row);
-			$scope.A.forEach(function (row) {
-				row.push(Utils.randomNumber(-3, 4));
-			});
+			Utils.matrixExpand($scope.A);
 			$scope.calculate();
 		};
 
 		$scope.makeSmaller = function () {
-			$scope.A.pop();
-			$scope.A.forEach(function (row) {
-				row.pop();
-			});
+			Utils.matrixShrink($scope.A);
 			$scope.calculate();
 		};
 
