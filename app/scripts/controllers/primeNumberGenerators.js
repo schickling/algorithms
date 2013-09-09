@@ -3,7 +3,6 @@
 angular.module('algorithmsApp')
 	.controller('primeNumberGenerators', function ($scope, PrimeNumberGenerator) {
 
-
 		$scope.algorithms = [
 			{
 				name: 'Primorial calculation',

@@ -3,6 +3,14 @@
 		<h1>Determinant <small>Insert your matrix</small></h1>
 	</div>
 	<div class="row">
+		<form class="form-inline options">
+			<div class="input-group">
+				<label for="selectAlgorithm">Select algorithm</label>
+				<select id="selectAlgorithm" class="form-control" ng-change="calculate()" ng-model="selectedAlgorithm" ng-options="algorithm.name for algorithm in algorithms"></select>
+			</div>
+		</form>
+	</div>
+	<div class="row">
 		<div class="col-md-6">
 			<div class="col-md-5"><h2>Input</h2></div>
 			<div class="col-md-6 pull-right" style="margin: 18px 16px 0 0;">
