@@ -10,22 +10,12 @@ angular.module('algorithmsApp')
 		};
 
 		$scope.makeBigger = function () {
-			var row = [];
-			for (var i = 0; i < $scope.inputMatrix[0].length; i++) {
-				row.push(Utils.randomNumber(-10, 20));
-			}
-			$scope.inputMatrix.push(row);
-			$scope.inputMatrix.forEach(function (row) {
-				row.push(Utils.randomNumber(-10, 20));
-			});
+			Utils.matrixExpand($scope.inputMatrix);
 			$scope.invert();
 		};
 
 		$scope.makeSmaller = function () {
-			$scope.inputMatrix.pop();
-			$scope.inputMatrix.forEach(function (row) {
-				row.pop();
-			});
+			Utils.matrixShrink($scope.inputMatrix);
 			$scope.invert();
 		};
 

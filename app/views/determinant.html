@@ -13,13 +13,13 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="col-md-5"><h2>Input</h2></div>
-			<div class="col-md-6 pull-right" style="margin: 18px 16px 0 0;">
+			<div class="col-md-6 pull-right" style="margin: 18px 0 0; padding: 0;">
 				<div class="btn-group pull-right">
-					<button type="button" class="btn btn-sm btn-primary" ng-click="addRow()">
-						<span class="glyphicon glyphicon-plus-sign"></span> Add row
+					<button type="button" class="btn btn-sm btn-primary" ng-click="makeBigger()">
+						<span class="glyphicon glyphicon-plus-sign"></span> Make bigger
 					</button>
-					<button type="button" class="btn btn-sm btn-primary" ng-click="addColumn()">
-						<span class="glyphicon glyphicon-plus-sign"></span> Add column
+					<button ng-if="matrix.length > 1" type="button" class="btn btn-sm btn-primary" ng-click="makeSmaller()">
+						<span class="glyphicon glyphicon-minus-sign"></span> Make smaller
 					</button>
 				</div>
 			</div>
