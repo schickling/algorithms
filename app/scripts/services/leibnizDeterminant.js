@@ -15,6 +15,7 @@ angular.module('algorithmsApp')
 				var m = matrix.length;
 
 				if (m === 1) {
+
 					return matrix[0][0];
 
 				} else {
@@ -42,6 +43,6 @@ angular.module('algorithmsApp')
 				return subMatrix;
 			}
 
-		}
+		};
 
 	});
