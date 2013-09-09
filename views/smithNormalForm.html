@@ -20,13 +20,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<table class="table table-bordered no-border">
-					<tr ng-repeat="row in A">
-						<td ng-repeat="element in row track by $index">
-							<input class="element" type="number" ng-="" ng-model="row[$index]" ng-change="calculate()">
-						</td>
-					</tr>
-				</table>
+				<matrix ng-model="A" ng-change-callback="calculate()"></matrix>
 			</div>
 			<div class="row spare-right text-center">
 				<span class="label label-default">Matrix A</span>

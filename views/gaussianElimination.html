@@ -15,21 +15,7 @@
 					</button>
 				</div>
 			</div>
-			<table class="table table-bordered no-border">
-				<tr ng-repeat="row in inputMatrix">
-					<td ng-repeat="element in row track by $index">
-						<input class="element" type="number" ng-model="row[$index]" ng-change="eliminate()">
-					</td>
-					<td class="no-border">
-						<button type="button" class="close" aria-hidden="true" ng-click="deleteRow($index)">&times;</button>
-					</td>
-				</tr>
-				<tr>
-					<td ng-repeat="col in inputMatrix[0] track by $index" class="no-border center">
-						<button type="button" class="close" aria-hidden="true" ng-click="deleteColumn($index)">&times;</button>
-					</td>
-				</tr>
-			</table>
+			<matrix ng-model="inputMatrix" ng-change-callback="eliminate()" ng-show-delete="true"></matrix>
 		</div>
 		<div class="col-md-5 col-md-offset-1">
 			<div class="col-md-6"><h2>Result</h2></div>

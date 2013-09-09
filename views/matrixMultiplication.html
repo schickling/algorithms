@@ -19,13 +19,7 @@
 			<div class="row">
 				<div class="col-md-4" ng-repeat="matrix in inputMatrices" style="margin-bottom: 15px">
 					<div class="row spare-right">
-						<table class="table table-bordered no-border">
-							<tr ng-repeat="row in matrix">
-								<td ng-repeat="element in row track by $index">
-									<input class="element" type="number" ng-model="row[$index]" ng-change="calculate()">
-								</td>
-							</tr>
-						</table>
+						<matrix ng-model="matrix" ng-change-callback="calculate()"></matrix>
 					</div>
 					<div class="row spare-right text-center">
 						<span class="label label-default">Matrix M{{$index + 1}}</span>

@@ -1,0 +1,37 @@
+<div id="determinant">
+	<div class="page-header">
+		<h1>Determinant <small>Insert your matrix</small></h1>
+	</div>
+	<div class="row">
+		<form class="form-inline options">
+			<div class="input-group">
+				<label for="selectAlgorithm">Select algorithm</label>
+				<select id="selectAlgorithm" class="form-control" ng-change="calculate()" ng-model="selectedAlgorithm" ng-options="algorithm.name for algorithm in algorithms"></select>
+			</div>
+		</form>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="col-md-5"><h2>Input</h2></div>
+			<div class="col-md-6 pull-right" style="margin: 18px 0 0; padding: 0">
+				<div class="btn-group pull-right">
+					<button type="button" class="btn btn-sm btn-primary" ng-click="makeBigger()">
+						<span class="glyphicon glyphicon-plus-sign"></span> Make bigger
+					</button>
+					<button ng-if="matrix.length > 1" type="button" class="btn btn-sm btn-primary" ng-click="makeSmaller()">
+						<span class="glyphicon glyphicon-minus-sign"></span> Make smaller
+					</button>
+				</div>
+			</div>
+			<matrix ng-model="matrix" ng-change-callback="calculate()"></matrix>
+		</div>
+		<div class="col-md-5 col-md-offset-1">
+			<div class="row">
+				<h2>Result</h2>
+			</div>
+			<div class="row">
+				<span class="label label-success">{{determinant}}</span>
+			</div>
+		</div>
+	</div>
+</div>

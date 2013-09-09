@@ -15,13 +15,7 @@
 					</button>
 				</div>
 			</div>
-			<table class="table table-bordered no-border">
-				<tr ng-repeat="row in inputMatrix">
-					<td ng-repeat="element in row track by $index">
-						<input class="element" type="number" ng-model="row[$index]" ng-change="invert()">
-					</td>
-				</tr>
-			</table>
+			<matrix ng-model="inputMatrix" ng-change-callback="invert()"></matrix>
 		</div>
 		<div class="col-md-5 col-md-offset-1">
 			<div class="col-md-12"><h2>Result</h2></div>
