@@ -15,11 +15,15 @@
 					</button>
 				</div>
 			</div>
-			<matrix ng-model="matrix">
+			<matrix ng-model="matrix" ng-change-callback="calculate()"></matrix>
 		</div>
 		<div class="col-md-5 col-md-offset-1">
-			<div class="col-md-6"><h2>Result</h2></div>
-			<span class="label label-success">{{determinant}}</span>
+			<div class="row">
+				<h2>Result</h2>
+			</div>
+			<div class="row">
+				<span class="label label-success">{{determinant}}</span>
+			</div>
 		</div>
 	</div>
 </div>

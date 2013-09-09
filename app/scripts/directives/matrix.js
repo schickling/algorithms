@@ -7,9 +7,9 @@ angular.module('algorithmsApp')
 			restrict: 'E',
 			scope: true,
 			link: function postLink(scope, element, attrs) {
-				window.el = element;
 				scope.matrix = scope.$parent[attrs.ngModel];
 				scope.showDelete = attrs.ngShowDelete || false;
+				scope.changeCallback = attrs.ngChangeCallback;
 			}
 		};
 	});

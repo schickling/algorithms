@@ -1,7 +1,7 @@
 <table class="table table-bordered no-border matrix">
 	<tr ng-repeat="row in matrix">
 		<td ng-repeat="element in row track by $index">
-			<input type="number" ng-model="row[$index]" ng-change="eliminate()">
+			<input type="number" ng-model="row[$index]" ng-change="{{changeCallback}}">
 		</td>
 		<td class="no-border" ng-if="showDelete">
 			<button type="button" class="close" aria-hidden="true" ng-click="deleteRow($index)">&times;</button>
