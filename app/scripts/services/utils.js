@@ -21,6 +21,19 @@ angular.module('algorithmsApp')
 				return matrix;
 			},
 
+			emptyMatrix: function (n) {
+				var matrix = [];
+
+				for (var i = 0; i < n; i++) {
+					matrix.push([]);
+					for (var j = 0; j < n; j++) {
+						matrix[i][j] = 0;
+					}
+				}
+
+				return matrix;
+			},
+
 			matrixMultiply: function (A, B) {
 				var C = [];
 				for (var j = 0; j < A.length; j++) {

@@ -27,6 +27,11 @@ describe('Service: utils', function () {
     expect(utils.identityMatrix(5)).toEqual(expectedMatrix);
   });
 
+  it('should generate the empty matrix for n = 3', function () {
+    var expectedMatrix = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+    expect(utils.emptyMatrix(3)).toEqual(expectedMatrix);
+  });
+
   it('shoud multiply two matrices', function () {
     var A = [[-1, -1], [4, 3]],
       B = [[18, 24], [-24, -36]],
