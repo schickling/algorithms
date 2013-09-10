@@ -3,7 +3,7 @@
 angular.module('algorithmsApp')
 	.directive('matrix', function () {
 		return {
-			templateUrl: 'scripts/directives/templates/matrix.html',
+			templateUrl: 'views/directives/matrix.html',
 			restrict: 'E',
 			scope: true,
 			link: function postLink(scope, element, attrs) {
