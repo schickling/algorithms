@@ -1,0 +1,15 @@
+<table class="table table-bordered no-border matrix">
+	<tr ng-repeat="row in matrix">
+		<td ng-repeat="element in row track by $index">
+			<input type="number" ng-model="row[$index]" ng-change="{{changeCallback}}">
+		</td>
+		<td class="no-border" ng-if="showDelete">
+			<button type="button" class="close" aria-hidden="true" ng-click="deleteRow($index)">&times;</button>
+		</td>
+	</tr>
+	<tr ng-if="showDelete">
+		<td ng-repeat="col in matrix[0] track by $index" class="no-border center">
+			<button type="button" class="close" aria-hidden="true" ng-click="deleteColumn($index)">&times;</button>
+		</td>
+	</tr>
+</table>
