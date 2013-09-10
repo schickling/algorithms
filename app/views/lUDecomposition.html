@@ -16,6 +16,9 @@
 						<button ng-if="A.length > 1" type="button" class="btn btn-xs btn-primary" ng-click="makeSmaller()">
 							<span class="glyphicon glyphicon-minus-sign"></span> Make smaller
 						</button>
+						<button ng-click="usePivoting = !usePivoting; calculate()" ng-class="{'btn-success': usePivoting, 'btn-warning': !usePivoting}" type="button" class="btn btn-xs" ng-click="makeSmaller()">
+							<span class="glyphicon glyphicon-signal"></span> Pivoting
+						</button>
 					</div>
 				</div>
 			</div>
@@ -87,7 +90,7 @@
 				<div class="col-md-1">
 					<div class="row spare-right">
 						<table class="table table-bordered no-border">
-							<tr ng-repeat="yi in y">
+							<tr ng-repeat="yi in y track by $index">
 								<td class="center">{{yi}}</td>
 							</tr>
 						</table>
@@ -99,7 +102,7 @@
 				<div class="col-md-1">
 					<div class="row spare-right">
 						<table class="table table-bordered no-border">
-							<tr ng-repeat="xi in x">
+							<tr ng-repeat="xi in x track by $index">
 								<td class="center">{{xi}}</td>
 							</tr>
 						</table>
