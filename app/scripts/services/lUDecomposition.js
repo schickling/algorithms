@@ -60,7 +60,7 @@ angular.module('algorithmsApp')
 				// adjust b
 				if (usePivoting) {
 					b = b.map(function (element) {
-						return [element]
+						return [element];
 					});
 					b = Utils.matrixMultiply(P, b);
 					b = b.map(function (element) {
