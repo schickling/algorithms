@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('algorithmsApp')
-	.controller('primeNumberGenerators', function ($scope, PrimeNumberGenerator) {
+	.controller('primeNumberGenerator', function ($scope, PrimeNumberGenerator) {
 
 		$scope.algorithms = [
 			{

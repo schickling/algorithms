@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: primeNumberGenerators', function () {
+describe('Controller: primeNumberGenerator', function () {
 
   // load the controller's module
   beforeEach(module('algorithmsApp'));
@@ -11,7 +11,7 @@ describe('Controller: primeNumberGenerators', function () {
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    Controller = $controller('primeNumberGenerators', {
+    Controller = $controller('primeNumberGenerator', {
       $scope: scope
     });
   }));
