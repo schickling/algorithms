@@ -19,5 +19,6 @@ __Online:__ http://schickling.github.io/algorithms/
 
 ## Coming soon
 * Ulam spiral - http://scienceblogs.com/goodmath/2010/06/22/the-surprises-never-eend-the-u/
-* Jacobi method
 * Cholesky decomposition
+* Newton method
+* Spline interpolation
