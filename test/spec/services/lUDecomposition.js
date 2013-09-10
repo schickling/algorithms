@@ -7,8 +7,8 @@ describe('Service: lUDecomposition', function () {
 
   // instantiate service
   var lUDecomposition;
-  beforeEach(inject(function (_lUDecomposition_) {
-    lUDecomposition = _lUDecomposition_;
+  beforeEach(inject(function (LUDecomposition) {
+    lUDecomposition = LUDecomposition;
   }));
 
   it('should do something', function () {
