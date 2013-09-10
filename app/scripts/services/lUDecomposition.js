@@ -13,20 +13,48 @@ angular.module('algorithmsApp')
 					P = Utils.identityMatrix(m),
 					x = [1],
 					y = [1],
-					currentRow, pivotRow, column, factor;
+					currentRow, pivotRow, rowToKill, column, factor, maximumValue, maximumRow, pivotValue, partialP;
 
 				if (usePivoting) {
 
 				}
 
 				for (currentRow = 0; currentRow < m; currentRow++) {
-					for (pivotRow = currentRow + 1; pivotRow < m; pivotRow++) {
 
-						factor = U[pivotRow][currentRow] / U[currentRow][currentRow];
-						L[pivotRow][currentRow] = -factor;
+					if (usePivoting) {
+
+						// determinte row with maximum pivot element
+						maximumValue = 0;
+						maximumRow = currentRow;
+						for (pivotRow = currentRow; pivotRow < m; pivotRow++) {
+
+							pivotValue = Math.abs(U[pivotRow][currentRow]);
+
+							if (pivotValue > maximumValue) {
+								maximumValue = pivotValue;
+								maximumRow = pivotRow;
+							}
+						}
+
+						// swap rows
+						partialP = Utils.identityMatrix(m);
+						partialP[currentRow][currentRow] = 0;
+						partialP[maximumRow][maximumRow] = 0;
+						partialP[maximumRow][currentRow] = 1;
+						partialP[currentRow][maximumRow] = 1;
+
+						P = Utils.matrixMultiply(partialP, P);
+						U = Utils.matrixMultiply(partialP, U);
+
+					}
+
+					for (rowToKill = currentRow + 1; rowToKill < m; rowToKill++) {
+
+						factor = U[rowToKill][currentRow] / U[currentRow][currentRow];
+						L[rowToKill][currentRow] = -factor;
 
 						for (column = currentRow; column < m; column++) {
-							U[pivotRow][column] -= U[currentRow][column] * factor;
+							U[rowToKill][column] -= U[currentRow][column] * factor;
 						}
 					}
 				}
