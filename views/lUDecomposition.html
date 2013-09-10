@@ -1,0 +1,117 @@
+<div id="lUDecomposition">
+	<div class="page-header">
+		<h1>LU Decomposition <small>Insert your matrix A and vector b</small></h1>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="row">
+				<div class="col-md-4">
+					<h2>Input</h2>
+				</div>
+				<div class="col-md-8 pull-right" style="margin: 25px 0 0; padding: 0">
+					<div class="btn-group pull-right">
+						<button type="button" class="btn btn-xs btn-primary" ng-click="makeBigger()">
+							<span class="glyphicon glyphicon-plus-sign"></span> Make bigger
+						</button>
+						<button ng-if="A.length > 1" type="button" class="btn btn-xs btn-primary" ng-click="makeSmaller()">
+							<span class="glyphicon glyphicon-minus-sign"></span> Make smaller
+						</button>
+						<button ng-click="usePivoting = !usePivoting; calculate()" ng-class="{'btn-success': usePivoting, 'btn-warning': !usePivoting}" type="button" class="btn btn-xs" ng-click="makeSmaller()">
+							<span class="glyphicon glyphicon-signal"></span> Pivoting
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8">
+					<matrix ng-model="A" ng-change-callback="calculate()"></matrix>	
+				</div>
+				<div class="col-md-4">
+					<matrix ng-model="b" ng-change-callback="calculate()"></matrix>
+				</div>
+			</div>
+			<div class="row spare-right text-center">
+				<div class="col-md-8">
+					<span class="label label-default">Matrix A</span>
+				</div>
+				<div class="col-md-4">
+					<span class="label label-default">Vector b</span>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-7 col-md-offset-1">
+			<div class="row">
+				<div class="col-md-2">
+					<h2>Result</h2>
+				</div>
+				<div class="col-md-10" style="margin: 25px 0 0">
+					<span class="label label-default">A * x = L * U * x = b</span>
+					<span class="label label-default">L * y = b</span>
+					<span class="label label-default">R * x = y</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="row spare-right">
+						<table class="table table-bordered no-border">
+							<tr ng-repeat="row in L">
+								<td ng-repeat="element in row track by $index" class="center">{{element}}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="row spare-right text-center">
+						<span class="label label-default">Matrix L</span>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="row spare-right">
+						<table class="table table-bordered no-border">
+							<tr ng-repeat="row in U">
+								<td ng-repeat="element in row track by $index" class="center">{{element}}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="row spare-right text-center">
+						<span class="label label-default">Matrix U</span>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="row spare-right">
+						<table class="table table-bordered no-border">
+							<tr ng-repeat="row in P">
+								<td ng-repeat="element in row track by $index" class="center">{{element}}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="row spare-right text-center">
+						<span class="label label-default">Matrix P</span>
+					</div>
+				</div>
+				<div class="col-md-1">
+					<div class="row spare-right">
+						<table class="table table-bordered no-border">
+							<tr ng-repeat="yi in y track by $index">
+								<td class="center">{{yi}}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="row spare-right text-center">
+						<span class="label label-default">Vector y</span>
+					</div>
+				</div>
+				<div class="col-md-1">
+					<div class="row spare-right">
+						<table class="table table-bordered no-border">
+							<tr ng-repeat="xi in x track by $index">
+								<td class="center">{{xi}}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="row spare-right text-center">
+						<span class="label label-default">Vector x</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
