@@ -47,6 +47,10 @@ angular.module('algorithmsApp', ['ngRoute', 'angulartics', 'angulartics.google.a
         templateUrl: 'views/determinant.html',
         controller: 'DeterminantCtrl'
       })
+      .when('/lu-decomposition', {
+        templateUrl: 'views/lUDecomposition.html',
+        controller: 'lUDecomposition'
+      })
       .otherwise({
         redirectTo: '/'
       });

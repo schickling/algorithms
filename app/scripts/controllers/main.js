@@ -53,6 +53,11 @@ angular.module('algorithmsApp')
         description: 'Determinant calulation with Leibniz algorithm',
         url: 'determinant',
         label: ''
+      }, {
+        name: 'LU Decomposition',
+        description: 'Factorizes a matrix into an upper and a lower diagonal matrix and solves the given equation system',
+        url: 'lu-decomposition',
+        label: ''
       },
     ];
   });
