@@ -58,6 +58,11 @@ angular.module('algorithmsApp')
         description: 'Factorizes a matrix into an upper and a lower diagonal matrix and solves the given equation system',
         url: 'lu-decomposition',
         label: ''
+      }, {
+        name: 'Cholesky Decomposition',
+        description: 'Factorizes a symetric, positive definite matrix',
+        url: 'cholesky-decomposition',
+        label: ''
       },
     ];
   });

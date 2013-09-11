@@ -51,6 +51,10 @@ angular.module('algorithmsApp', ['ngRoute', 'angulartics', 'angulartics.google.a
         templateUrl: 'views/lUDecomposition.html',
         controller: 'lUDecomposition'
       })
+      .when('/cholesky-decomposition', {
+        templateUrl: 'views/cholesky-decomposition.html',
+        controller: 'CholeskyDecompositionCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
