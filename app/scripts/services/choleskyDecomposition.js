@@ -6,19 +6,18 @@ angular.module('algorithmsApp')
 		return {
 
 			calculate: function (A) {
-				
+
 				if (!this._isSymetric(A) || !this._isPositiveDefinite(A)) {
 					return false;
 				}
 
+			},
+
+			_isSymetric: function () {
 
 			},
 
-			_isSymetric: function (A) {
-
-			},
-
-			_isPositiveDefinite: function (A) {
+			_isPositiveDefinite: function () {
 
 			}
 
