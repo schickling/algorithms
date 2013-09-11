@@ -32,7 +32,6 @@ angular.module('algorithmsApp')
 			$scope.calculate();
 		};
 
-
 		$scope.calculate();
 
 	});
