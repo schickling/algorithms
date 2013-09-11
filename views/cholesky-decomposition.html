@@ -1,0 +1,65 @@
+<div id="choleskyDecomposition">
+	<div class="page-header">
+		<h1>Cholesky Decomposition <small>Insert your matrix</small></h1>
+	</div>
+	<div class="row">
+		<div class="col-md-5">
+			<div class="row">
+				<div class="col-md-4">
+					<h2>Input</h2>
+				</div>
+				<div class="col-md-8 pull-right" style="margin: 25px 0 0; padding: 0">
+					<div class="btn-group pull-right">
+						<button type="button" class="btn btn-xs btn-primary" ng-click="makeBigger()">
+							<span class="glyphicon glyphicon-plus-sign"></span> Make bigger
+						</button>
+						<button ng-if="A.length > 1" type="button" class="btn btn-xs btn-primary" ng-click="makeSmaller()">
+							<span class="glyphicon glyphicon-minus-sign"></span> Make smaller
+						</button>
+					</div>
+				</div>
+			</div>
+			<matrix ng-model="A" ng-change-callback="calculate()"></matrix>
+			<div class="row spare-right text-center">
+				<span class="label label-default">Matrix A</span>
+			</div>
+		</div>
+		<div class="col-md-6 col-md-offset-1">
+			<div class="row">
+				<div class="col-md-2">
+					<h2>Result</h2>
+				</div>
+				<div class="col-md-10" style="margin: 25px 0 0">
+					<span class="label label-default">A = L * L^T</span>
+					<span ng-if="!L" class="label label-danger">A isn't symetric or positive definite</span>
+				</div>
+			</div>
+			<div class="row" ng-if="L">
+				<div class="col-md-6">
+					<div class="row spare-right">
+						<table class="table table-bordered no-border">
+							<tr ng-repeat="row in L">
+								<td ng-repeat="element in row track by $index" class="center">{{element | number}}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="row spare-right text-center">
+						<span class="label label-default">Matrix L</span>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="row spare-right">
+						<table class="table table-bordered no-border">
+							<tr ng-repeat="row in LT">
+								<td ng-repeat="element in row track by $index" class="center">{{element | number}}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="row spare-right text-center">
+						<span class="label label-default">Matrix L^T</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
