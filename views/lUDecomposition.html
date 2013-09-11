@@ -55,7 +55,7 @@
 					<div class="row spare-right">
 						<table class="table table-bordered no-border">
 							<tr ng-repeat="row in L">
-								<td ng-repeat="element in row track by $index" class="center">{{element}}</td>
+								<td ng-repeat="element in row track by $index" class="center">{{element | number}}</td>
 							</tr>
 						</table>
 					</div>
@@ -67,7 +67,7 @@
 					<div class="row spare-right">
 						<table class="table table-bordered no-border">
 							<tr ng-repeat="row in U">
-								<td ng-repeat="element in row track by $index" class="center">{{element}}</td>
+								<td ng-repeat="element in row track by $index" class="center">{{element | number}}</td>
 							</tr>
 						</table>
 					</div>
@@ -79,7 +79,7 @@
 					<div class="row spare-right">
 						<table class="table table-bordered no-border">
 							<tr ng-repeat="row in P">
-								<td ng-repeat="element in row track by $index" class="center">{{element}}</td>
+								<td ng-repeat="element in row track by $index" class="center">{{element | number}}</td>
 							</tr>
 						</table>
 					</div>
@@ -91,7 +91,7 @@
 					<div class="row spare-right">
 						<table class="table table-bordered no-border">
 							<tr ng-repeat="yi in y track by $index">
-								<td class="center">{{yi}}</td>
+								<td class="center">{{yi | number}}</td>
 							</tr>
 						</table>
 					</div>
@@ -103,7 +103,7 @@
 					<div class="row spare-right">
 						<table class="table table-bordered no-border">
 							<tr ng-repeat="xi in x track by $index">
-								<td class="center">{{xi}}</td>
+								<td class="center">{{xi | number}}</td>
 							</tr>
 						</table>
 					</div>
