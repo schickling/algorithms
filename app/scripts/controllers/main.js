@@ -63,6 +63,11 @@ angular.module('algorithmsApp')
         description: 'Factorizes a symetric, positive definite matrix',
         url: 'cholesky-decomposition',
         label: ''
+      }, {
+        name: 'Polynomial Interpolation',
+        description: 'Interpolates points into a polynomial',
+        url: 'interpolation',
+        label: ''
       },
     ];
   });
