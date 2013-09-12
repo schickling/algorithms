@@ -62,3 +62,9 @@ input:focus {
     margin: 0 10px 25px 0;
     float: left;
 }
+
+#interpolation coordsystem {
+    width: 100%;
+    height: calc(100% - 300px);
+    background: #000;
+}
