@@ -11,8 +11,11 @@ describe('Service: VandermondeInterpolation', function () {
     vandermondeInterpolation = VandermondeInterpolation;
   }));
 
-  it('should do something', function () {
-    expect( !! vandermondeInterpolation).toBe(true);
+  it('should calculate constant 1', function () {
+    expect(vandermondeInterpolation.calculate([{
+      x: 1,
+      y: 1
+    }])).toEqual([1]);
   });
 
 });
