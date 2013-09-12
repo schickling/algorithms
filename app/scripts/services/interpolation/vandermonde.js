@@ -7,16 +7,18 @@ angular.module('algorithmsApp')
 
 			coordinates: null,
 			matrix: [],
-			solutionVector: [],
 			coefficients: [],
 
+			/**
+			 * Returns the coeffitients of a polynom that interpolates the given points
+			 * @param  array coordinates
+			 * @return array
+			 */
 			calculate: function (coordinates) {
-
 				this.coordinates = coordinates;
 
 				this._sortCoordinatesByXValues();
 				this._prepareMatrix();
-				this._prepareSolutionVector();
 				this._solveEquationSystem();
 
 				return this.coefficients;
@@ -33,6 +35,8 @@ angular.module('algorithmsApp')
 							this.coordinates[i - 1] = this.coordinates[i];
 							this.coordinates[i] = tmp;
 							swapped = true;
+						} else if (this.coordinates[i - 1].x === this.coordinates[i].x) {
+							throw Error();
 						}
 					}
 				}
@@ -47,29 +51,16 @@ angular.module('algorithmsApp')
 					for (power = 0; power < m; power++) {
 						row.push(Math.pow(this.coordinates[rowIndex].x, power));
 					}
+					row.push(this.coordinates[rowIndex].y);
 					this.matrix.push(row);
 				}
 			},
 
-			_prepareSolutionVector: function () {
-				for (var rowIndex = 0; rowIndex < this.coordinates.length; rowIndex++) {
-					this.solutionVector.push(this.coordinates[rowIndex].y);
-				}
-			},
-
 			_solveEquationSystem: function () {
-				var sum, rowIndex, addColumnIndex;
-
 				this.matrix = GaussianElimination.eliminate(this.matrix);
-				console.log(this.matrix);
 
-				// backward substitution
-				for (rowIndex = this.matrix.length - 1; rowIndex >= 0; rowIndex--) {
-					sum = this.solutionVector[rowIndex];
-					for (addColumnIndex = rowIndex + 1; addColumnIndex < this.matrix.length; addColumnIndex++) {
-						sum -= this.matrix[rowIndex][addColumnIndex] * this.coefficients[addColumnIndex];
-					}
-					this.coefficients[rowIndex] = sum / this.matrix[rowIndex][rowIndex];
+				for (var rowIndex = 0; rowIndex < this.matrix.length; rowIndex++) {
+					this.coefficients[rowIndex] = this.matrix[rowIndex][this.matrix[rowIndex].length - 1] / this.matrix[rowIndex][rowIndex];
 				}
 			}
 
