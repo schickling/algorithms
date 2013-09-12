@@ -14,11 +14,28 @@ angular.module('algorithmsApp')
 
 				this.coordinates = coordinates;
 
+				this._sortCoordinatesByXValues();
 				this._prepareMatrix();
 				this._prepareSolutionVector();
 				this._solveEquationSystem();
 
 				return this.coefficients;
+			},
+
+			_sortCoordinatesByXValues: function () {
+				// bubble sort
+				var i, tmp, swapped = true;
+				while (swapped) {
+					swapped = false;
+					for (i = 1; i < this.coordinates.length; i++) {
+						if (this.coordinates[i - 1].x > this.coordinates[i].x) {
+							tmp = this.coordinates[i - 1];
+							this.coordinates[i - 1] = this.coordinates[i];
+							this.coordinates[i] = tmp;
+							swapped = true;
+						}
+					}
+				}
 			},
 
 			_prepareMatrix: function () {
@@ -44,6 +61,7 @@ angular.module('algorithmsApp')
 				var sum, rowIndex, addColumnIndex;
 
 				this.matrix = GaussianElimination.eliminate(this.matrix);
+				console.log(this.matrix);
 
 				// backward substitution
 				for (rowIndex = this.matrix.length - 1; rowIndex >= 0; rowIndex--) {

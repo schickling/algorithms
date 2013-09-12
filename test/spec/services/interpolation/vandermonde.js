@@ -18,4 +18,14 @@ describe('Service: VandermondeInterpolation', function () {
     }])).toEqual([1]);
   });
 
+  it('should calculate constant 1', function () {
+    expect(vandermondeInterpolation.calculate([{
+      x: 1,
+      y: 1
+    }, {
+      x: 0,
+      y: 0
+    }])).toEqual([0, 1]);
+  });
+
 });
