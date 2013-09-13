@@ -29,7 +29,6 @@ angular.module('algorithmsApp')
 					$canvas.on('click', function (e) {
 						var elementOffset = element.offset(),
 							coordinate = new Coordinate(e.clientX - elementOffset.left, e.clientY - elementOffset.top).toRelative();
-						console.log(coordinate);
 
 						scope.addCoordinate(coordinate);
 					});
@@ -46,9 +45,9 @@ angular.module('algorithmsApp')
 
 					drawAxes();
 
-					scope.polynomials.forEach(function (coefficients) {
-						if (coefficients.length) {
-							drawPolynomial(coefficients);
+					scope.polynomials.forEach(function (polynomial) {
+						if (polynomial.coefficients.length) {
+							drawPolynomial(polynomial);
 						}
 					});
 
@@ -63,8 +62,7 @@ angular.module('algorithmsApp')
 				}
 
 				function drawAxes() {
-					// var centerCoordinate = new Coordinate(0, 0).toAbsolute();
-					// context.fillRect(centerCoordinate.x - 1, centerCoordinate.y - 1, 3, 3);
+
 				}
 
 				function drawPoint(coordinate) {
@@ -72,7 +70,7 @@ angular.module('algorithmsApp')
 					context.fillRect(coordinate.x - 1, coordinate.y - 1, 3, 3);
 				}
 
-				function drawPolynomial(coefficients) {
+				function drawPolynomial(polynomial) {
 
 					var sum, x, power, coordinateToDraw;
 
@@ -80,14 +78,14 @@ angular.module('algorithmsApp')
 
 					for (x = -(width / 2); x <= width / 2; x++) {
 						sum = 0;
-						for (power = 0; power < coefficients.length; power++) {
-							sum += Math.pow(x, power) * coefficients[power];
+						for (power = 0; power < polynomial.coefficients.length; power++) {
+							sum += Math.pow(x, power) * polynomial.coefficients[power];
 						}
 						coordinateToDraw = new Coordinate(x, sum).toAbsolute();
 						context.lineTo(coordinateToDraw.x, coordinateToDraw.y);
 					}
 
-					// context.lineWidth = 10;
+					context.strokeStyle = polynomial.color;
 					context.stroke();
 
 				}

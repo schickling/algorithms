@@ -20,7 +20,10 @@ angular.module('algorithmsApp')
 		};
 
 		$scope.calculate = function () {
-			$scope.polynomials = [VandermondeInterpolation.calculate($scope.coordinates)];
+			$scope.polynomials = [{
+				color: '#FF0000',
+				coefficients: VandermondeInterpolation.calculate($scope.coordinates),
+			}];
 		};
 
 		$scope.calculate();
