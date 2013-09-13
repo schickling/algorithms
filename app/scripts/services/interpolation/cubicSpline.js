@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('algorithmsApp')
-	.service('CubicSplineInterpolation', function CubicSplineInterpolation(Utils) {
+	.service('CubicSplineInterpolation', function CubicSplineInterpolation(Utils, GaussianElimination) {
 
 		return {
 
 			coordinates: null,
 			splines: null,
+			matrix: null,
 
 			calculate: function (coordinates) {
 
@@ -18,8 +19,7 @@ angular.module('algorithmsApp')
 				}
 
 				this._sortCoordinatesByXValues();
-				this._createFirstSpline();
-				this._createRemainingSplines();
+				this._createSplines();
 
 				return this.splines;
 			},
@@ -30,52 +30,67 @@ angular.module('algorithmsApp')
 				});
 			},
 
-			_createFirstSpline: function () {
-				var spline = {};
 
-				spline.a = this.coordinates[0].y;
-				spline.b = 0;
-				spline.c = 0;
-				spline.d = this.coordinates[1].y - spline.a - spline.b - spline.c;
-				spline.minX = this.coordinates[0].x;
-				spline.maxX = this.coordinates[1].x;
+			/*
+			 * Uses this algorithm https://en.wikipedia.org/w/index.php?title=Spline_%28mathematics%29&oldid=288288033#Algorithm_for_computing_natural_cubic_splines
+			 */
+			_createSplines: function () {
 
-				this.splines.push(spline);
-			},
+				var n = this.coordinates.length - 1,
+					a = [],
+					b = [],
+					d = [],
+					h = [],
+					alpha = [],
+					c = [],
+					l = [],
+					µ = [],
+					z = [],
+					i;
 
-			_createRemainingSplines: function () {
-
-				var i, spline, c, previousPascalSpline, previousSpline;
-
-				for (i = 2; i < this.coordinates.length; i++) {
-					previousSpline = this.splines[i - 2];
-					c = previousSpline.maxX - previousSpline.minX;
-					previousPascalSpline = [_.values(previousSpline)];
-					previousPascalSpline = Utils.matrixMultiply(previousPascalSpline, this._getPascalMatrix(c));
-					previousPascalSpline = {
-						a: previousPascalSpline[0][0],
-						b: previousPascalSpline[0][1],
-						c: previousPascalSpline[0][2],
-						d: previousPascalSpline[0][3],
-					}
-
-					spline = {
-						a: previousPascalSpline.a,
-						b: previousPascalSpline.b,
-						c: previousPascalSpline.c,
-						d: this.coordinates[i].y - previousPascalSpline.a - previousPascalSpline.b - previousPascalSpline.c,
-						minX: this.coordinates[i - 1].x,
-						maxX: this.coordinates[i].x,
-					};
-
-					this.splines.push(spline);
-
+				for (i = 0; i < n + 1; i++) {
+					a[i] = this.coordinates[i].y;
 				}
 
-			},
+				for (i = 0; i < n; i++) {
+					h[i] = this.coordinates[i + 1].x - this.coordinates[i].x;
+				}
 
-			_getPascalMatrix: function (c) {
-				return [[1, 0, 0, 0], [c, 1, 0, 0], [c * c, 2 * c, 1, 0], [c * c * c, 3 * c * c, 3 * c, 1]];
+				for (i = 1; i < n; i++) {
+					alpha[i] = (3 / h[i]) * (a[i + 1] - a[i]) - (3 / h[i - 1]) * (a[i] - a[i - 1]);
+				}
+
+				l[0] = 1;
+				µ[0] = 0;
+				z[0] = 0;
+
+				for (i = 1; i < n; i++) {
+					l[i] = 2 * (this.coordinates[i + 1].x - this.coordinates[i - 1].x) - h[i - 1] * µ[i - 1];
+					µ[i] = h[i] / l[i];
+					z[i] = (alpha[i] - h[i - 1] * z[i - 1]) / l[i];
+				}
+
+				l[n] = 1;
+				z[n] = 0;
+				c[n] = 0;
+
+				for (i = n - 1; i >= 0; i--) {
+					c[i] = z[i] - µ[i] * c[i + 1];
+					b[i] = (a[i + 1] - a[i]) / h[i] - (h[i] * (c[i + 1] + 2 * c[i])) / 3;
+					d[i] = (c[i + 1] - c[i]) / (3 * h[i]);
+				}
+
+				for (i = 0; i < n; i++) {
+					this.splines[i] = {
+						a: a[i],
+						b: b[i],
+						c: c[i],
+						d: d[i],
+						minX: this.coordinates[i].x,
+						maxX: this.coordinates[i + 1].x
+					}
+				};
+
 			}
 
 		};

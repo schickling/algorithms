@@ -67,7 +67,7 @@ angular.module('algorithmsApp')
         name: 'Interpolation',
         description: 'Interpolates points into a polynomial or a spline',
         url: 'interpolation',
-        label: 'Under construction'
+        label: ''
       },
     ];
   });

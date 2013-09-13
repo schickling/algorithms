@@ -23,18 +23,18 @@ describe('Service: CubicSplineInterpolation', function () {
       y: 2
     }])).toEqual([{
       a: 1,
-      b: 0,
+      b: 2.75,
       c: 0,
-      d: 2,
+      d: -0.75,
       minX: 0,
-      maxX: 1,
+      maxX: 1
     }, {
       a: 3,
-      b: 6,
-      c: 6,
-      d: -13,
+      b: 0.5,
+      c: -2.25,
+      d: 0.75,
       minX: 1,
-      maxX: 2,
+      maxX: 2
     }]);
   });
 
@@ -50,22 +50,22 @@ describe('Service: CubicSplineInterpolation', function () {
       y: 2
     }])).toEqual([{
       a: 1,
-      b: 0,
+      b: 2.75,
       c: 0,
-      d: 2,
+      d: -0.75,
       minX: 0,
-      maxX: 1,
+      maxX: 1
     }, {
       a: 3,
-      b: 6,
-      c: 6,
-      d: -13,
+      b: 0.5,
+      c: -2.25,
+      d: 0.75,
       minX: 1,
-      maxX: 2,
+      maxX: 2
     }]);
   });
 
-  it('should interpolate 3 coords', function () {
+  it('should interpolate 4 coords', function () {
     expect(cubicSplineInterpolation.calculate([{
       x: 0,
       y: 1
@@ -80,25 +80,25 @@ describe('Service: CubicSplineInterpolation', function () {
       y: -1
     }])).toEqual([{
       a: 1,
-      b: 0,
+      b: 2.774193548387097,
       c: 0,
-      d: 2,
+      d: -0.7741935483870969,
       minX: 0,
-      maxX: 1,
+      maxX: 1
     }, {
       a: 3,
-      b: 6,
-      c: 6,
-      d: -13,
+      b: 0.4516129032258067,
+      c: -2.3225806451612905,
+      d: 0.870967741935484,
       minX: 1,
-      maxX: 2,
+      maxX: 2
     }, {
       a: 2,
-      b: -21,
-      c: -33,
-      d: 51,
+      b: -1.5806451612903225,
+      c: 0.2903225806451613,
+      d: -0.03225806451612903,
       minX: 2,
-      maxX: 5,
+      maxX: 5
     }]);
   });
 

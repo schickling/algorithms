@@ -21,12 +21,13 @@ angular.module('algorithmsApp')
 				return matrix;
 			},
 
-			emptyMatrix: function (n) {
+			emptyMatrix: function (n, m) {
 				var matrix = [];
+				m = m || n;
 
 				for (var i = 0; i < n; i++) {
 					matrix.push([]);
-					for (var j = 0; j < n; j++) {
+					for (var j = 0; j < m; j++) {
 						matrix[i][j] = 0;
 					}
 				}
@@ -48,7 +49,7 @@ angular.module('algorithmsApp')
 						C[j].push(sum);
 					}
 				}
-				
+
 				return C;
 			},
 
