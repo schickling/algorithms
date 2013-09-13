@@ -88,19 +88,19 @@ angular.module('algorithmsApp')
 				}
 
 				function drawPoint(coordinate) {
-					coordinate = new Coordinate(coordinate.x, coordinate.y).toAbsolute();
+					var absCoordinate = new Coordinate(coordinate.x, coordinate.y).toAbsolute();
 					context.beginPath();
-					context.arc(coordinate.x, coordinate.y, 12, 0, Math.PI * 2, true);
+					context.arc(absCoordinate.x, absCoordinate.y, 12, 0, Math.PI * 2, true);
 					context.closePath();
 					context.fillStyle = 'rgba(0, 0, 0, 0.1)';
 					context.fill();
 					context.beginPath();
-					context.arc(coordinate.x, coordinate.y, 3, 0, Math.PI * 2, true);
+					context.arc(absCoordinate.x, absCoordinate.y, 3, 0, Math.PI * 2, true);
 					context.closePath();
 					context.fillStyle = 'rgba(0, 0, 0, 0.7)';
 					context.fill();
 					context.font = 'bold 10px helvetica';
-					context.fillText(coordinate.x + ', ' + coordinate.y, coordinate.x + 10, coordinate.y + 10);
+					context.fillText(coordinate.x + ', ' + coordinate.y, absCoordinate.x + 10, absCoordinate.y + 10);
 				}
 
 				function drawPolynomial() {
