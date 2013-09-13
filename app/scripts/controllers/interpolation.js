@@ -20,7 +20,7 @@ angular.module('algorithmsApp')
 		};
 
 		$scope.calculate = function () {
-			$scope.polynomials = VandermondeInterpolation.calculate($scope.coordinates);
+			$scope.polynomials = [VandermondeInterpolation.calculate($scope.coordinates)];
 		};
 
 		$scope.calculate();
