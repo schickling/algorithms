@@ -27,21 +27,9 @@ angular.module('algorithmsApp')
 			},
 
 			_sortCoordinatesByXValues: function () {
-				// bubble sort
-				var i, tmp, swapped = true;
-				while (swapped) {
-					swapped = false;
-					for (i = 1; i < this.coordinates.length; i++) {
-						if (this.coordinates[i - 1].x > this.coordinates[i].x) {
-							tmp = this.coordinates[i - 1];
-							this.coordinates[i - 1] = this.coordinates[i];
-							this.coordinates[i] = tmp;
-							swapped = true;
-						} else if (this.coordinates[i - 1].x === this.coordinates[i].x) {
-							throw Error();
-						}
-					}
-				}
+				this.coordinates = _.sortBy(this.coordinates, function (coordinate) {
+					return coordinate.x;
+				});
 			},
 
 			_prepareMatrix: function () {

@@ -1,13 +1,28 @@
 'use strict';
 
 angular.module('algorithmsApp')
-	.service('CubicSpline', function CubicSpline() {
+	.service('CubicSplineInterpolation', function CubicSplineInterpolation() {
 
 		return {
 
+			coordinates: null,
+			splines: null,
+
 			calculate: function (coordinates) {
-				coordinates = null;
-				return [];
+
+				this.coordinates = coordinates;
+				this.splines = [];
+
+				this._sortCoordinatesByXValues();
+
+
+				return this.splines;
+			},
+
+			_sortCoordinatesByXValues: function () {
+				this.coordinates = _.sortBy(this.coordinates, function (coordinate) {
+					return coordinate.x;
+				});
 			}
 
 		};
