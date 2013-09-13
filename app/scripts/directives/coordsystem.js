@@ -54,7 +54,6 @@ angular.module('algorithmsApp')
 					scope.coordinates.forEach(function (coordinate) {
 						drawPoint(coordinate);
 					});
-
 				}
 
 				function resetContext() {
@@ -62,7 +61,7 @@ angular.module('algorithmsApp')
 				}
 
 				function drawAxes() {
-
+					// TODO
 				}
 
 				function drawPoint(coordinate) {
@@ -87,7 +86,6 @@ angular.module('algorithmsApp')
 
 					context.strokeStyle = polynomial.color;
 					context.stroke();
-
 				}
 
 				function Coordinate(x, y) {
@@ -107,7 +105,6 @@ angular.module('algorithmsApp')
 
 						return this;
 					};
-
 				}
 
 				initCanvas();
@@ -117,7 +114,5 @@ angular.module('algorithmsApp')
 			}
 
 		};
-
-
 
 	});
