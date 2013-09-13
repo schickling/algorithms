@@ -6,16 +6,18 @@ angular.module('algorithmsApp')
 		return {
 
 			coordinates: null,
-			matrix: [],
-			coefficients: [],
+			matrix: null,
+			coefficients: null,
 
 			/**
-			 * Returns the coeffitients of a polynom that interpolates the given points
+			 * Returns the coefficients of a polynom that interpolates the given points
 			 * @param  array coordinates
 			 * @return array
 			 */
 			calculate: function (coordinates) {
 				this.coordinates = coordinates;
+				this.matrix = [];
+				this.coefficients = [];
 
 				this._sortCoordinatesByXValues();
 				this._prepareMatrix();

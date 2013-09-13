@@ -65,6 +65,6 @@ input:focus {
 
 #interpolation coordsystem {
     width: 100%;
-    height: calc(100% - 300px);
-    background: #000;
+    height: 500px;
+    display: block;
 }

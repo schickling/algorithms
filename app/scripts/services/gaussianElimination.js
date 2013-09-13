@@ -15,7 +15,7 @@ angular.module('algorithmsApp')
 				var outputMatrix = inputMatrix.clone(),
 					i, k, j, firstEl, factor, pivotRow,
 					m = outputMatrix.length,
-					n = outputMatrix[0].length;
+					n = (m) ? outputMatrix[0].length : 0;
 
 				for (i = 0; i < m; i++) {
 
