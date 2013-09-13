@@ -99,6 +99,8 @@ angular.module('algorithmsApp')
 					context.closePath();
 					context.fillStyle = 'rgba(0, 0, 0, 0.7)';
 					context.fill();
+					context.font = 'bold 10px helvetica';
+					context.fillText(coordinate.x + ', ' + coordinate.y, coordinate.x + 10, coordinate.y + 10);
 				}
 
 				function drawPolynomial() {
@@ -142,7 +144,6 @@ angular.module('algorithmsApp')
 
 								factor = x - spline.minX;
 								y = spline.a + spline.b * factor + spline.c * factor * factor + spline.d * factor * factor * factor;
-								console.log(x, factor, spline.minX, y, spline);
 
 								coordinateToDraw = new Coordinate(x, y).toAbsolute();
 								context.lineTo(coordinateToDraw.x, coordinateToDraw.y);
