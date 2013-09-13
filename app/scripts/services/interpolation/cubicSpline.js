@@ -7,7 +7,6 @@ angular.module('algorithmsApp')
 
 			coordinates: null,
 			splines: null,
-			pascalMatrix: [[1, 0, 0, 0], [1, 1, 0, 0], [1, 2, 1, 0], [1, 3, 3, 1]],
 
 			calculate: function (coordinates) {
 
@@ -46,11 +45,13 @@ angular.module('algorithmsApp')
 
 			_createRemainingSplines: function () {
 
-				var i, spline, previousPascalSpline;
+				var i, spline, c, previousPascalSpline, previousSpline;
 
 				for (i = 2; i < this.coordinates.length; i++) {
-					previousPascalSpline = [_.values(this.splines[i - 2])];
-					previousPascalSpline = Utils.matrixMultiply(previousPascalSpline, this.pascalMatrix);
+					previousSpline = this.splines[i - 2];
+					c = previousSpline.maxX - previousSpline.minX;
+					previousPascalSpline = [_.values(previousSpline)];
+					previousPascalSpline = Utils.matrixMultiply(previousPascalSpline, this._getPascalMatrix(c));
 					previousPascalSpline = {
 						a: previousPascalSpline[0][0],
 						b: previousPascalSpline[0][1],
@@ -71,6 +72,10 @@ angular.module('algorithmsApp')
 
 				}
 
+			},
+
+			_getPascalMatrix: function (c) {
+				return [[1, 0, 0, 0], [c, 1, 0, 0], [c * c, 2 * c, 1, 0], [c * c * c, 3 * c * c, 3 * c, 1]];
 			}
 
 		};

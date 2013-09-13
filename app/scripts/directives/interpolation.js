@@ -57,7 +57,34 @@ angular.module('algorithmsApp')
 				}
 
 				function drawAxes() {
-					// TODO
+					var tickSize = 10;
+					context.beginPath();
+					// x axis
+					context.moveTo(0, height / 2);
+					context.lineTo(width - tickSize, height / 2);
+					context.moveTo(width, height / 2);
+					context.lineTo(width - tickSize, height / 2 - tickSize / 2);
+					context.lineTo(width - tickSize, height / 2 + tickSize / 2);
+					context.lineTo(width, height / 2);
+					// y axis
+					context.moveTo(width / 2, height);
+					context.lineTo(width / 2, tickSize);
+					context.moveTo(width / 2, 0);
+					context.lineTo(width / 2 - tickSize / 2, tickSize);
+					context.lineTo(width / 2 + tickSize / 2, tickSize);
+					context.lineTo(width / 2, 0);
+					// x ticks
+					for (var x = 0; x < width; x += tickSize) {
+						context.moveTo(x, height / 2 - 2);
+						context.lineTo(x, height / 2 + 2);
+					}
+					// y ticks
+					for (var y = tickSize; y <= height; y += tickSize) {
+						context.moveTo(width / 2 - 2, y);
+						context.lineTo(width / 2 + 2, y);
+					}
+					context.strokeStyle = '#000';
+					context.stroke();
 				}
 
 				function drawPoint(coordinate) {
@@ -76,7 +103,7 @@ angular.module('algorithmsApp')
 
 				function drawPolynomial() {
 
-					var sum, x, power, coordinateToDraw,
+					var y, x, power, coordinateToDraw,
 						coefficients = scope.polynomial.coefficients,
 						color = scope.polynomial.color;
 
@@ -85,11 +112,11 @@ angular.module('algorithmsApp')
 						context.beginPath();
 
 						for (x = -(width / 2); x <= width / 2; x++) {
-							sum = 0;
+							y = 0;
 							for (power = 0; power < coefficients.length; power++) {
-								sum += Math.pow(x, power) * coefficients[power];
+								y += Math.pow(x, power) * coefficients[power];
 							}
-							coordinateToDraw = new Coordinate(x, sum).toAbsolute();
+							coordinateToDraw = new Coordinate(x, y).toAbsolute();
 							context.lineTo(coordinateToDraw.x, coordinateToDraw.y);
 						}
 
@@ -100,7 +127,33 @@ angular.module('algorithmsApp')
 				}
 
 				function drawSplines() {
-					console.log(scope.splines);
+
+					if (scope.spline.splines) {
+						var splines = scope.spline.splines,
+							color = scope.spline.color,
+							coordinateToDraw, spline, x, i, y, factor;
+
+						context.beginPath();
+
+						for (i = 0; i < splines.length; i++) {
+							spline = splines[i];
+
+							for (x = spline.minX; x < spline.maxX; x++) {
+
+								factor = x - spline.minX;
+								y = spline.a + spline.b * factor + spline.c * factor * factor + spline.d * factor * factor * factor;
+								console.log(x, factor, spline.minX, y, spline);
+
+								coordinateToDraw = new Coordinate(x, y).toAbsolute();
+								context.lineTo(coordinateToDraw.x, coordinateToDraw.y);
+							}
+
+						}
+
+						context.strokeStyle = color;
+						context.stroke();
+					}
+
 				}
 
 				function Coordinate(x, y) {
