@@ -100,7 +100,7 @@ angular.module('algorithmsApp')
 				}
 
 				function drawSplines() {
-
+					console.log(scope.splines);
 				}
 
 				function Coordinate(x, y) {

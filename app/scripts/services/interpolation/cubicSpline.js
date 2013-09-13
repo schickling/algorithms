@@ -38,6 +38,8 @@ angular.module('algorithmsApp')
 				spline.b = 0;
 				spline.c = 0;
 				spline.d = this.coordinates[1].y - spline.a - spline.b - spline.c;
+				spline.minX = this.coordinates[0].x;
+				spline.maxX = this.coordinates[1].x;
 
 				this.splines.push(spline);
 			},
@@ -61,6 +63,8 @@ angular.module('algorithmsApp')
 						b: previousPascalSpline.b,
 						c: previousPascalSpline.c,
 						d: this.coordinates[i].y - previousPascalSpline.a - previousPascalSpline.b - previousPascalSpline.c,
+						minX: this.coordinates[i - 1].x,
+						maxX: this.coordinates[i].x,
 					};
 
 					this.splines.push(spline);

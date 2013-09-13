@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('algorithmsApp')
-	.controller('InterpolationCtrl', function ($scope, VandermondeInterpolation) {
+	.controller('InterpolationCtrl', function ($scope, VandermondeInterpolation, CubicSplineInterpolation) {
 
 		$scope.coordinates = [];
 
@@ -26,11 +26,11 @@ angular.module('algorithmsApp')
 				coefficients: VandermondeInterpolation.calculate($scope.coordinates),
 			};
 
-			$scope.splines = {
+			$scope.spline = {
 				color: '#428bca',
-				splines: [],
+				splines: CubicSplineInterpolation.calculate($scope.coordinates),
 			};
-			
+
 		};
 
 		$scope.calculate();

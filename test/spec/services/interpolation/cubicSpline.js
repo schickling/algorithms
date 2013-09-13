@@ -26,11 +26,15 @@ describe('Service: CubicSplineInterpolation', function () {
       b: 0,
       c: 0,
       d: 2,
+      minX: 0,
+      maxX: 1,
     }, {
       a: 3,
       b: 6,
       c: 6,
       d: -13,
+      minX: 1,
+      maxX: 2,
     }]);
   });
 
@@ -49,11 +53,15 @@ describe('Service: CubicSplineInterpolation', function () {
       b: 0,
       c: 0,
       d: 2,
+      minX: 0,
+      maxX: 1,
     }, {
       a: 3,
       b: 6,
       c: 6,
       d: -13,
+      minX: 1,
+      maxX: 2,
     }]);
   });
 
@@ -75,16 +83,22 @@ describe('Service: CubicSplineInterpolation', function () {
       b: 0,
       c: 0,
       d: 2,
+      minX: 0,
+      maxX: 1,
     }, {
       a: 3,
       b: 6,
       c: 6,
       d: -13,
+      minX: 1,
+      maxX: 2,
     }, {
       a: 2,
       b: -21,
       c: -33,
-      d: 51
+      d: 51,
+      minX: 2,
+      maxX: 5,
     }]);
   });
 
