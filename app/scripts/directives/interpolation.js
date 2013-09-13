@@ -62,7 +62,16 @@ angular.module('algorithmsApp')
 
 				function drawPoint(coordinate) {
 					coordinate = new Coordinate(coordinate.x, coordinate.y).toAbsolute();
-					context.fillRect(coordinate.x - 1, coordinate.y - 1, 3, 3);
+					context.beginPath();
+					context.arc(coordinate.x, coordinate.y, 12, 0, Math.PI * 2, true);
+					context.closePath();
+					context.fillStyle = 'rgba(0, 0, 0, 0.1)';
+					context.fill();
+					context.beginPath();
+					context.arc(coordinate.x, coordinate.y, 3, 0, Math.PI * 2, true);
+					context.closePath();
+					context.fillStyle = 'rgba(0, 0, 0, 0.7)';
+					context.fill();
 				}
 
 				function drawPolynomial() {
