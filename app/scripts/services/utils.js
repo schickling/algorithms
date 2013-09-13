@@ -35,17 +35,20 @@ angular.module('algorithmsApp')
 			},
 
 			matrixMultiply: function (A, B) {
-				var C = [];
-				for (var j = 0; j < A.length; j++) {
+				var C = [],
+					j, k, sum, i;
+
+				for (j = 0; j < A.length; j++) {
 					C[j] = [];
-					for (var k = 0; k < B[0].length; k++) {
-						var sum = 0;
-						for (var i = 0; i < B.length; i++) {
+					for (k = 0; k < B[0].length; k++) {
+						sum = 0;
+						for (i = 0; i < B.length; i++) {
 							sum += B[i][k] * A[j][i];
 						}
 						C[j].push(sum);
 					}
 				}
+				
 				return C;
 			},
 
