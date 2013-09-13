@@ -8,14 +8,9 @@ angular.module('algorithmsApp')
 			template: '<canvas></canvas>',
 			restrict: 'E',
 
-			link: function postLink(scope, element, attrs) {
+			link: function postLink(scope, element) {
 
 				var $canvas, context, width, height;
-
-				initCanvas();
-				initClickListener();
-				initWatch();
-
 
 				function initCanvas() {
 					width = element.width();
@@ -97,10 +92,6 @@ angular.module('algorithmsApp')
 
 				}
 
-				function c(coordinate) {
-
-				}
-
 				function Coordinate(x, y) {
 					this.x = x;
 					this.y = y;
@@ -120,6 +111,10 @@ angular.module('algorithmsApp')
 					};
 
 				}
+
+				initCanvas();
+				initClickListener();
+				initWatch();
 
 			}
 
