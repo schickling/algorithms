@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('algorithmsApp')
-	.directive('coordsystem', function () {
+	.directive('interpolation', function () {
 
 		return {
 
@@ -35,7 +35,7 @@ angular.module('algorithmsApp')
 				}
 
 				function initWatch() {
-					scope.$watch('polynomials', function () {
+					scope.$watch('polynomial', function () {
 						draw();
 					});
 				}
@@ -44,12 +44,8 @@ angular.module('algorithmsApp')
 					resetContext();
 
 					drawAxes();
-
-					scope.polynomials.forEach(function (polynomial) {
-						if (polynomial.coefficients.length) {
-							drawPolynomial(polynomial);
-						}
-					});
+					drawPolynomial();
+					drawSplines();
 
 					scope.coordinates.forEach(function (coordinate) {
 						drawPoint(coordinate);
@@ -69,23 +65,33 @@ angular.module('algorithmsApp')
 					context.fillRect(coordinate.x - 1, coordinate.y - 1, 3, 3);
 				}
 
-				function drawPolynomial(polynomial) {
+				function drawPolynomial() {
 
-					var sum, x, power, coordinateToDraw;
+					var sum, x, power, coordinateToDraw,
+						coefficients = scope.polynomial.coefficients,
+						color = scope.polynomial.color;
 
-					context.beginPath();
+					if (coefficients.length > 0) {
 
-					for (x = -(width / 2); x <= width / 2; x++) {
-						sum = 0;
-						for (power = 0; power < polynomial.coefficients.length; power++) {
-							sum += Math.pow(x, power) * polynomial.coefficients[power];
+						context.beginPath();
+
+						for (x = -(width / 2); x <= width / 2; x++) {
+							sum = 0;
+							for (power = 0; power < coefficients.length; power++) {
+								sum += Math.pow(x, power) * coefficients[power];
+							}
+							coordinateToDraw = new Coordinate(x, sum).toAbsolute();
+							context.lineTo(coordinateToDraw.x, coordinateToDraw.y);
 						}
-						coordinateToDraw = new Coordinate(x, sum).toAbsolute();
-						context.lineTo(coordinateToDraw.x, coordinateToDraw.y);
+
+						context.strokeStyle = color;
+						context.stroke();
 					}
 
-					context.strokeStyle = polynomial.color;
-					context.stroke();
+				}
+
+				function drawSplines() {
+
 				}
 
 				function Coordinate(x, y) {

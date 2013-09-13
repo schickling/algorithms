@@ -63,7 +63,7 @@ input:focus {
     float: left;
 }
 
-#interpolation coordsystem {
+#interpolation interpolation {
     width: 100%;
     height: 700px;
     display: block;

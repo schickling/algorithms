@@ -64,8 +64,8 @@ angular.module('algorithmsApp')
         url: 'cholesky-decomposition',
         label: ''
       }, {
-        name: 'Polynomial Interpolation',
-        description: 'Interpolates points into a polynomial',
+        name: 'Interpolation',
+        description: 'Interpolates points into a polynomial or a spline',
         url: 'interpolation',
         label: ''
       },

@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: coordsystem', function () {
+describe('Directive: interpolation', function () {
 
   // load the directive's module
   beforeEach(module('algorithmsApp'));
