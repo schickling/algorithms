@@ -15,10 +15,12 @@ __Online:__ http://schickling.github.io/algorithms/
 * Invert matrix
 * Smith normal form
 * Leibniz determinant
+* Legendre symbol
 * LU decomposition
+* Cholesky decomposition
+* Polynomial interpolation
+* Cubic Spline interpolation
 
 ## Coming soon
 * Ulam spiral - http://scienceblogs.com/goodmath/2010/06/22/the-surprises-never-eend-the-u/
-* Cholesky decomposition
 * Newton method
-* Spline interpolation
