@@ -42,6 +42,7 @@ angular.module('algorithmsApp')
 							absCoordinate = scope.coordinates[i].clone().toAbsolute();
 							if (Math.abs(e.offsetX - absCoordinate.x) < 12 && Math.abs(e.offsetY - absCoordinate.y) < 12) {
 								drawTangentForSpline(absCoordinate);
+								drawTangentForPolynomial(absCoordinate);
 								hitPoint = true;
 							}
 						}
@@ -149,7 +150,34 @@ angular.module('algorithmsApp')
 
 						context.strokeStyle = color;
 						context.stroke();
+					}
+				}
 
+				function drawTangentForPolynomial(absCoordinate) {
+					if (scope.polynomial.coefficients.length > 0) {
+						var relCoordinate = absCoordinate.clone().toRelative(),
+							polynomial = scope.polynomial.coefficients,
+							color = scope.polynomial.color,
+							derivedPolynomial = Utils.derivePolynomial(polynomial),
+							m = 0,
+							coordinateToDraw, x, y, power, t;
+
+						for (power = 0; power < derivedPolynomial.length; power++) {
+							m += Math.pow(relCoordinate.x, power) * derivedPolynomial[power];
+						}
+
+						t = relCoordinate.y - m * relCoordinate.x;
+
+						context.beginPath();
+
+						for (x = -(width / 2); x <= width / 2; x++) {
+							y = m * x + t;
+							coordinateToDraw = new Coordinate(x, y).toAbsolute();
+							context.lineTo(coordinateToDraw.x, coordinateToDraw.y);
+						}
+
+						context.strokeStyle = color;
+						context.stroke();
 					}
 				}
 
