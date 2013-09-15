@@ -135,7 +135,7 @@ angular.module('algorithmsApp')
 							coordinateToDraw, x, y, power, t;
 
 						for (power = 0; power < derivedPolynomial.length; power++) {
-							m += Math.pow(relCoordinate.x, power) * derivedPolynomial[power];
+							m += Math.pow(relCoordinate.x - spline.minX, power) * derivedPolynomial[power];
 						}
 
 						t = relCoordinate.y - m * relCoordinate.x;
