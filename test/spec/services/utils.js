@@ -45,4 +45,11 @@ describe('Service: utils', function () {
     expect(utils.matrixTranspose(A)).toEqual(B);
   });
 
+  it('should derive polynomial', function () {
+    expect(utils.derivePolynomial([1])).toEqual([0]);
+    expect(utils.derivePolynomial([0, 1])).toEqual([1]);
+    expect(utils.derivePolynomial([10, 1])).toEqual([1]);
+    expect(utils.derivePolynomial([0, 0, 2])).toEqual([0, 4]);
+  });
+
 });

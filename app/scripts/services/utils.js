@@ -80,6 +80,21 @@ angular.module('algorithmsApp')
 				matrix.forEach(function (row) {
 					row.push(self.randomNumber(-10, 20));
 				});
+			},
+
+			derivePolynomial: function (coeffitients) {
+				coeffitients = coeffitients.clone();
+				coeffitients.push(0);
+
+				for (var i = 1; i < coeffitients.length; i++) {
+					coeffitients[i - 1] = coeffitients[i] * i;
+				}
+
+				while (coeffitients[coeffitients.length - 1] === 0 && coeffitients.length > 1) {
+					coeffitients.pop();
+				}
+
+				return coeffitients;
 			}
 
 		};
