@@ -38,7 +38,7 @@ angular.module('algorithmsApp')
 					var i, absCoordinate, hitPoint;
 					$canvas.on('mousemove', function (e) {
 						hitPoint = false;
-						for (var i = 0; i < scope.coordinates.length; i++) {
+						for (i = 0; i < scope.coordinates.length; i++) {
 							absCoordinate = scope.coordinates[i].clone().toAbsolute();
 							if (Math.abs(e.offsetX - absCoordinate.x) < 12 && Math.abs(e.offsetY - absCoordinate.y) < 12) {
 								drawTangentForSpline(absCoordinate);
@@ -227,7 +227,7 @@ angular.module('algorithmsApp')
 
 					this.clone = function () {
 						return new Coordinate(this.x, this.y);
-					}
+					};
 				}
 
 				initCanvas();
