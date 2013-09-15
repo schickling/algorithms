@@ -5,7 +5,8 @@
 	<div class="row" style="margin-bottom: 15px;">
 		<span class="label label-danger">Polynomial Interpolation (Vandermonde, Lagrange, Newton, ...)</span>
 		<span class="label label-primary">Cubic Spline Interpolation</span>
-		<span ng-if="coordinates.length > 10" class="label label-warning pull-right">Too many points</span>
+		<span ng-if="coordinates.length > 10" class="label label-warning">Too many points</span>
+		<button ng-click="reset()" class="btn btn-primary pull-right">Reset</button>
 	</div>
 	<interpolation></interpolation>
 </div>

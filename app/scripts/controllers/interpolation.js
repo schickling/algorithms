@@ -33,6 +33,11 @@ angular.module('algorithmsApp')
 
 		};
 
+		$scope.reset = function() {
+			$scope.coordinates = [];
+			$scope.calculate();
+		}
+
 		$scope.calculate();
 
 	});
