@@ -50,7 +50,9 @@ describe('Service: utils', function () {
     expect(utils.derivePolynomial([0, 1])).toEqual([1]);
     expect(utils.derivePolynomial([10, 1])).toEqual([1]);
     expect(utils.derivePolynomial([0, 0, 2])).toEqual([0, 4]);
+    expect(utils.derivePolynomial([0, 0, 0.5])).toEqual([0, 1]);
     expect(utils.derivePolynomial([3, 4, 0, 5, 6])).toEqual([4, 0, 15, 24]);
+    expect(utils.derivePolynomial([3, 4, 0, -5, 6])).toEqual([4, 0, -15, 24]);
   });
 
 });

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('algorithmsApp')
-	.directive('interpolation', function () {
+	.directive('interpolation', function (Utils) {
 
 		return {
 
@@ -31,6 +31,23 @@ angular.module('algorithmsApp')
 							coordinate = new Coordinate(e.clientX - elementOffset.left, e.clientY - elementOffset.top).toRelative();
 
 						scope.addCoordinate(coordinate);
+					});
+				}
+
+				function initHoverListener() {
+					var i, absCoordinate, hitPoint;
+					$canvas.on('mousemove', function (e) {
+						hitPoint = false;
+						for (var i = 0; i < scope.coordinates.length; i++) {
+							absCoordinate = scope.coordinates[i].clone().toAbsolute();
+							if (Math.abs(e.offsetX - absCoordinate.x) < 12 && Math.abs(e.offsetY - absCoordinate.y) < 12) {
+								drawTangentForSpline(absCoordinate);
+								hitPoint = true;
+							}
+						}
+						if (!hitPoint) {
+							draw();
+						}
 					});
 				}
 
@@ -88,7 +105,8 @@ angular.module('algorithmsApp')
 				}
 
 				function drawPoint(coordinate) {
-					var absCoordinate = new Coordinate(coordinate.x, coordinate.y).toAbsolute();
+					var absCoordinate = coordinate.clone().toAbsolute();
+
 					context.beginPath();
 					context.arc(absCoordinate.x, absCoordinate.y, 12, 0, Math.PI * 2, true);
 					context.closePath();
@@ -101,6 +119,38 @@ angular.module('algorithmsApp')
 					context.fill();
 					context.font = 'bold 10px helvetica';
 					context.fillText(coordinate.x + ', ' + coordinate.y, absCoordinate.x + 10, absCoordinate.y + 10);
+
+				}
+
+				function drawTangentForSpline(absCoordinate) {
+					if (scope.spline.splines) {
+						var relCoordinate = absCoordinate.clone().toRelative(),
+							spline = scope.spline.splines.filter(function (spline) {
+								return spline.minX === relCoordinate.x || spline.maxX === relCoordinate.x;
+							})[0],
+							color = scope.spline.color,
+							derivedPolynomial = Utils.derivePolynomial([spline.a, spline.b, spline.c, spline.d]),
+							m = 0,
+							coordinateToDraw, x, y, power, t;
+
+						for (power = 0; power < derivedPolynomial.length; power++) {
+							m += Math.pow(relCoordinate.x, power) * derivedPolynomial[power];
+						}
+
+						t = relCoordinate.y - m * relCoordinate.x;
+
+						context.beginPath();
+
+						for (x = -(width / 2); x <= width / 2; x++) {
+							y = m * x + t;
+							coordinateToDraw = new Coordinate(x, y).toAbsolute();
+							context.lineTo(coordinateToDraw.x, coordinateToDraw.y);
+						}
+
+						context.strokeStyle = color;
+						context.stroke();
+
+					}
 				}
 
 				function drawPolynomial() {
@@ -174,10 +224,15 @@ angular.module('algorithmsApp')
 
 						return this;
 					};
+
+					this.clone = function () {
+						return new Coordinate(this.x, this.y);
+					}
 				}
 
 				initCanvas();
 				initClickListener();
+				initHoverListener();
 				initWatch();
 
 			}
