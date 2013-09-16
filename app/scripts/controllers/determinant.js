@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('algorithmsApp')
-	.controller('DeterminantCtrl', function ($scope, LeibnizDeterminant, Utils) {
+	.controller('DeterminantCtrl', function ($scope, LeibnizDeterminant, Utils, LUDecomposition) {
 
 		$scope.algorithms = [
 			{

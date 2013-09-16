@@ -57,35 +57,37 @@ angular.module('algorithmsApp')
 					}
 				}
 
-				// adjust b
-				if (usePivoting) {
-					b = b.map(function (element) {
-						return [element];
-					});
-					b = Utils.matrixMultiply(P, b);
-					b = b.map(function (element) {
-						return element[0];
-					});
-				}
-
-				// forward substitute L * y = b
-				for (currentRow = 0; currentRow < m; currentRow++) {
-
-					for (sum = 0, column = 0; column < currentRow; column++) {
-						sum += L[currentRow][column] * y[column];
+				if (b) {
+					// adjust b
+					if (usePivoting) {
+						b = b.map(function (element) {
+							return [element];
+						});
+						b = Utils.matrixMultiply(P, b);
+						b = b.map(function (element) {
+							return element[0];
+						});
 					}
 
-					y[currentRow] = b[currentRow] - sum;
-				}
+					// forward substitute L * y = b
+					for (currentRow = 0; currentRow < m; currentRow++) {
 
-				// backward substitute U * x = y
-				for (currentRow = m - 1; currentRow >= 0; currentRow--) {
+						for (sum = 0, column = 0; column < currentRow; column++) {
+							sum += L[currentRow][column] * y[column];
+						}
 
-					for (sum = 0, column = currentRow + 1; column < m; column++) {
-						sum += U[currentRow][column] * x[column];
+						y[currentRow] = b[currentRow] - sum;
 					}
 
-					x[currentRow] = (y[currentRow] - sum) / U[currentRow][currentRow];
+					// backward substitute U * x = y
+					for (currentRow = m - 1; currentRow >= 0; currentRow--) {
+
+						for (sum = 0, column = currentRow + 1; column < m; column++) {
+							sum += U[currentRow][column] * x[column];
+						}
+
+						x[currentRow] = (y[currentRow] - sum) / U[currentRow][currentRow];
+					}
 				}
 
 				return {
