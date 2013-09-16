@@ -18,6 +18,10 @@ angular.module('algorithmsApp')
 					minimumValue = sortedValues[0];
 					maximumValue = sortedValues[values.length - 1];
 					scale = (width - 30) / (maximumValue - minimumValue); // 15px clean space on left/right side
+
+					if (scale === Number.POSITIVE_INFINITY) {
+						scale = 1;
+					}
 				}
 
 				function initCanvas() {
@@ -40,18 +44,39 @@ angular.module('algorithmsApp')
 					for (var i = 0; i < values.length; i++) {
 						drawValue(values[i], 0.6 * (i / (values.length - 1) + 0.2));
 					}
+
+					markValue(minimumValue);
+					markValue(maximumValue);
 				}
 
 				function drawXAxis() {
-
+					var tickSize = 10;
+					context.beginPath();
+					// x axis
+					context.moveTo(0, height / 2);
+					context.lineTo(width - tickSize, height / 2);
+					context.moveTo(width, height / 2);
+					context.lineTo(width - tickSize, height / 2 - tickSize / 2);
+					context.lineTo(width - tickSize, height / 2 + tickSize / 2);
+					context.lineTo(width, height / 2);
+					context.stroke();
 				}
 
 				function drawValue(value, alpha) {
 					context.beginPath();
-					context.arc(value * scale - minimumValue * scale + 15, height / 2, 3, 0, Math.PI * 2, true);
+					context.arc(getRelativeValue(value), height / 2, 4, 0, Math.PI * 2, true);
 					context.closePath();
 					context.fillStyle = 'rgba(0, 0, 0, ' + alpha + ')';
 					context.fill();
+				}
+
+				function markValue(value) {
+					context.font = 'bold 10px helvetica';
+					context.fillText(value, getRelativeValue(value), height / 2 - 10);
+				}
+
+				function getRelativeValue (value) {
+					return value * scale - minimumValue * scale + 15;
 				}
 
 				initCanvas();
