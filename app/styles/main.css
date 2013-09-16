@@ -51,7 +51,7 @@ input:focus {
     width: 300px;
 }
 
-#primeNumberGenerators .input-group {
+#primeNumberGenerators .input-group, #fixedPointIteration .input-group {
     width: 300px;
     margin: 0 10px 25px 0;
     float: left;
