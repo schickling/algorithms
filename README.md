@@ -27,6 +27,7 @@ __Online:__ http://schickling.github.io/algorithms/
 * Bezier
 * Quick sort visualiser 
 * FFT
+* Fixed point iteration
 
 ## Improvements
 * Calculation time display
