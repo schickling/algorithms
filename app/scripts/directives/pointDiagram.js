@@ -73,6 +73,7 @@ angular.module('algorithmsApp')
 
 				function markValue(value) {
 					context.font = 'bold 10px helvetica';
+					context.fillStyle = 'rgba(0, 0, 0, 1)';
 					context.fillText(value, getRelativeValue(value), height / 2 - 10);
 				}
 
