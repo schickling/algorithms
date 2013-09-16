@@ -42,7 +42,7 @@ angular.module('algorithmsApp')
 					drawXAxis();
 
 					for (var i = 0; i < values.length; i++) {
-						drawValue(values[i], 0.4 * (i / (values.length - 1) + 0.2));
+						drawValue(values[i], 0.6 * (i / (values.length - 1) + 0.2));
 					}
 
 					markValue(minimumValue);
