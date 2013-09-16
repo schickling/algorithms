@@ -28,3 +28,7 @@ __Online:__ http://schickling.github.io/algorithms/
 ## Improvments
 * Calculation time display
 * Page titles
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/schickling/algorithms/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
