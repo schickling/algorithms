@@ -7,9 +7,18 @@ angular.module('algorithmsApp')
 			restrict: 'E',
 			scope: true,
 			link: function postLink(scope, element, attrs) {
-				scope.values = scope.$parent[attrs.ngModel];
 
-				var $canvas, context, width, height;
+				var $canvas, context, width, height, values, minimumValue, maximumValue, scale;
+
+				function prepareValues() {
+					values = scope.$parent[attrs.ngModel];
+					var sortedValues = _.sortBy(values, function (value) {
+						return value;
+					});
+					minimumValue = sortedValues[0];
+					maximumValue = sortedValues[values.length - 1];
+					scale = (width - 30) / (maximumValue - minimumValue); // 15px clean space on left/right side
+				}
 
 				function initCanvas() {
 					width = element.width();
@@ -24,18 +33,30 @@ angular.module('algorithmsApp')
 					context = $canvas.get(0).getContext('2d');
 				}
 
-				function initWatch() {
-					scope.$watch(attrs.ngModel, function () {
-						draw();
-					});
+				function draw() {
+
+					drawXAxis();
+
+					for (var i = 0; i < values.length; i++) {
+						drawValue(values[i], 0.6 * (i / (values.length - 1) + 0.2));
+					}
 				}
 
-				function draw (argument) {
-					
+				function drawXAxis() {
+
+				}
+
+				function drawValue(value, alpha) {
+					context.beginPath();
+					context.arc(value * scale - minimumValue * scale + 15, height / 2, 3, 0, Math.PI * 2, true);
+					context.closePath();
+					context.fillStyle = 'rgba(0, 0, 0, ' + alpha + ')';
+					context.fill();
 				}
 
 				initCanvas();
-				initWatch();
+				prepareValues();
+				draw();
 			}
 		};
 	});

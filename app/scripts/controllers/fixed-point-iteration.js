@@ -3,7 +3,7 @@
 angular.module('algorithmsApp')
 	.controller('FixedPointIterationCtrl', function ($scope, FixedPointIteration) {
 
-		$scope.functionString = '';
+		$scope.functionString = 'sin(x)';
 		$scope.startValue = 1;
 		$scope.iterationSteps = 50;
 

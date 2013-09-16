@@ -68,3 +68,9 @@ input:focus {
     height: 700px;
     display: block;
 }
+
+#fixedPointIteration point-diagram {
+    width: 100%;
+    height: 100px;
+    display: block;
+}
