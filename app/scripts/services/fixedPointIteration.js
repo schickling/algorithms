@@ -6,7 +6,21 @@ angular.module('algorithmsApp')
 		return {
 
 			calculate: function (functionString, numberOfIterations, startValue) {
-				return [2, 2, 2, 2, 2];
+				var values = [],
+					previousValue;
+
+				for (var i = 0; i < numberOfIterations; i++) {
+					previousValue = values[i - 1] || startValue;
+					values[i] = this._eval(functionString, previousValue);
+				}
+
+				return values;
+			},
+
+			_eval: function (functionString, x) {
+				return math.eval(functionString, {
+					x: x
+				});
 			}
 
 		};
