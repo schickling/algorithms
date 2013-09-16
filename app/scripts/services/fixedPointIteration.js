@@ -18,7 +18,8 @@ angular.module('algorithmsApp')
 			},
 
 			_eval: function (functionString, x) {
-				return math.eval(functionString, {
+				/*jshint evil:true */
+				return window.math.eval(functionString, {
 					x: x
 				});
 			}

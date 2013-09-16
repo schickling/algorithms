@@ -12,9 +12,7 @@ angular.module('algorithmsApp')
 
 				function prepareValues() {
 					values = scope.$parent[attrs.ngModel];
-					var sortedValues = _.sortBy(values, function (value) {
-						return value;
-					});
+					var sortedValues = values.slice(0).sort();
 					minimumValue = sortedValues[0];
 					maximumValue = sortedValues[values.length - 1];
 					scale = (width - 30) / (maximumValue - minimumValue); // 15px clean space on left/right side
