@@ -10,11 +10,11 @@
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">Start value</span>
-				<input type="number" ng-model="startValue" class="form-control" id="startValue" placeholder="Enter your start value">
+				<input type="number" ng-change="calculate()" ng-model="startValue" class="form-control" id="startValue" placeholder="Enter your start value">
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">Iteration steps</span>
-				<input type="number" ng-model="iterationSteps" class="form-control" id="steps" value="50">
+				<input type="number" ng-change="calculate()" ng-model="iterationSteps" class="form-control" id="steps" value="50">
 			</div>
 			<button type="submit" ng-click="calculate()" class="btn btn-primary">Calculate</button>
 		</form>

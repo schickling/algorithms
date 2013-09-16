@@ -42,11 +42,12 @@ angular.module('algorithmsApp')
 					drawXAxis();
 
 					for (var i = 0; i < values.length; i++) {
-						drawValue(values[i], 0.6 * (i / (values.length - 1) + 0.2));
+						drawValue(values[i], 0.4 * (i / (values.length - 1) + 0.2));
 					}
 
 					markValue(minimumValue);
 					markValue(maximumValue);
+					markValue(values[values.length - 1]);
 				}
 
 				function drawXAxis() {
@@ -75,7 +76,7 @@ angular.module('algorithmsApp')
 					context.fillText(value, getRelativeValue(value), height / 2 - 10);
 				}
 
-				function getRelativeValue (value) {
+				function getRelativeValue(value) {
 					return value * scale - minimumValue * scale + 15;
 				}
 

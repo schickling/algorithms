@@ -11,4 +11,6 @@ angular.module('algorithmsApp')
 			$scope.values = FixedPointIteration.calculate($scope.functionString, $scope.iterationSteps, $scope.startValue);
 		};
 
+		$scope.calculate();
+
 	});
