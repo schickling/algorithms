@@ -68,6 +68,11 @@ angular.module('algorithmsApp')
         description: 'Interpolates points into a polynomial or a spline',
         url: 'interpolation',
         label: ''
+      }, {
+        name: 'Fixed point iteration',
+        description: 'Evaluates a function with n iteration steps',
+        url: 'fixed-point-iteration',
+        label: ''
       },
     ];
   });

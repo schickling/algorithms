@@ -59,6 +59,10 @@ angular.module('algorithmsApp', ['ngRoute', 'angulartics', 'angulartics.google.a
         templateUrl: 'views/interpolation.html',
         controller: 'InterpolationCtrl'
       })
+      .when('/fixed-point-iteration', {
+        templateUrl: 'views/fixed-point-iteration.html',
+        controller: 'FixedPointIterationCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
