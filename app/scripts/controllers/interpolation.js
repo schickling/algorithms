@@ -1,13 +1,15 @@
 'use strict';
 
 angular.module('algorithmsApp')
-	.controller('InterpolationCtrl', function ($scope, VandermondeInterpolation, CubicSplineInterpolation) {
+	.controller('InterpolationCtrl', function ($scope, VandermondeInterpolation, CubicSplineInterpolation, Coordinate) {
 
 		$scope.coordinates = [];
 		$scope.x = 1;
 		$scope.y = 1;
 
 		$scope.addCoordinate = function (coordinate) {
+
+			coordinate = new Coordinate(coordinate.x, coordinate.y);
 
 			// avoid duplicate x values 
 			for (var i = 0; i < $scope.coordinates.length; i++) {
@@ -18,7 +20,6 @@ angular.module('algorithmsApp')
 
 			$scope.coordinates.push(coordinate);
 			$scope.calculate();
-			$scope.$digest();
 		};
 
 		$scope.calculate = function () {
@@ -35,7 +36,7 @@ angular.module('algorithmsApp')
 
 		};
 
-		$scope.reset = function() {
+		$scope.reset = function () {
 			$scope.coordinates = [];
 			$scope.calculate();
 		};

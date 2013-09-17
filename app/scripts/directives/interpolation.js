@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('algorithmsApp')
-	.directive('interpolation', function (Utils) {
+	.directive('interpolation', function (Utils, Coordinate) {
 
 		return {
 
@@ -15,6 +15,8 @@ angular.module('algorithmsApp')
 				function initCanvas() {
 					width = element.width();
 					height = element.height();
+					Coordinate.prototype.width = width;
+					Coordinate.prototype.height = height;
 
 					$canvas = element.children('canvas').first();
 					$canvas.attr({
@@ -31,6 +33,7 @@ angular.module('algorithmsApp')
 							coordinate = new Coordinate(e.clientX - elementOffset.left, e.clientY - elementOffset.top).toRelative();
 
 						scope.addCoordinate(coordinate);
+						scope.$digest();
 					});
 				}
 
@@ -233,29 +236,6 @@ angular.module('algorithmsApp')
 						context.stroke();
 					}
 
-				}
-
-				function Coordinate(x, y) {
-					this.x = x;
-					this.y = y;
-
-					this.toRelative = function () {
-						this.x = this.x - (width / 2);
-						this.y = (height / 2) - this.y;
-
-						return this;
-					};
-
-					this.toAbsolute = function () {
-						this.x = this.x + (width / 2);
-						this.y = (height / 2) - this.y;
-
-						return this;
-					};
-
-					this.clone = function () {
-						return new Coordinate(this.x, this.y);
-					};
 				}
 
 				initCanvas();
