@@ -3,10 +3,25 @@
 		<h1>Interpolation <small>Draw some points</small></h1>
 	</div>
 	<div class="row" style="margin-bottom: 15px">
-		<span class="label label-danger">Polynomial Interpolation (Vandermonde, Lagrange, Newton, ...)</span>
-		<span class="label label-primary">Cubic Spline Interpolation</span>
-		<span ng-if="coordinates.length > 10" class="label label-warning">Too many points</span>
-		<button ng-click="reset()" class="btn btn-primary pull-right">Reset</button>
+		<div class="col-md-7">
+			<span class="label label-danger">Polynomial Interpolation (Vandermonde, Lagrange, Newton, ...)</span>
+			<span class="label label-primary">Cubic Spline Interpolation</span>
+			<span ng-if="coordinates.length > 10" class="label label-warning">Too many points</span>
+		</div>
+		<div class="col-md-5">
+			<form class="form-inline">
+				<div class="input-group">
+					<span class="input-group-addon">x</span>
+					<input type="number" ng-change="calculate()" ng-model="x" class="form-control">
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">y</span>
+					<input type="number" ng-change="calculate()" ng-model="y" min="1" class="form-control">
+				</div>
+				<button ng-click="addCoordinate({x:x, y:y})" class="btn btn-primary">Add point</button>
+				<button ng-click="reset()" class="btn btn-primary">Reset</button>
+			</form>
+		</div>
 	</div>
 	<interpolation></interpolation>
 </div>
