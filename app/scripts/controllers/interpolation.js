@@ -4,6 +4,8 @@ angular.module('algorithmsApp')
 	.controller('InterpolationCtrl', function ($scope, VandermondeInterpolation, CubicSplineInterpolation) {
 
 		$scope.coordinates = [];
+		$scope.x = 1;
+		$scope.y = 1;
 
 		$scope.addCoordinate = function (coordinate) {
 

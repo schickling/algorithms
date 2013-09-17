@@ -57,6 +57,12 @@ input:focus {
     float: left;
 }
 
+#interpolation .input-group {
+    width: 100px;
+    margin: 0 10px 25px 0;
+    float: left;
+}
+
 #legendre .input-group {
     width: 140px;
     margin: 0 10px 25px 0;
