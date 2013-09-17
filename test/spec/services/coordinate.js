@@ -7,8 +7,8 @@ describe('Service: coordinate', function () {
 
   // instantiate service
   var coordinate;
-  beforeEach(inject(function (_coordinate_) {
-    coordinate = _coordinate_;
+  beforeEach(inject(function (Coordinate) {
+    coordinate = Coordinate;
   }));
 
   it('should do something', function () {
