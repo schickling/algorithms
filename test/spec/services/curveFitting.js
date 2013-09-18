@@ -11,8 +11,17 @@ describe('Service: curveFitting', function () {
     curveFitting = CurveFitting;
   }));
 
-  it('should do something', function () {
-    expect( !! curveFitting).toBe(true);
+  it('should fit', function () {
+    expect(curveFitting.calculate([{
+      x: 0,
+      y: 0
+    }, {
+      x: 1,
+      y: 1
+    }])).toEqual({
+      m: 1,
+      t: 0
+    });
   });
 
 });
