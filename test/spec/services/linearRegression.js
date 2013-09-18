@@ -1,18 +1,18 @@
 'use strict';
 
-describe('Service: curveFitting', function () {
+describe('Service: linearRegression', function () {
 
   // load the service's module
   beforeEach(module('algorithmsApp'));
 
   // instantiate service
-  var curveFitting;
-  beforeEach(inject(function (CurveFitting) {
-    curveFitting = CurveFitting;
+  var linearRegression;
+  beforeEach(inject(function (LinearRegression) {
+    linearRegression = LinearRegression;
   }));
 
   it('should fit', function () {
-    expect(curveFitting.calculate([{
+    expect(linearRegression.calculate([{
       x: 0,
       y: 0
     }, {
