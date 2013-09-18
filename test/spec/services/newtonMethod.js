@@ -12,7 +12,7 @@ describe('Service: newtonMethod', function () {
   }));
 
   it('should calculate first 3 values', function () {
-    expect(newtonMethod.calculate('x', '1', 1, 3)).toEqual([1, 0, 0]);
+    expect(newtonMethod.calculate('x', '1', 1, 3)).toEqual([0, 0, 0]);
   });
 
 });
