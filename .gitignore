@@ -5,5 +5,4 @@ dist
 app/bower_components
 .DS_Store
 .grunt
-
-app/scripts/services/.tern-port
+.tern-port
