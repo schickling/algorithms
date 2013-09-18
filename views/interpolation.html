@@ -16,12 +16,15 @@
 				</div>
 				<div class="input-group">
 					<span class="input-group-addon">y</span>
-					<input type="number" ng-change="calculate()" ng-model="y" min="1" class="form-control">
+					<input type="number" ng-change="calculate()" ng-model="y" class="form-control">
 				</div>
 				<button ng-click="addCoordinate({x:x, y:y})" class="btn btn-primary">Add point</button>
 				<button ng-click="reset()" class="btn btn-primary">Reset</button>
 			</form>
 		</div>
+	</div>
+	<div class="row" style="margin-bottom: 10px" ng-if="polynomial.coefficients">
+		Polynomial: <span ng-repeat="coefficient in polynomial.coefficients track by $index"><b>{{coefficient}}</b> * x ^ {{$index}} <span ng-if="!$last"> + </span></span>
 	</div>
 	<interpolation></interpolation>
 </div>
