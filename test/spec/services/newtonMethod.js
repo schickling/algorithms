@@ -11,8 +11,8 @@ describe('Service: newtonMethod', function () {
     newtonMethod = NewtonMethod;
   }));
 
-  it('should do something', function () {
-    expect( !! newtonMethod).toBe(true);
+  it('should calculate first 3 values', function () {
+    expect(newtonMethod.calculate('x', '1', 1, 3)).toEqual([1, 0, 0]);
   });
 
 });
