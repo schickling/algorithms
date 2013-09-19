@@ -12,7 +12,16 @@ describe('Service: bezier', function () {
   }));
 
   it('should do something', function () {
-    expect( !! bezier).toBe(true);
+    expect(bezier.calculate([{
+      x: 0,
+      y: 0
+    }, {
+      x: 1,
+      y: 1
+    }], 1)).toEqual({
+      x: 1,
+      y: 1
+    });
   });
 
 });
