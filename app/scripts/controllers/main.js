@@ -73,6 +73,11 @@ angular.module('algorithmsApp')
         description: 'Evaluates a function with n iteration steps',
         url: 'fixed-point-iteration',
         label: ''
+      }, {
+        name: 'Newton method',
+        description: 'Approximates roots via iteration steps',
+        url: 'newton-method',
+        label: ''
       },
     ];
   });

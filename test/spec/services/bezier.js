@@ -11,7 +11,7 @@ describe('Service: bezier', function () {
     bezier = Bezier;
   }));
 
-  it('should do something', function () {
+  it('should calculate for two points', function () {
     expect(bezier.calculate([{
       x: 0,
       y: 0
@@ -21,6 +21,19 @@ describe('Service: bezier', function () {
     }], 1)).toEqual({
       x: 1,
       y: 1
+    });
+  });
+
+  it('should calculate for two points', function () {
+    expect(bezier.calculate([{
+      x: 0,
+      y: 0
+    }, {
+      x: 1,
+      y: 1
+    }], 0)).toEqual({
+      x: 0,
+      y: 0
     });
   });
 

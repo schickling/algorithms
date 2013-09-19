@@ -63,6 +63,10 @@ angular.module('algorithmsApp', ['ngRoute', 'angulartics', 'angulartics.google.a
         templateUrl: 'views/fixed-point-iteration.html',
         controller: 'FixedPointIterationCtrl'
       })
+      .when('/newton-method', {
+        templateUrl: 'views/newton-method.html',
+        controller: 'NewtonMethodCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
