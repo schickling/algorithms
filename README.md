@@ -21,6 +21,7 @@ __Online:__ http://schickling.github.io/algorithms/
 * Polynomial interpolation
 * Cubic Spline interpolation
 * Newton method
+* Linear regression
 
 ## Coming soon
 * Ulam spiral - http://scienceblogs.com/goodmath/2010/06/22/the-surprises-never-eend-the-u/
