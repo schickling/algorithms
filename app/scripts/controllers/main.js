@@ -78,6 +78,11 @@ angular.module('algorithmsApp')
         description: 'Approximates roots via iteration steps',
         url: 'newton-method',
         label: ''
+      }, {
+        name: 'Linear regression',
+        description: 'Finds a straight line approximating a set of given points',
+        url: 'newton-method',
+        label: ''
       },
     ];
   });

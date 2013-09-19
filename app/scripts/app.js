@@ -67,6 +67,10 @@ angular.module('algorithmsApp', ['ngRoute', 'angulartics', 'angulartics.google.a
         templateUrl: 'views/newton-method.html',
         controller: 'NewtonMethodCtrl'
       })
+      .when('/linear-regression', {
+        templateUrl: 'views/linear-regression.html',
+        controller: 'LinearRegressionCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
