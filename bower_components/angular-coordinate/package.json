@@ -1,0 +1,45 @@
+{
+  "name": "angular-coordinate",
+  "version": "0.1.2",
+  "description": "Coordiante system for AngularJS",
+  "main": "src/coordinate.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/schickling/angular-coordinate.git"
+  },
+  "keywords": [
+    "coordinate",
+    "coordinatesystem",
+    "math"
+  ],
+  "author": "Johannes Schickling <schickling.j@gmail.com>, Tim Suchanek <tim.suchanek@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/schickling/angular-coordinate/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.3.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-contrib-less": "~0.6.1",
+    "connect-livereload": "~0.2.0",
+    "grunt-open": "~0.2.0",
+    "grunt-karma": "~0.4.5",
+    "grunt-ngmin": "0.0.3",
+    "grunt-bump": "~0.0.10",
+    "karma": "~0.10.2",
+    "karma-chrome-launcher": "~0.1.0",
+    "karma-phantomjs-launcher": "~0.1.0",
+    "matchdep": "~0.1.2",
+    "grunt-gh-pages": "~0.7.3",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-html2js": "~0.1.7"
+  }
+}

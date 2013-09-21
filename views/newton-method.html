@@ -1,0 +1,34 @@
+<div id="newtonMethod">
+	<div class="page-header">
+		<h1>Newton method <small>Insert your function and start value</small></h1>
+	</div>
+	<div class="row">
+		<blockquote>
+			<p>The function has to be two times continuously differentiable</p>
+		</blockquote>
+	</div>
+	<div class="row">
+		<form class="form-inline">
+			<div class="input-group">
+				<span class="input-group-addon">Function</span>
+				<input type="text" ng-model="functionString" class="form-control" id="function">
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon">Derived function</span>
+				<input type="text" ng-model="derivedFunctionString" class="form-control" id="function">
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon">Start value</span>
+				<input type="number" ng-change="calculate()" ng-model="startValue" class="form-control" id="startValue">
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon">Iteration steps</span>
+				<input type="number" ng-change="calculate()" min="1" ng-model="iterationSteps" class="form-control" id="steps">
+			</div>
+			<button type="submit" ng-click="calculate()" class="btn btn-primary">Calculate</button>
+		</form>
+	</div>
+	<div class="row">
+		<coordinate width="100%" height="500"></coordinate>
+	</div>
+</div>

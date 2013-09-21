@@ -1,0 +1,21 @@
+<!doctype html>
+<html ng-app="coordinateApp">
+<head>
+  <meta charset="utf-8">
+  <title>Demo</title>
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <style type="text/css">
+    html, body
+    {
+        height: 100%;
+    }
+  </style>
+</head>
+<body ng-controller="DemoCtrl">
+  <coordinate api="coordinate" width="100%" height="100%" show-input></coordinate>
+  <script src="bower_components/mathjs/dist/math.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="angular-coordinate.js"></script>
+  <script src="demo.js"></script>
+</body>
+</html>

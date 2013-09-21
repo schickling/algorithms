@@ -1,0 +1,22 @@
+{
+  "name": "angular-coordinate",
+  "version": "0.1.2",
+  "homepage": "https://github.com/schickling/angular-coordinate",
+  "authors": [
+    "Johannes Schickling <schickling.j@gmail.com>",
+    "Tim Suchanek <tim.suchanek@gmail.com>"
+  ],
+  "description": "Coordiante system for AngularJS",
+  "main": "src/coordinate.js",
+  "keywords": [
+    "coordinate",
+    "coordinatesystem",
+    "math"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "1.*",
+    "mathjs": "~0.13.0",
+    "bootstrap": "~3.0.0"
+  }
+}
