@@ -14,7 +14,7 @@ module.exports = function(config) {
       'app/bower_components/underscore/underscore.js',
       'app/bower_components/mathjs/dist/math.js',
       'app/bower_components/angular/angular.js',
-      'app/bower_components/angular-coordinate/dist/angular-coordinate.js',
+      'app/bower_components/angular-coordinate/dist/coordinate.js',
       'app/bower_components/angular-route/angular-route.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/bower_components/angulartics/src/angulartics.js',
