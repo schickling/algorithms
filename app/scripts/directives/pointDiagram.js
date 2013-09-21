@@ -49,14 +49,13 @@ angular.module('algorithmsApp')
 				}
 
 				function drawXAxis() {
-					var tickSize = 10;
 					context.beginPath();
 					// x axis
 					context.moveTo(0, height / 2);
-					context.lineTo(width - tickSize, height / 2);
+					context.lineTo(width - 10, height / 2);
 					context.moveTo(width, height / 2);
-					context.lineTo(width - tickSize, height / 2 - tickSize / 2);
-					context.lineTo(width - tickSize, height / 2 + tickSize / 2);
+					context.lineTo(width - 10, height / 2 - 5);
+					context.lineTo(width - 10, height / 2 + 5);
 					context.lineTo(width, height / 2);
 					context.stroke();
 				}
