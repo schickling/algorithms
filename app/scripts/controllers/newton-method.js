@@ -21,8 +21,9 @@ angular.module('algorithmsApp')
 				for (var i = 1; i < values.length; i++) {
 					x1 = scope.x = values[i - 1];
 					x2 = values[i];
+					/*jshint evil:true */
 					y1 = node.eval();
-					m = - y1 / (x2 - x1);
+					m = -y1 / (x2 - x1);
 					t = -y1 - m * x1;
 					coordinate.addFunction(m + '*x + ' + t);
 				}
