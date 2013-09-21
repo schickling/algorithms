@@ -354,6 +354,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('travis', [
+    'jshint',
     'clean:server',
     'concurrent:test',
     'autoprefixer',
@@ -383,7 +384,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'jshint',
     'test',
     'build'
   ]);

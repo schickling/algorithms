@@ -6,6 +6,7 @@ angular.module('algorithmsApp')
 		return {
 
 			calculate: function (coordinates, t) {
+				coordinates = t = null;
 				var coordinate = {
 					x: 1,
 					y: 1
