@@ -7,7 +7,7 @@ angular.module('algorithmsApp')
     link: (scope, element, attrs) ->
 
       points = []
-      $canvas = context = null
+      $canvas = width = height = context = null
 
       initCanvas = ->
         width = element.width();
@@ -24,7 +24,15 @@ angular.module('algorithmsApp')
       initListener = ->
         $canvas.on 'click', (e) ->
           points.push x: e.offsetX, y: e.offsetY
-          drawPoint e.offsetX, e.offsetY
+          draw()
+
+      draw = ->
+        reset()
+        drawPoint point.x, point.y for point in points
+        drawBezier()
+
+      reset = ->
+        context.clearRect 0, 0, width, height
 
       drawPoint = (x, y) ->
         context.beginPath()
@@ -37,6 +45,13 @@ angular.module('algorithmsApp')
         context.closePath()
         context.fillStyle = 'rgba(0, 0, 0, 0.7)'
         context.fill()
+
+      drawBezier = ->
+        context.beginPath()
+        for t in [0..1] by 0.01
+          point = Bezier.calculate points, t
+          context.lineTo point.x, point.y
+        context.stroke()
 
       initCanvas()
       initListener()
