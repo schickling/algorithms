@@ -6,9 +6,6 @@ angular.module("algorithmsApp").service "Bezier", Bezier = ->
       x: 0
       y: 0
 
-    factor = undefined
-    i = 0
-
     # sum up coordinate
     for i in [0..n] by 1
       factor = @_binomialCoefficient(n, i) * Math.pow(1 - t, n - i) * Math.pow(t, i)
@@ -21,4 +18,4 @@ angular.module("algorithmsApp").service "Bezier", Bezier = ->
     @_factorial(n) / (@_factorial(n - k) * @_factorial(k))
 
   _factorial: (n) ->
-    (if n is 0 then 1 else n * @_factorial(n - 1))
+    if n is 0 then 1 else n * @_factorial(n - 1)
