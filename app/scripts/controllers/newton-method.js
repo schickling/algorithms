@@ -11,6 +11,11 @@ angular.module('algorithmsApp')
 		$scope.coordinate = function (coordinate) {
 
 			$scope.calculate = function () {
+
+				coordinate.reset();
+
+				coordinate.addFunction($scope.functionString);
+
 				var scope = {},
 					node = window.math.parse($scope.functionString, scope),
 					values = NewtonMethod.calculate($scope.functionString, $scope.derivedFunctionString, $scope.startValue, $scope.iterationSteps),
@@ -23,9 +28,11 @@ angular.module('algorithmsApp')
 					x2 = values[i];
 					/*jshint evil:true */
 					y1 = node.eval();
+					console.log(y1, x1, x2);
 					m = -y1 / (x2 - x1);
-					t = -y1 - m * x1;
+					t = y1 - m * x1;
 					coordinate.addFunction(m + '*x + ' + t);
+					console.log(m + '*x + ' + t);
 				}
 			};
 
