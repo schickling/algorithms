@@ -19,6 +19,8 @@ module.exports = function(config) {
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/bower_components/angulartics/src/angulartics.js',
       'app/bower_components/angulartics/src/angulartics-google-analytics.js',
+      'app/scripts/*.js',
+      '.tmp/scripts/*.js',
       'app/scripts/**/*.js',
       '.tmp/scripts/**/*.js',
       'test/mock/**/*.js',
