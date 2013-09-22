@@ -75,10 +75,10 @@ angular.module('algorithmsApp')
 					amountToPop = A.length - step - 1;
 
 				for (var i = 0; i < amountToPop; i++) {
-					for (var j = 0; j < amountToPop; j++) {
+					minor.pop();
+					for (var j = 0; j < step; j++) {
 						minor[j].pop();
 					}
-					minor.pop();
 				}
 
 				return minor;

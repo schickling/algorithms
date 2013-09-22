@@ -70,15 +70,15 @@ angular.module('algorithmsApp')
 				});
 			},
 
-			matrixExpand: function (matrix) {
+			matrixExpand: function (matrix, defaultValue) {
 				var row = [],
 					self = this;
 				for (var i = 0; i < matrix[0].length; i++) {
-					row.push(self.randomNumber(-10, 20));
+					row.push(defaultValue || self.randomNumber(-10, 20));
 				}
 				matrix.push(row);
 				matrix.forEach(function (row) {
-					row.push(self.randomNumber(-10, 20));
+					row.push(defaultValue || self.randomNumber(-10, 20));
 				});
 			},
 

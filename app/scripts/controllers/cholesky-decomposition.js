@@ -13,7 +13,7 @@ angular.module('algorithmsApp')
 		};
 
 		$scope.makeBigger = function () {
-			Utils.matrixExpand($scope.A);
+			Utils.matrixExpand($scope.A, 1);
 			$scope.calculate();
 		};
 
