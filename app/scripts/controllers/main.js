@@ -20,7 +20,7 @@ angular.module('algorithmsApp')
         label: 'Under construction'
       }, {
         name: 'Extended euclidean algorithm',
-        description: 'Calculates the greates common divisor',
+        description: 'Calculates the greatest common divisor',
         url: 'extended-euclidean-algorithm',
         label: ''
       }, {
