@@ -1,6 +1,6 @@
 /**
  * angular-coordinate
- * @version v0.1.5 - 2013-09-22
+ * @version v0.1.6 - 2013-09-22
  * @link https://github.com/schickling/angular-coordinate.git
  * @author Johannes Schickling <schickling.j@gmail.com>, Tim Suchanek <tim.suchanek@gmail.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -18,13 +18,15 @@ angular.module('angular-coordinate', ['angular-coordinate.html'])
 
 
 				var canvasElement, width, height, ctx, centerPoint,
-					isDragging, scaleX, scaleY, dragPoint,
-					mouseTrackerElements, showInput,
+					isDragging, scaleX, scaleY, dragPoint, hideAxis,
+					mouseTrackerElements, showInput, api,
 					points = [],
 					functions = [];
 
 
 				function initAttibutes() {
+
+					hideAxis = attrs.hasOwnProperty('hideAxis') || false;
 
 					// scale
 					scaleX = attrs.scaleX || 100;
@@ -129,7 +131,11 @@ angular.module('angular-coordinate', ['angular-coordinate.html'])
 
 				function provideApi() {
 					if (scope.coordinate) {
-						scope.coordinate(new CoordinateApi());
+						api = new CoordinateApi();
+						scope.coordinate(api);
+						scope.angularCoordinate = {
+							addFunction: api.addFunction
+						};
 					}
 				}
 
@@ -232,8 +238,10 @@ angular.module('angular-coordinate', ['angular-coordinate.html'])
 
 				function draw() {
 					reset();
-					drawXAxis();
-					drawYAxis();
+					if (!hideAxis) {
+						drawXAxis();
+						drawYAxis();
+					}
 					drawPoints();
 					drawFunctions();
 				}
@@ -369,7 +377,7 @@ angular.module("angular-coordinate.html", []).run(["$templateCache", function($t
     "	<!-- <div id=\"angular-coordinate-buttons\">\n" +
     "		<button>Fullscreen</button>\n" +
     "	</div> -->\n" +
-    "	<form ng-submit=\"addFunction(input)\" ng-show='showInput'>\n" +
+    "	<form ng-submit=\"angularCoordinate.addFunction(input)\" ng-show='showInput'>\n" +
     "		<input type=\"text\" ng-model=\"input\" id=\"angular-coordinate-input\" placeholder='Type in some function like \"x\"'>\n" +
     "	</form>\n" +
     "</div>\n" +
