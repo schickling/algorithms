@@ -1,6 +1,6 @@
 /**
  * angular-coordinate
- * @version v0.1.2 - 2013-09-21
+ * @version v0.1.5 - 2013-09-22
  * @link https://github.com/schickling/angular-coordinate.git
  * @author Johannes Schickling <schickling.j@gmail.com>, Tim Suchanek <tim.suchanek@gmail.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -142,6 +142,10 @@ angular.module('angular-coordinate', ['angular-coordinate.html'])
 						},
 						addFunction: function (functionString) {
 							registerFunction(functionString);
+							draw();
+						},
+						reset: function () {
+							functions = [];
 							draw();
 						}
 					};

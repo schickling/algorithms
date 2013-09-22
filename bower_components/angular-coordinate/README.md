@@ -50,3 +50,6 @@ $scope.coordinate = function (coordinate) {
 * display area current point x/y
 * drag drop
 * fullscreen
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/schickling/angular-coordinate/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+

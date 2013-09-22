@@ -136,6 +136,10 @@ angular.module('angular-coordinate', ['angular-coordinate.html'])
 						addFunction: function (functionString) {
 							registerFunction(functionString);
 							draw();
+						},
+						reset: function () {
+							functions = [];
+							draw();
 						}
 					};
 				}

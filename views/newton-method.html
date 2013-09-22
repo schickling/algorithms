@@ -11,19 +11,19 @@
 		<form class="form-inline">
 			<div class="input-group">
 				<span class="input-group-addon">Function</span>
-				<input type="text" ng-model="functionString" class="form-control" id="function">
+				<input type="text" ng-model="functionString" class="form-control">
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">Derived function</span>
-				<input type="text" ng-model="derivedFunctionString" class="form-control" id="function">
+				<input type="text" ng-model="derivedFunctionString" class="form-control">
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">Start value</span>
-				<input type="number" ng-change="calculate()" ng-model="startValue" class="form-control" id="startValue">
+				<input type="number" ng-change="calculate()" ng-model="startValue" class="form-control">
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon">Iteration steps</span>
-				<input type="number" ng-change="calculate()" min="1" ng-model="iterationSteps" class="form-control" id="steps">
+				<input type="number" ng-change="calculate()" min="1" ng-model="iterationSteps" class="form-control">
 			</div>
 			<button type="submit" ng-click="calculate()" class="btn btn-primary">Calculate</button>
 		</form>
