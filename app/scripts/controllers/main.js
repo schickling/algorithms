@@ -83,6 +83,11 @@ angular.module('algorithmsApp')
         description: 'Finds a straight line approximating a set of given points',
         url: 'newton-method',
         label: ''
+      }, {
+        name: 'Bezier',
+        description: 'Draw bezier curves',
+        url: 'bezier',
+        label: 'Under construction'
       },
     ];
   });
