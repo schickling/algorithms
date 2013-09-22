@@ -10,12 +10,11 @@ angular.module("algorithmsApp").service "Bezier", Bezier = ->
     i = 0
 
     # sum up coordinate
-    while i <= n
+    for i in [0..n] by 1
       factor = @_binomialCoefficient(n, i) * Math.pow(1 - t, n - i) * Math.pow(t, i)
       coordinate.x += factor * coordinates[i].x
       coordinate.y += factor * coordinates[i].y
-      i++
-      
+
     coordinate
 
   _binomialCoefficient: (n, k) ->
