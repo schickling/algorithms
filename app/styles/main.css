@@ -86,3 +86,9 @@ input:focus {
     height: 100px;
     display: block;
 }
+
+#bezier bezier {
+    width: 100%;
+    height: 700px;
+    display: block;
+}
