@@ -29,6 +29,7 @@ __Online:__ http://schickling.github.io/algorithms/
 * Bezier
 * Quick sort visualiser 
 * FFT
+* 3d Newton method
 
 ## Improvements
 * Calculation time display
