@@ -1,1 +1,22 @@
-<p>This is the linear-regression view.</p>
+<div id="newtonMethod">
+  <div class="page-header">
+    <h1>Linear regression <small>Enter your points</small></h1>
+  </div>
+  <div class="row">
+    <form class="form-inline">
+      <div class="input-group">
+        <span class="input-group-addon">x</span>
+        <input type="number" ng-model="x" class="form-control">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon">y</span>
+        <input type="number" ng-model="y" class="form-control">
+      </div>
+      <button type="submit" ng-click="addCoordinate()" class="btn btn-primary">Add point</button>
+      <button type="submit" ng-click="reset()" class="btn btn-warning">Reset</button>
+    </form>
+  </div>
+  <div class="row">
+    <coordinate width="100%" height="500"></coordinate>
+  </div>
+</div>
