@@ -81,7 +81,7 @@ angular.module('algorithmsApp')
       }, {
         name: 'Linear regression',
         description: 'Finds a straight line approximating a set of given points',
-        url: 'newton-method',
+        url: 'linear-regression',
         label: ''
       }, {
         name: 'Bezier',
