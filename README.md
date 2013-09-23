@@ -30,6 +30,7 @@ __Online:__ http://schickling.github.io/algorithms/
 * Quick sort visualiser 
 * FFT
 * 3d Newton method
+* AKS primality test
 
 ## Improvements
 * Calculation time display
