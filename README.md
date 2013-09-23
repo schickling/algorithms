@@ -22,13 +22,13 @@ __Online:__ http://schickling.github.io/algorithms/
 * Cubic Spline interpolation
 * Newton method
 * Linear regression
-
+* Fixed point iteration
+* 
 ## Coming soon
 * Ulam spiral - http://scienceblogs.com/goodmath/2010/06/22/the-surprises-never-eend-the-u/
 * Bezier
 * Quick sort visualiser 
 * FFT
-* Fixed point iteration
 
 ## Improvements
 * Calculation time display
