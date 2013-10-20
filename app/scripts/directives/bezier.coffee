@@ -7,7 +7,7 @@ angular.module('algorithmsApp')
     link: (scope, element, attrs) ->
 
       points = []
-      $canvas = width = height = context = null
+      canvas = $canvas = width = height = dragStartPoint = pointToDrag = isDragging = context = null
 
       initCanvas = ->
         width = element.width();
@@ -19,12 +19,39 @@ angular.module('algorithmsApp')
           height: height
         });
 
-        context = $canvas.get(0).getContext('2d');
+        canvas = $canvas.get(0)
+        context = canvas.getContext('2d')
 
       initListener = ->
-        $canvas.on 'click', (e) ->
-          points.push x: e.offsetX, y: e.offsetY
-          draw()
+
+        mouseDown = (e) ->
+          for point in points
+            if Math.abs(point.x - e.offsetX) < 12 and Math.abs(point.y - e.offsetY) < 12
+              pointToDrag = point
+              isDragging = true
+              dragStartPoint = x: e.offsetX, y: e.offsetY
+
+        mouseUp = (e) ->
+          if not isDragging or (pointToDrag.x is e.offsetX and pointToDrag.y is e.offsetY)
+            points.push x: e.offsetX, y: e.offsetY
+            draw()
+
+          isDragging = false
+          pointToDrag = null
+
+        mouseMove = (e) ->
+          if isDragging
+            drag(e)
+            dragStartPoint = x: e.offsetX, y: e.offsetY
+
+        canvas.onmousedown = mouseDown
+        canvas.onmouseup = mouseUp
+        canvas.onmousemove = mouseMove
+
+      drag = (e) ->
+        pointToDrag.x += e.offsetX - dragStartPoint.x
+        pointToDrag.y += e.offsetY - dragStartPoint.y
+        draw()
 
       draw = ->
         reset()
