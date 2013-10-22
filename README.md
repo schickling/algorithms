@@ -31,6 +31,7 @@ __Online:__ http://schickling.github.io/algorithms/
 * FFT
 * 3d Newton method
 * AKS primality test
+* Vertex Cover
 
 ## Improvements
 * Calculation time display
