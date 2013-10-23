@@ -1,0 +1,46 @@
+{
+  "name": "data-structures",
+  "version": "1.4.0",
+  "author": "chenglou <chenglou92@gmail.com>",
+  "description": "JavaScript data structures written in CoffeeScript.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chenglou/data-structures.git"
+  },
+  "main": "./distribution/index.js",
+  "scripts": {
+    "test": "jasmine-node --coffee --noStack tests/"
+  },
+  "keywords": [
+    "data structure",
+    "linked list",
+    "list",
+    "bst",
+    "binary search tree",
+    "red black tree",
+    "tree",
+    "graph",
+    "edge",
+    "queue",
+    "map",
+    "hash",
+    "heap",
+    "trie"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "coffee-script": ">=1.6.0",
+    "jasmine-node": ">=1.4.0",
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-browserify2": "~0.1.7",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-coffeelint": "0.0.6"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "license": "MIT"
+}

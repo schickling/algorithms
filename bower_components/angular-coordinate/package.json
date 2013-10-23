@@ -1,6 +1,6 @@
 {
   "name": "angular-coordinate",
-  "version": "0.1.2",
+  "version": "0.1.6",
   "description": "Coordiante system for AngularJS",
   "main": "src/coordinate.js",
   "scripts": {
