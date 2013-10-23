@@ -95,7 +95,7 @@ angular.module('algorithmsApp')
             name: 'Bezier',
             description: 'Draw bezier curves',
             url: 'bezier',
-            label: 'Under construction'
+            label: ''
           }
         ]
         }
