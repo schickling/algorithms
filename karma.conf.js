@@ -11,6 +11,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'app/bower_components/data-structures/distribution/browser/data-structures-1.4.0.js',
       'app/bower_components/underscore/underscore.js',
       'app/bower_components/mathjs/dist/math.js',
       'app/bower_components/angular/angular.js',
