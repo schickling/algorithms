@@ -87,7 +87,7 @@ angular.module('algorithmsApp')
             url: 'linear-regression',
             label: ''
           }
-      ]
+        ]
       },
       graphics: {
         name: 'Graphics',
@@ -98,6 +98,6 @@ angular.module('algorithmsApp')
             label: 'Under construction'
           }
         ]
-      }
-    };
+        }
+      };
   });
