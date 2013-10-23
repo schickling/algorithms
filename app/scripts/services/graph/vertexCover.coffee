@@ -2,6 +2,19 @@ angular.module('algorithmsApp')
   .service 'VertexCover', VertexCover = ->
 
     mark: (graph) ->
-      console.log graph._nodes
-      graph.getNode("A").marked = true
-      1
+      @graph = graph
+      @numberOfMarks = 0
+
+      @_unmarkAllNodes()
+      @_markPreMarginNodes()
+
+      @numberOfMarks
+
+    _unmarkAllNodes: ->
+      @graph.forEachNode (node) -> node.marked = false
+
+    _markPreMarginNodes: ->
+      @graph.forEachNode (node) ->
+        unless node.marked
+          1
+
