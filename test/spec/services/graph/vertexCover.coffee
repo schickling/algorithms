@@ -9,43 +9,61 @@ describe 'Service: vertexCover', () ->
     vertexCover = VertexCover
     graph = new Graph()
 
-  # it 'should mark single node graph', () ->
-  #   graph.addNode "A"
-  #   numberOfMarks = vertexCover.mark(graph)
-  #   expect(numberOfMarks).toBe 1
-  #   expect(graph.getNode("A").marked).toBe true
+  it 'should mark single node graph', () ->
+    graph.addNode "A"
+    numberOfMarks = vertexCover.mark(graph)
+    expect(numberOfMarks).toBe 1
 
-  # it 'should mark two node graph', () ->
-  #   graph.addNode "A"
-  #   graph.addNode "B"
-  #   graph.addEdge "A", "B"
-  #   numberOfMarks = vertexCover.mark(graph)
-  #   expect(numberOfMarks).toBe 1
-  #   expect(graph.getNode("A").marked).toBe true
-  #   expect(graph.getNode("B").marked).toBe false
+  it 'should mark two node graph', () ->
+    graph.addNode "A"
+    graph.addNode "B"
+    graph.addDirectedEdge "A", "B"
+    numberOfMarks = vertexCover.mark(graph)
+    expect(numberOfMarks).toBe 1
 
-  # it 'should mark three node graph', () ->
+  # it 'should mark straight three node graph', () ->
   #   graph.addNode "A"
   #   graph.addNode "B"
   #   graph.addNode "C"
-  #   graph.addEdge "A", "B"
-  #   graph.addEdge "B", "C"
+  #   graph.addDirectedEdge "A", "B"
+  #   graph.addDirectedEdge "B", "C"
   #   numberOfMarks = vertexCover.mark(graph)
   #   expect(numberOfMarks).toBe 1
-  #   expect(graph.getNode("A").marked).toBe false
-  #   expect(graph.getNode("B").marked).toBe true
-  #   expect(graph.getNode("C").marked).toBe false
 
-  # it 'should mark quadratic four node graph', () ->
+  # it 'should mark circular three node graph', () ->
+  #   graph.addNode "A"
+  #   graph.addNode "B"
+  #   graph.addNode "C"
+  #   graph.addDirectedEdge "A", "B"
+  #   graph.addDirectedEdge "B", "C"
+  #   graph.addDirectedEdge "C", "A"
+  #   numberOfMarks = vertexCover.mark(graph)
+  #   expect(numberOfMarks).toBe 1
+
+  it 'should mark quadratic four node graph', () ->
+    graph.addNode "A"
+    graph.addNode "B"
+    graph.addNode "C"
+    graph.addNode "D"
+    graph.addDirectedEdge "A", "B"
+    graph.addDirectedEdge "B", "C"
+    graph.addDirectedEdge "C", "D"
+    numberOfMarks = vertexCover.mark(graph)
+    expect(numberOfMarks).toBe 2
+
+  # it 'should mark more complex node graph', () ->
   #   graph.addNode "A"
   #   graph.addNode "B"
   #   graph.addNode "C"
   #   graph.addNode "D"
-  #   graph.addEdge "A", "B"
-  #   graph.addEdge "B", "C"
-  #   graph.addEdge "C", "D"
+  #   graph.addNode "E"
+  #   graph.addNode "F"
+  #   graph.addDirectedEdge "A", "B"
+  #   graph.addDirectedEdge "A", "F"
+  #   graph.addDirectedEdge "B", "C"
+  #   graph.addDirectedEdge "B", "F"
+  #   graph.addDirectedEdge "C", "D"
+  #   graph.addDirectedEdge "C", "E"
+  #   graph.addDirectedEdge "E", "F"
   #   numberOfMarks = vertexCover.mark(graph)
-  #   expect(numberOfMarks).toBe 1
-  #   expect(graph.getNode("A").marked).toBe false
-  #   expect(graph.getNode("B").marked).toBe true
-  #   expect(graph.getNode("C").marked).toBe false
+  #   expect(numberOfMarks).toBe 3
