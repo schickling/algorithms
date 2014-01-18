@@ -33,7 +33,15 @@ angular.module('algorithmsApp').service 'Perlin', Perlin = ->
       y++
     randomValues
 
-  _getColor: (xPos, yPos) ->
+  _getColor(xPos, yPos) ->
+    res = switch
+      when params.interpolationMethod == 'bilinear' then _getColorBilinear(xPos, yPos)
+      when params.interpolationMethod == 'bicubic' then _getColorBicubic(xPos, yPos)
+
+  _getColorBicubic: (xPos, yPos) ->
+    0.5 # todo
+
+  _getColorBilinear: (xPos, yPos) ->
     if(xPos % @params.latticeDistanceX == 0 && yPos % @params.latticeDistanceY == 0)
       return @randomValues[yPos / @params.latticeDistanceY][xPos / @params.latticeDistanceX]
 
