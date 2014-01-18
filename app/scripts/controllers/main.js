@@ -96,6 +96,11 @@ angular.module('algorithmsApp')
             description: 'Draw bezier curves',
             url: 'bezier',
             label: ''
+          },{
+            name: 'Perlin texture generator',
+            description: 'Generates procedual textures',
+            url: 'perlin',
+            label: ''
           }
         ]
         }

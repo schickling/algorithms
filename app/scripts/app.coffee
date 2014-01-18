@@ -53,6 +53,9 @@ angular.module("algorithmsApp", ["ngRoute", "angulartics", "angulartics.google.a
   .when "/bezier",
     templateUrl: "views/bezier.html",
     controller: "BezierCtrl"
+  .when '/perlin',
+    templateUrl: 'views/perlin.html'
+    controller: 'PerlinCtrl'
   .otherwise redirectTo: "/"
 ).run (Helpers) ->
   Helpers.load()
