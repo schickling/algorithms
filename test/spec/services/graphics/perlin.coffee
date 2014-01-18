@@ -9,6 +9,10 @@ ddescribe 'Service: Perlin', () ->
   perlin = {}
   beforeEach inject (Perlin) ->
     perlin = Perlin
+    @addMatchers
+      toBeValidRandomNumber: ->
+        flatArray = _.flatten(@actual)
+        flatArray.reduce (sum, value) -> value >= 0 && value <= 1
 
   it 'should work for small latticeDistance', () ->
     params =
@@ -16,7 +20,7 @@ ddescribe 'Service: Perlin', () ->
       height: 2
       latticeDistanceX: 1
       latticeDistanceY: 1
-    expect(perlin.calculate(params)).toBe [0,0,0,0]
+    expect(perlin.calculate(params)).toBeValidRandomNumber()
 
   it 'should work for big latticeDistance', () ->
     params =
@@ -24,4 +28,4 @@ ddescribe 'Service: Perlin', () ->
       height: 2
       latticeDistanceX: 100
       latticeDistanceY: 100
-    expect(perlin.calculate(params)).toBe [0,0,0,0]
+    expect(perlin.calculate(params)).toBeValidRandomNumber()
