@@ -1,6 +1,6 @@
 <div class="page-header row">
 	<div class="col-md-8">
-		<h1>Available algorithms <small>implemented in Javascript</small></h1>
+		<h1>Algorithms <small>implemented in Javascript</small></h1>
 	</div>
 	<div class="col-md-4" style="margin: 31px 0 0; text-align: right">
 		<a href="http://github.com/schickling/algorithms"><img src="images/github.png" width="21" height="21"></a>
@@ -8,15 +8,17 @@
 		<a href="https://travis-ci.org/schickling/algorithms"><img src="https://travis-ci.org/schickling/algorithms.png?branch=master"></a>
 	</div>
 </div>
-<div ng-repeat="algorithmCategory in algorithmCategories">
-	<h4>{{algorithmCategory.name}}</h4>
-	<ul class="nav nav-pills nav-stacked">
-		<li ng-repeat="algorithm in algorithmCategory.algorithms">
-			<a href="#/{{algorithm.url}}">
-				{{algorithm.name}}
-				<span style="margin-left: 10px" class="text-muted">{{algorithm.description}}</span>
-				<span style="margin-left: 10px" class="label label-warning">{{algorithm.label}}</span>
-			</a>
-		</li>
-	</ul>
+<div style="margin-bottom: 40px">
+	<div ng-repeat="algorithmCategory in algorithmCategories">
+		<h4>{{algorithmCategory.name}}</h4>
+		<ul class="nav nav-pills nav-stacked">
+			<li ng-repeat="algorithm in algorithmCategory.algorithms">
+				<a href="#/{{algorithm.url}}">
+					{{algorithm.name}}
+					<span style="margin-left: 10px" class="text-muted">{{algorithm.description}}</span>
+					<span style="margin-left: 10px" class="label label-warning">{{algorithm.label}}</span>
+				</a>
+			</li>
+		</ul>
+	</div>
 </div>
