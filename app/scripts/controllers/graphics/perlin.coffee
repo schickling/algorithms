@@ -3,9 +3,10 @@
 angular.module('algorithmsApp')
   .controller 'PerlinCtrl', ($scope) ->
 
-  	$scope.latticeDistanceX = 10
-  	$scope.latticeDistanceY = 10
-  	$scope.octaves = 1
+  	$scope.params = 
+  		latticeDistanceX: 10
+  		latticeDistanceY: 10
+  		octaves: 1
 
   	$scope.draw = ->
 
