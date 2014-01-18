@@ -2,8 +2,12 @@
 
 angular.module('algorithmsApp')
   .controller 'PerlinCtrl', ($scope) ->
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate'
-      'AngularJS'
-      'Karma'
-    ]
+
+  	$scope.latticeDistanceX = 10
+  	$scope.latticeDistanceY = 10
+  	$scope.octaves = 1
+
+  	$scope.draw = ->
+
+
+  	$scope.draw()
