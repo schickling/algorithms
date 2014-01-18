@@ -16,9 +16,9 @@ angular.module('algorithmsApp')
     ]
 
     $scope.addOctave = ->
-      $scope.octaves.push
+      $scope.params.octaves.push
         latticeDistanceX: 10
         latticeDistanceY: 10
 
     $scope.deleteOctave = (index) ->
-      $scope.octaves.splice(index, 1)
+      $scope.params.octaves.splice(index, 1)
