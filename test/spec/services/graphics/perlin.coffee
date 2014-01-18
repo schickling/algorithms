@@ -1,14 +1,27 @@
 'use strict'
 
-describe 'Service: Perlin', () ->
+ddescribe 'Service: Perlin', () ->
 
   # load the service's module
   beforeEach module 'algorithmsApp'
 
   # instantiate service
-  Perlin = {}
-  beforeEach inject (_Perlin_) ->
-    Perlin = _Perlin_
+  perlin = {}
+  beforeEach inject (Perlin) ->
+    perlin = Perlin
 
-  it 'should do something', () ->
-    expect(!!Perlin).toBe true
+  it 'should work for small latticeDistance', () ->
+    params =
+      width: 2
+      height: 2
+      latticeDistanceX: 1
+      latticeDistanceY: 1
+    expect(perlin.calculate(params)).toBe [0,0,0,0]
+
+  it 'should work for big latticeDistance', () ->
+    params =
+      width: 2
+      height: 2
+      latticeDistanceX: 100
+      latticeDistanceY: 100
+    expect(perlin.calculate(params)).toBe [0,0,0,0]
