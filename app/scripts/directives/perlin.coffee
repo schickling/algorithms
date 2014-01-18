@@ -39,6 +39,7 @@ angular.module('algorithmsApp')
           Perlin.calculate
             height: height
             width: width
+            interpolationMethod: scope.interpolationMethod
             latticeDistanceX: octave.latticeDistanceX
             latticeDistanceY: octave.latticeDistanceY
         imageData = _octavesToImageData octaves

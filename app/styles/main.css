@@ -99,6 +99,19 @@ input:focus {
     display: block;
 }
 
+#perlin .panel {
+    width: calc(50% - 5px);
+    float: left;
+}
+
+#perlin .panel:nth-child(2n) {
+    margin-right: 5px;
+}
+
+#perlin .panel:nth-child(2n+1) {
+    margin-left: 5px;
+}
+
 #perlin .octaves label {
     font-size: 13px;
 }

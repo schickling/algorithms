@@ -3,6 +3,8 @@
 angular.module('algorithmsApp')
   .controller 'PerlinCtrl', ($scope) ->
 
+    $scope.interpolationMethods = ['bilinear', 'bicubic']
+
     $scope.octaves = [
       latticeDistanceX: 10
       latticeDistanceY: 10

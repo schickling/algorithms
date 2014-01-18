@@ -3,10 +3,13 @@
         <h1>Perlin texture generator <small>Play with those sliders</small></h1>
     </div>
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-8">
             <perlin></perlin>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-4">
+            <select id="disabledSelect" class="form-control" style="margin-bottom: 15px;">
+                <option ng-repeat="interpolationMethod in interpolationMethods">{{interpolationMethod}}</option>
+            </select>
             <div class="octaves panel panel-default" ng-repeat="octave in octaves">
                 <div class="panel-heading">Octave #{{$index}} <button type="button" class="close" aria-hidden="true" ng-click="deleteOctave($index)">&times;</button>
                 </div>
@@ -21,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="clear:both;">
                 <button ng-click="addOctave()" class="btn btn-default">Add octave</button>
             </div>
         </div>
