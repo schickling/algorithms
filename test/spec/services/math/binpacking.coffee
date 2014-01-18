@@ -6,9 +6,10 @@ describe 'Service: Binpacking', () ->
   beforeEach module 'algorithmsApp'
 
   # instantiate service
-  binpacking = {}
+  binpacking = null
   beforeEach inject (Binpacking) ->
     binpacking = Binpacking
 
   it 'should do something', () ->
-    expect(!!binpacking).toBe true
+    values = [0.1]
+    expect(binpacking.calculate(values, 1)).toEqual [[0.1]]
