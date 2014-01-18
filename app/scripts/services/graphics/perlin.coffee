@@ -4,9 +4,9 @@ angular.module('algorithmsApp').service 'Perlin', Perlin = ->
 
   calculate: (params) ->
     @params = params
-    numNodesHeight = @params.height / @params.latticeDistX + 1
-    numNodesWidth = @params.width / @params.latticeDistY + 1
-    randomValues = @_generateRandomArray(numNodesHeight, numNodesWidth)
+    numNodesHeight = @params.height / @params.latticeDistanceX + 1
+    numNodesWidth = @params.width / @params.latticeDistanceY + 1
+    @randomValues = @_generateRandomArray(numNodesHeight, numNodesWidth)
     finalValues = []
     y = 0
     while y < @params.height
@@ -14,8 +14,8 @@ angular.module('algorithmsApp').service 'Perlin', Perlin = ->
       x = 0
 
       while x < @params.width
-        finalValues[y].push 0.5
-        # finalValues[y].push @_getColor(x, y)
+        #finalValues[y].push 0.5
+        finalValues[y].push @_getColor(x, y)
         x++
       y++
     finalValues
@@ -38,29 +38,29 @@ angular.module('algorithmsApp').service 'Perlin', Perlin = ->
     #if(xPos % nodeDistWidth == 0 && yPos % nodeDistHeight == 0) { // on lattice point
     # return randomValues[xPos / nodeDistWidth][yPos / nodeDistHeight];
     #}
-    latticeXPosMin = Math.floor(xPos / @params.latticeDistX)
-    latticeXPosMax = Math.ceil(xPos / @params.latticeDistX)
-    latticeYPosMin = Math.floor(yPos / @params.latticeDistY)
-    latticeYPosMax = Math.ceil(yPos / @params.latticeDistY)
+    latticeXPosMin = Math.floor(xPos / @params.latticeDistanceX)
+    latticeXPosMax = Math.ceil(xPos / @params.latticeDistanceX)
+    latticeYPosMin = Math.floor(yPos / @params.latticeDistanceY)
+    latticeYPosMax = Math.ceil(yPos / @params.latticeDistanceY)
 
     # calculate distances and values
     distances = []
     values = []
-    distanceXToLeft = Math.abs(latticeXPosMin * @params.latticeDistX - xPos)
-    distanceYToTop = Math.abs(latticeYPosMin * @params.latticeDistY - yPos)
+    distanceXToLeft = Math.abs(latticeXPosMin * @params.latticeDistanceX - xPos)
+    distanceYToTop = Math.abs(latticeYPosMin * @params.latticeDistanceY - yPos)
 
     # Order
     # 1    2
     #
     # 3    4
     distances.push @_distance(distanceXToLeft, distanceYToTop)
-    distances.push @_distance(@params.latticeDistX - distanceXToLeft, distanceYToTop)
-    distances.push @_distance(distanceXToLeft, @params.latticeDistY - distanceYToTop)
-    distances.push @_distance(@params.latticeDistX - distanceXToLeft, @params.latticeDistY - distanceYToTop)
-    values.push randomValues[latticeXPosMin][latticeYPosMin]
-    values.push randomValues[latticeXPosMax][latticeYPosMin]
-    values.push randomValues[latticeXPosMin][latticeYPosMax]
-    values.push randomValues[latticeXPosMax][latticeYPosMax]
+    distances.push @_distance(@params.latticeDistanceX - distanceXToLeft, distanceYToTop)
+    distances.push @_distance(distanceXToLeft, @params.latticeDistanceY - distanceYToTop)
+    distances.push @_distance(@params.latticeDistanceX - distanceXToLeft, @params.latticeDistanceY - distanceYToTop)
+    values.push @randomValues[latticeXPosMin][latticeYPosMin]
+    values.push @randomValues[latticeXPosMax][latticeYPosMin]
+    values.push @randomValues[latticeXPosMin][latticeYPosMax]
+    values.push @randomValues[latticeXPosMax][latticeYPosMax]
     @_interpolate distances, values
 
   _distance: (xDist, yDist) ->

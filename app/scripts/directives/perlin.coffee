@@ -30,10 +30,10 @@ angular.module('algorithmsApp')
         randomValues = Perlin.calculate
           height: height
           width: width
-          latticeDistX: scope.params.latticeDistX
-          latticeDistY: scope.params.latticeDistY
+          latticeDistanceX: scope.params.latticeDistanceX
+          latticeDistanceY: scope.params.latticeDistanceY
         imageData = gridToImageData(randomValues)
-        context.putImageData imageData, 0, 0	
+        context.putImageData imageData, 0, 0
 
       gridToImageData = (values) ->
         imageData = context.createImageData(width, height)
