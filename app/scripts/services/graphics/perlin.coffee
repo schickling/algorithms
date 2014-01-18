@@ -4,8 +4,8 @@ angular.module('algorithmsApp').service 'Perlin', Perlin = ->
 
   calculate: (params) ->
     @params = params
-    numNodesWidth = Math.floor(@params.width / @params.latticeDistanceX) + 1
-    numNodesHeight = Math.floor(@params.height / @params.latticeDistanceY) + 1
+    numNodesWidth = Math.floor(@params.width / @params.latticeDistanceX) + 2
+    numNodesHeight = Math.floor(@params.height / @params.latticeDistanceY) + 2
     @randomValues = @_generateRandomArray(numNodesHeight, numNodesWidth)
     finalValues = []
     y = 0
