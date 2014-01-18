@@ -35,8 +35,8 @@ angular.module('algorithmsApp').service 'Perlin', Perlin = ->
 
   _getColor: (xPos, yPos) ->
     res = switch
-      when @params.interpolationMethod == 'bilinear' then _getColorBilinear(xPos, yPos)
-      when @params.interpolationMethod == 'bicubic' then _getColorBicubic(xPos, yPos)
+      when @params.interpolationMethod == 'bilinear' then @_getColorBilinear(xPos, yPos)
+      when @params.interpolationMethod == 'bicubic' then @_getColorBicubic(xPos, yPos)
 
   _getColorBicubic: (xPos, yPos) ->
     0.5 # todo
