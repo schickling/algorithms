@@ -34,48 +34,24 @@ angular.module('algorithmsApp').service 'Perlin', Perlin = ->
     randomValues
 
   _getColor: (xPos, yPos) ->
-    #if(xPos % nodeDistWidth == 0 && yPos % nodeDistHeight == 0) { // on lattice point
-    # return randomValues[xPos / nodeDistWidth][yPos / nodeDistHeight];
-    #}
+    if(xPos % @params.latticeDistanceX == 0 && yPos % @params.latticeDistanceY == 0)
+      return @randomValues[yPos / @params.latticeDistanceY][xPos / @params.latticeDistanceX]
+
     latticeXPosMin = Math.floor(xPos / @params.latticeDistanceX)
     latticeXPosMax = Math.ceil(xPos / @params.latticeDistanceX)
     latticeYPosMin = Math.floor(yPos / @params.latticeDistanceY)
     latticeYPosMax = Math.ceil(yPos / @params.latticeDistanceY)
 
-    # calculate distances and values
-    distances = []
-    values = []
-    distanceXToLeft = Math.abs(latticeXPosMin * @params.latticeDistanceX - xPos)
-    distanceYToTop = Math.abs(latticeYPosMin * @params.latticeDistanceY - yPos)
+    distanceXToLeft = (xPos - latticeXPosMin * @params.latticeDistanceX) / @params.latticeDistanceX
+    distanceXToRight = 1 - distanceXToLeft
+    distanceYToBottom = (latticeYPosMax * @params.latticeDistanceY - yPos) / @params.latticeDistanceY
+    distanceYToTop = 1 - distanceYToBottom
 
-    # Order
-    # 1    2
-    #
-    # 3    4
-    distances.push @_distance(distanceXToLeft, distanceYToTop)
-    distances.push @_distance(@params.latticeDistanceX - distanceXToLeft, distanceYToTop)
-    distances.push @_distance(distanceXToLeft, @params.latticeDistanceY - distanceYToTop)
-    distances.push @_distance(@params.latticeDistanceX - distanceXToLeft, @params.latticeDistanceY - distanceYToTop)
-    values.push @randomValues[latticeYPosMin][latticeXPosMin]
-    values.push @randomValues[latticeYPosMin][latticeXPosMax]
-    values.push @randomValues[latticeYPosMax][latticeXPosMin]
-    values.push @randomValues[latticeYPosMax][latticeXPosMax]
-    @_interpolate distances, values
+    interpolateBottomX = distanceXToLeft * @randomValues[latticeYPosMax][latticeXPosMin] + distanceXToRight * @randomValues[latticeYPosMax][latticeXPosMax]
+    interpolateTopX = distanceXToLeft * @randomValues[latticeYPosMin][latticeXPosMin] + distanceXToRight * @randomValues[latticeYPosMin][latticeXPosMax]
+
+    interpolateVertical = distanceYToTop * interpolateBottomX + distanceYToBottom * interpolateTopX
+    interpolateVertical
 
   _distance: (xDist, yDist) ->
     Math.sqrt Math.pow(xDist, 2) + Math.pow(yDist, 2)
-
-  _interpolate: (distances, values) ->
-    res = 0.0
-    distSum = 0.0
-    i = 0
-
-    while i < distances.length
-      distSum += distances[i]
-      i++
-    i = 0
-
-    while i < distances.length
-      res += values[i] * (distances[i] / distSum)
-      i++
-    res
