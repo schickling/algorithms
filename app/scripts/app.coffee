@@ -56,6 +56,9 @@ angular.module("algorithmsApp", ["ngRoute", "angulartics", "angulartics.google.a
   .when '/perlin',
     templateUrl: 'views/perlin.html'
     controller: 'PerlinCtrl'
+  .when '/binpacking',
+    templateUrl: 'views/binpacking.html'
+    controller: 'BinpackingCtrl'
   .otherwise redirectTo: "/"
 ).run (Helpers) ->
   Helpers.load()

@@ -1,0 +1,22 @@
+<div id="binpacking">
+    <div class="page-header">
+        <h1>Bin packing <small>Approximative bin packing algorithm</small></h1>
+    </div>
+    <div class="row" id="controls">
+    <div class="form-group" style="width: 80%; float: left;">
+            <label for="values">Values to pack</label>
+            <input type="text" class="form-control" id="values" placeholder="Enter values" ng-model="valueString">
+        </div>
+        <div class="form-group" style="width: 10%; float: left; margin: 24px 0 0 10px;">
+            <button type="submit" ng-click="pack()" class="btn btn-default">Pack</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="bin" ng-repeat="bin in bins">
+            <div class="number">Bin #{{$index}}</div>
+            <div class="piecewrapper" ng-repeat="piece in bin | orderBy:identity:false" style="height: {{piece * 300}}px;">
+                <span class="piece" style="height: {{piece * 300}}px;">{{piece}}</span>
+            </div>
+        </div>
+    </div>
+</div>
