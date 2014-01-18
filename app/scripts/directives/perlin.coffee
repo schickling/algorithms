@@ -30,7 +30,7 @@ angular.module('algorithmsApp')
           clearTimeout timeout
           timeout = setTimeout(->
             _draw()
-          , 100)
+          , 300)
         , true)
 
       _draw = ->
