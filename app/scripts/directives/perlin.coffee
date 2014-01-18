@@ -21,28 +21,32 @@ angular.module('algorithmsApp')
         canvas = $canvas.get(0)
         context = canvas.getContext('2d')
 
-        scope.$watch('params', ->
-          draw()
+        scope.$watch('octaves', ->
+          _draw()
         , true)
 
-      draw = ->
+      _draw = ->
         context.clearRect 0, 0, width, height
-        randomValues = Perlin.calculate
-          height: height
-          width: width
-          latticeDistanceX: scope.params.latticeDistanceX
-          latticeDistanceY: scope.params.latticeDistanceY
-        imageData = gridToImageData(randomValues)
+        octaves = scope.octaves.map (octave) ->
+          Perlin.calculate
+            height: height
+            width: width
+            latticeDistanceX: octave.latticeDistanceX
+            latticeDistanceY: octave.latticeDistanceY
+        console.log octaves
+        imageData = _octavesToImageData octaves
         context.putImageData imageData, 0, 0
 
-      gridToImageData = (values) ->
+      _octavesToImageData = (octaves) ->
         imageData = context.createImageData(width, height)
         i = 0
         while i < imageData.data.length
           offset = i / 4
           y = parseInt(offset / width)
           x = offset % width
-          rand = values[y][x] * 255
+          rand = 255 * octaves.reduce((sum, val) ->
+            sum + val[y][x] / octaves.length
+          , 0)
           imageData.data.set [rand, rand, rand, 255], i
           i += 4
         imageData

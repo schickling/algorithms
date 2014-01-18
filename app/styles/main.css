@@ -99,6 +99,14 @@ input:focus {
     display: block;
 }
 
+#perlin .octaves label {
+    font-size: 13px;
+}
+
+#perlin .octaves .form-group:last-child {
+    margin-bottom: 0;
+}
+
 #binpacking .bin {
     width: 130px;
     min-height: 320px;
