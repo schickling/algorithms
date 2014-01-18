@@ -21,8 +21,16 @@ angular.module('algorithmsApp')
         canvas = $canvas.get(0)
         context = canvas.getContext('2d')
 
+        _initWatcher()
+
+
+      _initWatcher = ->
+        timeout = null
         scope.$watch('octaves', ->
-          _draw()
+          clearTimeout timeout
+          timeout = setTimeout(->
+            _draw()
+          , 100)
         , true)
 
       _draw = ->
@@ -33,7 +41,6 @@ angular.module('algorithmsApp')
             width: width
             latticeDistanceX: octave.latticeDistanceX
             latticeDistanceY: octave.latticeDistanceY
-        console.log octaves
         imageData = _octavesToImageData octaves
         context.putImageData imageData, 0, 0
 
