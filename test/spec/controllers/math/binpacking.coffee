@@ -14,6 +14,3 @@ describe 'Controller: BinpackingCtrl', () ->
     BinpackingCtrl = $controller 'BinpackingCtrl', {
       $scope: scope
     }
-
-  it 'should attach a list of awesomeThings to the scope', () ->
-    expect(scope.awesomeThings.length).toBe 3

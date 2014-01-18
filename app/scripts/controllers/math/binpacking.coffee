@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('algorithmsApp')
-  .controller 'BinpackingCtrl', ($scope) ->
+  .controller 'BinpackingCtrl', ($scope, Binpacking) ->
 
     $scope.identity = angular.identity
     $scope.valueString = "0.9, 0.88, 0.34, 0.01, 0.6, 1"
