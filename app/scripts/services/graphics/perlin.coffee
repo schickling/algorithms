@@ -4,8 +4,8 @@ angular.module('algorithmsApp').service 'Perlin', Perlin = ->
 
   calculate: (params) ->
     @params = params
-    numNodesHeight = @params.height / @params.latticeDistanceX + 1
-    numNodesWidth = @params.width / @params.latticeDistanceY + 1
+    numNodesWidth = Math.floor(@params.width / @params.latticeDistanceX) + 1
+    numNodesHeight = Math.floor(@params.height / @params.latticeDistanceY) + 1
     @randomValues = @_generateRandomArray(numNodesHeight, numNodesWidth)
     finalValues = []
     y = 0
@@ -20,15 +20,14 @@ angular.module('algorithmsApp').service 'Perlin', Perlin = ->
       y++
     finalValues
 
-  _generateRandomArray: ->
+  _generateRandomArray: (numNodesHeight, numNodesWidth) ->
     randomValues = []
     y = 0
-
-    while y < @params.height
+    while y < numNodesHeight
       randomValues[y] = []
       x = 0
 
-      while x < @params.width
+      while x < numNodesWidth
         randomValues[y][x] = Math.random()
         x++
       y++
@@ -57,10 +56,10 @@ angular.module('algorithmsApp').service 'Perlin', Perlin = ->
     distances.push @_distance(@params.latticeDistanceX - distanceXToLeft, distanceYToTop)
     distances.push @_distance(distanceXToLeft, @params.latticeDistanceY - distanceYToTop)
     distances.push @_distance(@params.latticeDistanceX - distanceXToLeft, @params.latticeDistanceY - distanceYToTop)
-    values.push @randomValues[latticeXPosMin][latticeYPosMin]
-    values.push @randomValues[latticeXPosMax][latticeYPosMin]
-    values.push @randomValues[latticeXPosMin][latticeYPosMax]
-    values.push @randomValues[latticeXPosMax][latticeYPosMax]
+    values.push @randomValues[latticeYPosMin][latticeXPosMin]
+    values.push @randomValues[latticeYPosMin][latticeXPosMax]
+    values.push @randomValues[latticeYPosMax][latticeXPosMin]
+    values.push @randomValues[latticeYPosMax][latticeXPosMax]
     @_interpolate distances, values
 
   _distance: (xDist, yDist) ->
