@@ -7,16 +7,16 @@
             <perlin></perlin>
         </div>
         <div class="col-md-4">
-            <select id="disabledSelect" class="form-control" style="margin-bottom: 15px;">
-                <option ng-repeat="interpolationMethod in interpolationMethods">{{interpolationMethod}}</option>
+            <select id="disabledSelect" class="form-control" style="margin-bottom: 15px;" ng-model="params.interpolationMethod">
+                <option ng-repeat="interpolationMethod in params.interpolationMethods">{{interpolationMethod}}</option>
             </select>
-            <div class="octaves panel panel-default" ng-repeat="octave in octaves">
+            <div class="octaves panel panel-default" ng-repeat="octave in params.octaves">
                 <div class="panel-heading">Octave #{{$index}} <button type="button" class="close" aria-hidden="true" ng-click="deleteOctave($index)">&times;</button>
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
                         <label for="latticeDistanceX">Lattice X distance {{octave.latticeDistanceX}}</label>
-                        <input id="latticeDistanceX" type="range" min="1" max="100" ng-model="octave.latticeDistanceX">
+                        <input id="latticeDistanceX" type="range" min="1" max="100" ng-model="latticeDistanceX">
                     </div>
                     <div class="form-group">
                         <label for="latticeDistanceY">Lattice Y distance {{octave.latticeDistanceY}}</label>

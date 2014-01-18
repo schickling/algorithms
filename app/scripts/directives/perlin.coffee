@@ -26,7 +26,7 @@ angular.module('algorithmsApp')
 
       _initWatcher = ->
         timeout = null
-        scope.$watch('octaves', ->
+        scope.$watch('params', ->
           clearTimeout timeout
           timeout = setTimeout(->
             _draw()
@@ -35,11 +35,11 @@ angular.module('algorithmsApp')
 
       _draw = ->
         context.clearRect 0, 0, width, height
-        octaves = scope.octaves.map (octave) ->
+        octaves = scope.params.octaves.map (octave) ->
           Perlin.calculate
             height: height
             width: width
-            interpolationMethod: scope.interpolationMethod
+            interpolationMethod: scope.params.interpolationMethod
             latticeDistanceX: octave.latticeDistanceX
             latticeDistanceY: octave.latticeDistanceY
         imageData = _octavesToImageData octaves
