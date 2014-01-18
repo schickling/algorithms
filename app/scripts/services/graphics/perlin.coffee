@@ -47,8 +47,8 @@ angular.module('algorithmsApp').service 'Perlin', Perlin = ->
     distanceYToBottom = (latticeYPosMax * @params.latticeDistanceY - yPos) / @params.latticeDistanceY
     distanceYToTop = 1 - distanceYToBottom
 
-    interpolateBottomX = distanceXToLeft * @randomValues[latticeYPosMax][latticeXPosMin] + distanceXToRight * @randomValues[latticeYPosMax][latticeXPosMax]
-    interpolateTopX = distanceXToLeft * @randomValues[latticeYPosMin][latticeXPosMin] + distanceXToRight * @randomValues[latticeYPosMin][latticeXPosMax]
+    interpolateBottomX = distanceXToRight * @randomValues[latticeYPosMax][latticeXPosMin] + distanceXToLeft * @randomValues[latticeYPosMax][latticeXPosMax]
+    interpolateTopX = distanceXToRight * @randomValues[latticeYPosMin][latticeXPosMin] + distanceXToLeft * @randomValues[latticeYPosMin][latticeXPosMax]
 
     interpolateVertical = distanceYToTop * interpolateBottomX + distanceYToBottom * interpolateTopX
     interpolateVertical
