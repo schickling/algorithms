@@ -8,16 +8,10 @@ angular.module('algorithmsApp').service 'Perlin', Perlin = ->
     numNodesHeight = Math.floor(@params.height / @params.latticeDistanceY) + 4
     @randomValues = @_generateRandomArray(numNodesHeight, numNodesWidth)
     finalValues = []
-    y = 0
-    while y < @params.height
-      finalValues[y] = []
-      x = 0
-
-      while x < @params.width
-        #finalValues[y].push 0.5
+    for y in[0..@params.height - 1]
+      finalValues.push []
+      for x in [0..@params.width - 1]
         finalValues[y].push @_getColor(x, y)
-        x++
-      y++
     finalValues
 
   _generateRandomArray: (numNodesHeight, numNodesWidth) ->
@@ -34,35 +28,34 @@ angular.module('algorithmsApp').service 'Perlin', Perlin = ->
     randomValues
 
   _getColor: (xPos, yPos) ->
-    res = switch
+    switch
       when @params.interpolationMethod == 'bilinear' then @_getColorBilinear(xPos, yPos)
       when @params.interpolationMethod == 'bicubic' then @_getColorBicubic(xPos, yPos)
 
   _getColorBicubic: (xPos, yPos) ->
-    if(xPos % @params.latticeDistanceX == 0 && yPos % @params.latticeDistanceY == 0)
-      return @randomValues[yPos / @params.latticeDistanceY][xPos / @params.latticeDistanceX]
+    # if xPos % @params.latticeDistanceX == 0 && yPos % @params.latticeDistanceY == 0
+    #   return @randomValues[yPos / @params.latticeDistanceY][xPos / @params.latticeDistanceX]
 
-    latticeXPosMin = Math.max(Math.floor(xPos / @params.latticeDistanceX), 0)
-    latticeXPosMax = latticeXPosMax + 4
-    latticeYPosMin = Math.max(Math.floor(yPos / @params.latticeDistanceY), 0)
-    latticeYPosMax = latticeYPosMax + 4
+    latticeXPosMin = Math.floor(xPos / @params.latticeDistanceX)
+    latticeYPosMin = Math.floor(yPos / @params.latticeDistanceY)
 
     columns = []
 
-    for yPos in [latticeYPosMin..latticeYPosMin + 3]
-      columns[yPos] = []
-      for xPos in [latticeXPosMin..latticeXPosMin + 3]
-        columns[yPos][xPos] = @randomValues[yPos][xPos]
+    # debugger
+    for y in [0..3]
+      columns[y] = []
+      for x in [0..3]
+        columns[y][x] = @randomValues[latticeYPosMin + y][latticeXPosMin + x]
 
-      columns[yPos] = @_interpolateCubic(columns, xPos)
+      columns[y] = @_interpolateCubic(columns[y], (xPos % @params.latticeDistanceX) / @params.latticeDistanceX)
 
-    @_interpolateCubic(columns, yPos)
+    @_interpolateCubic(columns, (yPos % @params.latticeDistanceY) / @params.latticeDistanceY)
 
   _interpolateCubic: (p, x) ->
-    p[1] + 0.5 * x*(p[2] - p[0] + x*(2.0*p[0] - 5.0*p[1] + 4.0*p[2] - p[3] + x*(3.0*(p[1] - p[2]) + p[3] - p[0])));
+    p[1] + 0.5 * x * (p[2] - p[0] + x * (2.0 * p[0] - 5.0 * p[1] + 4.0 * p[2] - p[3] + x * (3.0 * (p[1] - p[2]) + p[3] - p[0])))
 
   _getColorBilinear: (xPos, yPos) ->
-    if(xPos % @params.latticeDistanceX == 0 && yPos % @params.latticeDistanceY == 0)
+    if xPos % @params.latticeDistanceX == 0 && yPos % @params.latticeDistanceY == 0
       return @randomValues[yPos / @params.latticeDistanceY][xPos / @params.latticeDistanceX]
 
     latticeXPosMin = Math.floor(xPos / @params.latticeDistanceX)

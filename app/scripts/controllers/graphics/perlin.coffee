@@ -5,7 +5,7 @@ angular.module('algorithmsApp')
 
     $scope.params = {}
     $scope.params.interpolationMethods = ['bilinear', 'bicubic']
-    $scope.params.interpolationMethod = $scope.params.interpolationMethods[0]
+    $scope.params.interpolationMethod = $scope.params.interpolationMethods[1]
 
     $scope.params.octaves = [
       latticeDistanceX: 10
