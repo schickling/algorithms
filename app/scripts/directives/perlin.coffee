@@ -35,25 +35,25 @@ angular.module('algorithmsApp')
 
       _draw = ->
         context.clearRect 0, 0, width, height
-        octaves = scope.params.octaves.map (octave) ->
+        layers = scope.params.layers.map (layer) ->
           Perlin.calculate
             height: height
             width: width
-            interpolationMethod: scope.params.interpolationMethod
-            latticeDistanceX: octave.latticeDistanceX
-            latticeDistanceY: octave.latticeDistanceY
-        imageData = _octavesToImageData octaves
+            interpolationMethod: layer.interpolationMethod
+            latticeDistanceX: layer.latticeDistanceX
+            latticeDistanceY: layer.latticeDistanceY
+        imageData = _layersToImageData layers
         context.putImageData imageData, 0, 0
 
-      _octavesToImageData = (octaves) ->
+      _layersToImageData = (layers) ->
         imageData = context.createImageData(width, height)
         i = 0
         while i < imageData.data.length
           offset = i / 4
           y = parseInt(offset / width)
           x = offset % width
-          rand = 255 * octaves.reduce((sum, val) ->
-            sum + val[y][x] / octaves.length
+          rand = 255 * layers.reduce((sum, val) ->
+            sum + val[y][x] / layers.length
           , 0)
           imageData.data.set [rand, rand, rand, 255], i
           i += 4

@@ -104,19 +104,19 @@ input:focus {
     float: left;
 }
 
-#perlin .panel:nth-child(2n) {
+#perlin .panel:nth-child(2n+1) {
     margin-right: 5px;
 }
 
-#perlin .panel:nth-child(2n+1) {
+#perlin .panel:nth-child(2n) {
     margin-left: 5px;
 }
 
-#perlin .octaves label {
+#perlin .layers label {
     font-size: 13px;
 }
 
-#perlin .octaves .form-group:last-child {
+#perlin .layers .form-group:last-child {
     margin-bottom: 0;
 }
 

@@ -5,20 +5,22 @@ angular.module('algorithmsApp')
 
     $scope.params = {}
     $scope.params.interpolationMethods = ['bilinear', 'bicubic']
-    $scope.params.interpolationMethod = $scope.params.interpolationMethods[1]
 
-    $scope.params.octaves = [
-      latticeDistanceX: 10
-      latticeDistanceY: 10
+    $scope.params.layers = [
+      latticeDistanceX: 30
+      latticeDistanceY: 30
+      interpolationMethod: 'bilinear'
     ,
       latticeDistanceX: 20
       latticeDistanceY: 20
+      interpolationMethod: 'bicubic'
     ]
 
-    $scope.addOctave = ->
-      $scope.params.octaves.push
+    $scope.addLayer = ->
+      $scope.params.layers.push
         latticeDistanceX: 10
         latticeDistanceY: 10
+        interpolationMethod: 'bicubic'
 
-    $scope.deleteOctave = (index) ->
-      $scope.params.octaves.splice(index, 1)
+    $scope.deleteLayer = (index) ->
+      $scope.params.layers.splice(index, 1)
