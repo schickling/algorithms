@@ -20,6 +20,7 @@ ddescribe 'Service: Perlin', () ->
       height: 2
       latticeDistanceX: 1
       latticeDistanceY: 1
+      interpolationMethod: 'bilinear'
     expect(perlin.calculate(params)).toBeValidRandomNumber()
 
   it 'should work for big latticeDistance', () ->
@@ -28,4 +29,5 @@ ddescribe 'Service: Perlin', () ->
       height: 2
       latticeDistanceX: 100
       latticeDistanceY: 100
+      interpolationMethod: 'bilinear'
     expect(perlin.calculate(params)).toBeValidRandomNumber()
