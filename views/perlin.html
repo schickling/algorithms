@@ -7,25 +7,25 @@
             <perlin></perlin>
         </div>
         <div class="col-md-4">
-            <select id="disabledSelect" class="form-control" style="margin-bottom: 15px" ng-model="params.interpolationMethod">
-                <option ng-repeat="interpolationMethod in params.interpolationMethods">{{interpolationMethod}}</option>
-            </select>
-            <div class="octaves panel panel-default" ng-repeat="octave in params.octaves">
-                <div class="panel-heading">Octave #{{$index}} <button type="button" class="close" aria-hidden="true" ng-click="deleteOctave($index)">&times;</button>
+            <div class="layers panel panel-default" ng-repeat="layer in params.layers">
+                <div class="panel-heading">Layer #{{$index}} <button type="button" class="close" aria-hidden="true" ng-click="deleteLayer($index)">&times;</button>
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label for="latticeDistanceX">Lattice X distance {{octave.latticeDistanceX}}</label>
-                        <input id="latticeDistanceX" type="range" min="1" max="1000" ng-model="octave.latticeDistanceX">
+                        <label for="latticeDistanceX">Lattice X distance {{layer.latticeDistanceX}}</label>
+                        <input id="latticeDistanceX" type="range" min="1" max="1000" ng-model="layer.latticeDistanceX">
                     </div>
                     <div class="form-group">
-                        <label for="latticeDistanceY">Lattice Y distance {{octave.latticeDistanceY}}</label>
-                        <input id="latticeDistanceY" type="range" min="1" max="1000" ng-model="octave.latticeDistanceY">
+                        <label for="latticeDistanceY">Lattice Y distance {{layer.latticeDistanceY}}</label>
+                        <input id="latticeDistanceY" type="range" min="1" max="1000" ng-model="layer.latticeDistanceY">
                     </div>
+                    <select class="form-control" ng-model="layer.interpolationMethod">
+                        <option ng-repeat="interpolationMethod in params.interpolationMethods">{{interpolationMethod}}</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group" style="clear:both">
-                <button ng-click="addOctave()" class="btn btn-default">Add octave</button>
+                <button ng-click="addLayer()" class="btn btn-default">Add layer</button>
             </div>
         </div>
     </div>
