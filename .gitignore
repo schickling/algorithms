@@ -6,3 +6,4 @@ app/bower_components
 .DS_Store
 .grunt
 .tern-port
+*.sublime-workspace
