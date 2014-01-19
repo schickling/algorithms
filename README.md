@@ -4,7 +4,7 @@ algorithms [![Build Status](https://travis-ci.org/schickling/algorithms.png?bran
 Implementation of several algorithms in Javascript
 
 
-__Online:__ http://schickling.github.io/algorithms/
+__Online:__ http://schickling.me/algorithms
 
 ## Algorithms
 * Chinese remainder theorem
@@ -24,14 +24,17 @@ __Online:__ http://schickling.github.io/algorithms/
 * Linear regression
 * Fixed point iteration
 * Bezier
+* Perlin texture
+* Bin packing
 
 ## Coming soon
 * Ulam spiral - http://scienceblogs.com/goodmath/2010/06/22/the-surprises-never-eend-the-u/
-* Quick sort visualiser 
+* Quick sort visualiser
 * FFT
 * 3d Newton method
 * AKS primality test
 * Vertex Cover
+* Voronoi
 
 ## Improvements
 * Calculation time display
