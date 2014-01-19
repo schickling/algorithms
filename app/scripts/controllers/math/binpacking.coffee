@@ -4,7 +4,7 @@ angular.module('algorithmsApp')
   .controller 'BinpackingCtrl', ($scope, Binpacking) ->
 
     $scope.identity = angular.identity
-    $scope.valueString = "0.9, 0.8, 0.8, 0.8, 0.7, 0.65, 0.6, 0.6, 0.55, 0.55, 0.45, 0.4, 0.3, 0.3, 0.25, 0.25, 0.25, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2"
+    $scope.valueString = "0.7, 0.65, 0.6, 0.6, 0.55, 0.55, 0.45, 0.4, 0.3, 0.3, 0.25, 0.25, 0.25, 0.2, 0.2"
     $scope.epsilon = 0.6
 
     $scope.pack = ->

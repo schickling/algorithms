@@ -1,16 +1,16 @@
 <div id="binpacking">
     <div class="page-header">
-        <h1>Bin packing <small>Approximative bin packing algorithm</small></h1>
+        <h1>Bin packing <small>Approximative (first fit) bin packing algorithm</small></h1>
     </div>
     <div class="row" id="controls">
         <div class="form-group" style="width: 70%; float: left;">
             <label for="values">Values to pack</label>
             <input type="text" class="form-control" id="values" placeholder="Enter values" ng-model="valueString">
         </div>
-        <div class="form-group" style="width: 10%; float: left; margin: 0 0 0 10px;">
-            <label for="epsilon">epsilon</label>
-            <input type="number" class="form-control" id="epsilon" placeholder="Enter epsilon" ng-model="epsilon">
-        </div>
+        <!-- <div class="form-group" style="width: 10%; float: left; margin: 0 0 0 10px;"> -->
+            <!-- <label for="epsilon">epsilon</label> -->
+            <!-- <input type="number" class="form-control" id="epsilon" placeholder="Enter epsilon" ng-model="epsilon"> -->
+        <!-- </div> -->
         <div class="form-group" style="width: 10%; float: left; margin: 24px 0 0 10px;">
             <button type="submit" ng-click="pack()" class="btn btn-default">Pack</button>
         </div>
@@ -18,7 +18,7 @@
     <div class="row">
         <div class="bin" ng-repeat="bin in bins">
             <div class="number">Bin #{{$index}}</div>
-            <div class="piecewrapper" ng-repeat="piece in bin | orderBy:identity:false" style="height: {{piece * 300}}px;">
+            <div class="piecewrapper" ng-repeat="piece in bin track by $index | orderBy:identity:false" style="height: {{piece * 300}}px;">
                 <span class="piece" style="height: {{piece * 300}}px;">{{piece}}</span>
             </div>
         </div>

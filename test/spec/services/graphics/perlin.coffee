@@ -1,6 +1,6 @@
 'use strict'
 
-ddescribe 'Service: Perlin', () ->
+describe 'Service: Perlin', () ->
 
   # load the service's module
   beforeEach module 'algorithmsApp'
