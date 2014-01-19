@@ -6,7 +6,7 @@ angular.module("algorithmsApp").controller "main", ($scope) ->
         name: "Bin packing"
         description: "Approximative bin packing algorithm"
         url: "binpacking"
-        label: "Under construction"
+        label: ""
       ,
         name: "Chinese remainder theorem"
         description: "Solves a system of congruence equations"
