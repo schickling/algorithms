@@ -2,6 +2,13 @@ input:focus {
     outline: none;
 }
 
+#home {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 20px;
+}
+
 #extendedEuclideanAlgorithm .input-group {
     width: 120px;
     margin: 0 10px 0 0;
